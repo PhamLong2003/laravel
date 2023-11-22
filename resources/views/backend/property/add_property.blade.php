@@ -166,6 +166,7 @@
                                             @foreach ($propertytype as $ptype)
 											<option value="{{ $ptype->id }}">{{ $ptype->type_name }}</option>
                                             @endforeach
+                                            <option value="kieu abc">Kiểu abc</option>
 										</select>
 
 
@@ -178,6 +179,8 @@
                                             @foreach ($amenities as $ameni)
 											<option value="{{ $ameni->id }}">{{ $ameni->amenitis_name }}</option>
                                             @endforeach
+                                            <option value=" 1">tien ich 1</option>
+                                            <option value=" 2">tien ich 2</option>
                                         </select>
                                     </div>
                                 </div><!-- Col -->

@@ -50,7 +50,7 @@ class PropertyController extends Controller
             $property_id = Property::insertGetId([
 
                'ptype_id' => $request->ptype_id,
-               'amenities_id' => $request->amenities_id,
+               'amenities_id' => 1,
                'property_name' => $request->property_name,
                'propety_slug' => strtolower(str_replace(' ', '-', $request->property_name)),
                'property_code' => $pcode,
@@ -77,24 +77,24 @@ class PropertyController extends Controller
                'longitude' => $request->longitude,
                'featured' => $request->featured,
                'hot' => $request->hot,
-               'agent_id' => $request->agent_id,
+               'agent_id' => 1,
                'status' => 1,
-               'property_thambnail' => $path,
+               'property_thambnail' => $image,
                'created_at' => Carbon::now(),
 
           ]);
           // Multiple image Upload From here//
 
           // $images = $request->file('multi_img');
-          foreach($images as $img) {
+          foreach($request->multi_img as $img) {
 
                //      $make_name = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
                // Image::make($img)->resize(770,520)->save('upload/property/multi-img'.$make_name);
                // $uploadPath = 'upload/property/multi-img'.$make_name;
                 
                if($request->file('multi_img')) {
-                    $make = $request->file('multi_img')->getClientOriginalName();
-                    $uploadPath = $request->file('multi_img')->storeAs('public/mutiti', $images);
+                    $imageName = $img->getClientOriginalName();
+                    $uploadPath = $img->storeAs('public/image', $imageName);
                 }
                MultiImage::insert([
                     'property_id' => $property_id,
@@ -123,7 +123,7 @@ class PropertyController extends Controller
                'alert-type' => 'success'
          );
  
-         return redirect()->routr('all.property')->with($notification);
+         return redirect()->route('all.property')->with($notification);
 
 
 
