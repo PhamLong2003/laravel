@@ -270,19 +270,19 @@ class PropertyController extends Controller
 
           $new_multi = $request->imageid;
 
-          foreach($request->multi_img as $img) {
+       
 
                if($request->file('multi_img')) {
-                    $imageName = $img->getClientOriginalName();
-                    $uploadPath = $img->storeAs('public/image', $imageName);
-
+                    $imageName = $request->multi_img->getClientOriginalName();
+                    $uploadPath = $request->multi_img->storeAs('public/image', $imageName);
+             
                     MultiImage::insert([
                          'property_id' => $new_multi,
                          'photo_name' => $imageName,
                          'created_at' => Carbon::now(),
                     ]);
                }
-           }
+           
           $notification = array(
                'message' => 'Thêm ảnh tài sản thành công',
                'alert-type' => 'success'
