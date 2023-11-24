@@ -83,32 +83,8 @@ class PropertyController extends Controller
                'created_at' => Carbon::now(),
 
           ]);
-          // Multiple image Upload From here//
-
-          // $images = $request->file('multi_img');
-          // foreach($request->multi_img as $img) {
-
-          //      //      $make_name = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
-          //      // Image::make($img)->resize(770,520)->save('upload/property/multi-img'.$make_name);
-          //      // $uploadPath = 'upload/property/multi-img'.$make_name;
-                
-          //      if($request->file('multi_img')) {
-          //           $imageName = $img->getClientOriginalName();
-          //           $uploadPath = $img->storeAs('public/image', $imageName);
-          //       }
-          //      MultiImage::insert([
-          //           'property_id' => $property_id,
-          //           'photo_name' => $imageName,
-          //           'created_at' => Carbon::now(),
-
-          //       ]);
-          // }//end foreach
+     
           foreach($request->multi_img as $img) {
-
-               //      $make_name = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
-               // Image::make($img)->resize(770,520)->save('upload/property/multi-img'.$make_name);
-               // $uploadPath = 'upload/property/multi-img'.$make_name;
-                
                if($request->file('multi_img')) {
                     $imageName = $img->getClientOriginalName();
                     $uploadPath = $img->storeAs('public/image', $imageName);
@@ -116,7 +92,6 @@ class PropertyController extends Controller
                MultiImage::insert([
                     'property_id' => $property_id,
                     'photo_name' => $imageName,
-                    'created_at' => Carbon::now(),
 
                 ]);
           }
@@ -225,7 +200,7 @@ class PropertyController extends Controller
                $path = $request->file('property_thambnail')->storeAs('public/image', $image);
            
            if(file_exists($oldImage)){
-               unlink($oldImage);
+               Storage::delete('storage/image/'.$oldImage);
            }
            Property::findOrFail($pro_id)->update([
                'property_thambnail' => $image,
@@ -249,7 +224,7 @@ class PropertyController extends Controller
           foreach($imgs as $id => $img) {
 
                $imgDel = MultiImage::findOrFail($id);
-               unlink($imgDel->photo_name);
+               Storage::delete('storage/image/'.$imgDel->photo_name);
 
                if($request->file('multi_img')) {
                     $imageName = $img->getClientOriginalName();
@@ -257,8 +232,7 @@ class PropertyController extends Controller
 
                     MultiImage::where('id',$id)->update([
 
-                         'photo_name' => $uploadPath,
-                         'update_at' => Carbon::now(),
+                         'photo_name' => $imageName,
                     ]);
 
                }//end foreach
@@ -274,7 +248,8 @@ class PropertyController extends Controller
      public function PropertyMultiImage($id) {
           $oldImg = MultiImage::findOrFail($id);
           Storage::delete('storage/image/'.$oldImg->photo_name);
-
+          $oldImg->delete();
+          
 
           $notification = array(
                'message' => 'Xóa thành công',
@@ -287,11 +262,11 @@ class PropertyController extends Controller
 
           $new_multi = $request->imageid;
 
-          foreach($request->multi_img as $img) {
+         
 
                if($request->file('multi_img')) {
-                    $imageName = $img->getClientOriginalName();
-                    $uploadPath = $img->storeAs('public/image', $imageName);
+                    $imageName = $request->multi_img->getClientOriginalName();
+                    $uploadPath = $request->multi_img->storeAs('public/image', $imageName);
 
                     MultiImage::insert([
                          'property_id' => $new_multi,
@@ -299,7 +274,7 @@ class PropertyController extends Controller
                          'created_at' => Carbon::now(),
                     ]);
                }
-           }
+           
           $notification = array(
                'message' => 'Thêm ảnh tài sản thành công',
                'alert-type' => 'success'
