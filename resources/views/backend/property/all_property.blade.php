@@ -5,7 +5,7 @@
 
     <nav class="page-breadcrumb">
         <ol class="breadcrumb">
-            <a href="{{route('add.property')}}" class="btn btn-inverse-info">Thêm tài sản</a>
+            <a href="{{route('add.property')}}" class="btn btn-inverse-info">Thêm tài sản</a>
         </ol>
     </nav>
 
@@ -34,7 +34,7 @@
           @foreach ($property as $key => $item)
                          <tr>
                              <td>{{ $key+1 }}</td>
-                             <td><img src="{{ asset($item->property_thambnail)}}" style="width:70px; height:40px;"></td>
+                             <td><img src="{{ asset('storage/image/'.$item->property_thambnail)}}" style="width:100px; height:70px;"></td>
                              <td>{{ $item->property_name}}</td>
                              <td>{{ $item->ptype_id}}</td>
                              <td>{{ $item->property_status}}</td>
