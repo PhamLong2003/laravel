@@ -14,8 +14,10 @@
             <div class="card">
                 <div class="card-body">
                     <h6 class="card-title">Sửa tài sản</h6>
-                        <form method="POST" action="{{ route('store.property') }}" id="myForm" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('update.property') }}" id="myForm" enctype="multipart/form-data">
                             @csrf
+
+                            <input type="hidden" name="id" value="{{ $property->id }}">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group mb-3">
@@ -29,8 +31,8 @@
                                         <label class="form-label">Trạng thái tài sản</label>
                                         <select name="property_status" class="form-select" id="exampleFormControlSelect1">
 											<option selected="" disabled="">Chon trạng thái</option>
-											<option value="rent">Cho thuê</option>
-											<option value="buy">Rao bán</option>
+											<option value="rent" {{ $property->property_status=='rent' ?'selected' : '' }}>Cho thuê</option>
+											<option value="buy" {{ $property->property_status=='buy' ?'selected' : '' }}>Rao bán</option>
 										
 										</select>
                                     </div>
@@ -149,7 +151,7 @@
                                         <select name="ptype_id" class="form-select" id="exampleFormControlSelect1">
 											<option selected="" disabled="">Chon trạng thái</option>
                                             @foreach ($propertytype as $ptype)
-											<option value="{{ $ptype->id }}">{{ $ptype->type_name }}</option>
+											<option value="{{ $ptype->id }}" {{ $ptype->id == $property->ptype_id ? 'selected' : '' }}>{{ $ptype->type_name }}</option>
                                             @endforeach
 										</select>
 
@@ -161,7 +163,7 @@
                                         <label class="form-label">Tiện ích</label>
                                         <select class="js-example-basic-multiple form-select" name="amenities_id[]" multiple="multiple" data-width="100%">
                                             @foreach ($amenities as $ameni)
-											<option value="{{ $ameni->id }}">{{ $ameni->amenitis_name }}</option>
+											<option value="{{ $ameni->id }}" {{ (in_array($ameni->id,$property_ami)) ? 'selected' : '' }}>{{ $ameni->amenitis_name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -173,7 +175,7 @@
                                           <select name="agent_id" class="form-select" id="exampleFormControlSelect1">
 											<option selected="" disabled="">Chon đại lý</option>
                                             @foreach ($activeAgent as $agent)
-											<option value="{{ $agent->id }}">{{ $agent->name }}</option>
+											<option value="{{ $agent->id }}"  {{ $agent->id == $property->agent_id ? 'selected' : '' }}>{{ $agent->name }}</option>
                                             @endforeach
 										</select>
                                          
@@ -201,20 +203,20 @@
         <hr>
                         <div class="mb-3">
                             <div class="form-check form-check-inline">
-                <input type="checkbox" value="1" name="featured" class="form-check-input" id="checkInline1">
+                <input type="checkbox" value="1" name="featured" class="form-check-input" id="checkInline1" {{ $property->featured == '1' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="checkInline1">
                                     Tài sản đặc sắc
                                 </label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input type="checkbox" value="1" name="hot" class="form-check-input" id="checkInline">
+                                <input type="checkbox" value="1" name="hot" class="form-check-input" id="checkInline" {{ $property->hot == '1' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="checkInline">
                                     Tài sản HOT
                                 </label>
                             </div>
                         </div>
                 
-                        <button type="submit" class="btn btn-primary">Luu tai san</button>
+                        <button type="submit" style="width:15%" class="btn btn-primary">Cập nhật tài sản</button>
 
                         </form>
                 </div>
@@ -225,7 +227,84 @@
       <!-- right wrapper start -->
       <!-- right wrapper end -->
     </div>
+</div>
+
+
+
+
+        {{-- property thumbnail Image update --}}
+
+        <div class="page-content"  style="padding-left: 12px;padding-right:12px;margin-top:-17px">
+
+    
+            <div class="row profile-body">
+              <div class="col-md-12 col-xl-12 middle-wrapper">
+                <div class="row">
+                   
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-title">Sửa ảnh đại diện</h6>
+                                <form method="POST" action="{{ route('update.property.thumbnail') }}" id="myForm" enctype="multipart/form-data">
+                                    @csrf
+
+                                    <input type="hidden" name="id" value="{{ $property->id }}">
+                                    <input type="hidden" name="old_img" value="{{ $property->property_thambnail }}">
+
+                                    <div class="row mb-3">
+                                        <div class="form-group col-md-6">
+                                            <label class="form-label">Ảnh đại diện</label>
+                                            <input type="file" name="property_thambnail" class="form-control" 
+                                            placeholder="Enter first name" onChange="mainThamUrl(this)">
+    
+                                            <img src="" id="mainThmb">
+                                        </div>                       
+                                        <div class="form-group col-md-6">
+                                            <label class="form-label"></label>
+    
+                                            <img src="{{ asset('storage/image/'.$property->property_thambnail) }}" style="width:130px; height:130px;">
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                    <button type="submit" style="width:15%" class="btn btn-primary">Cập nhật ảnh tài sản</button>
+
+
+                                </form>
+                        </div>
+                    </div>
+             
+              </div>
+            </div>
         </div>
+        
+
+
+
+
+        {{-- end property thumbnail Image update --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <script type="text/javascript">
             $(document).ready(function (){
                 $('#myForm').validate({
