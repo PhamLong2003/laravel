@@ -34,9 +34,9 @@
           @foreach ($property as $key => $item)
                          <tr>
                              <td>{{ $key+1 }}</td>
-                             <td><img src="{{ asset($item->property_thambnail)}}" style="width:70px; height:40px;"></td>
+                             <td><img src="{{ asset('storage/image/'.$item->property_thambnail)}}" style="width:70px; height:40px;"></td>
                              <td>{{ $item->property_name}}</td>
-                             <td>{{ $item->ptype_id}}</td>
+                             <td>{{ $item['type']['type_name'] }}</td>
                              <td>{{ $item->property_status}}</td>
                              <td>{{ $item->city}}</td>
                              <td>
@@ -56,7 +56,7 @@
 
                              
 
-                             <td><a href="{{route('edit.amenitie',$item->id)}}" class="btn btn-inverse-warning">Edit</a>
+                             <td><a href="{{route('edit.property',$item->id)}}" class="btn btn-inverse-warning">Edit</a>
                               <a href="{{route('delete.amenitie',$item->id)}}" class="btn btn-inverse-danger" id="delete">Delete</a></td>
                              
                          </tr>
