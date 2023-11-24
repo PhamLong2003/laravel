@@ -113,6 +113,11 @@ Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.
             Route::get('/edit/property/{id}', 'EditProperty')->name('edit.property');
             Route::post('/update/property', 'UpdateProperty')->name('update.property');
             Route::post('/update/property/thumbnail', 'UpdatePropertyThumbnail')->name('update.property.thumbnail');
+            Route::post('/update/property/multiimage', 'UpdatePropertyMultiimage')->name('update.property.multiimage');
+            Route::get('/edit/property/multiimage/{id}', 'PropertyMultiImage')->name('property.multiimage.delete');
+            Route::post('/store/new/multiimage', 'StoreNewMultiimage')->name('store.new.multiimage');
+
+
 
 
         });

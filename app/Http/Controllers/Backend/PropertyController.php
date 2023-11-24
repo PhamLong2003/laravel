@@ -98,7 +98,7 @@ class PropertyController extends Controller
                 }
                MultiImage::insert([
                     'property_id' => $property_id,
-                    'photo_name' => $uploadPath,
+                    'photo_name' => $imageName,
                     'created_at' => Carbon::now(),
 
                 ]);
@@ -223,6 +223,74 @@ class PropertyController extends Controller
 
 
 
-     }
+     }//end method
+     public function UpdatePropertyMultiimage(Request $request) {
 
+
+          $imgs = $request->multi_img;
+
+          foreach($imgs as $id => $img) {
+
+               $imgDel = MultiImage::findOrFail($id);
+               unlink($imgDel->photo_name);
+
+               if($request->file('multi_img')) {
+                    $imageName = $img->getClientOriginalName();
+                    $uploadPath = $img->storeAs('public/image', $imageName);
+
+                    MultiImage::where('id',$id)->update([
+
+                         'photo_name' => $uploadPath,
+                         'update_at' => Carbon::now(),
+                    ]);
+
+               }//end foreach
+               $notification = array(
+                    'message' => 'Sửa album ảnh tài sản thành công',
+                    'alert-type' => 'success'
+              );
+              return redirect()->back()->with($notification);
+          }
+            
+     }//end method
+
+     public function PropertyMultiImage($id) {
+          $oldImg = MultiImage::findOrFail($id);
+          unlink($oldImg->photo_name);
+
+          MultiImage::findOrFail($id)->delete();
+
+          $notification = array(
+               'message' => 'Xóa thành công',
+               'alert-type' => 'success'
+         );
+         return redirect()->back()->with($notification);
+     }//end method
+
+     public function StoreNewMultiimage(Request $request) {
+
+          $new_multi = $request->imageid;
+
+          foreach($request->multi_img as $img) {
+
+               if($request->file('multi_img')) {
+                    $imageName = $img->getClientOriginalName();
+                    $uploadPath = $img->storeAs('public/image', $imageName);
+
+                    MultiImage::insert([
+                         'property_id' => $new_multi,
+                         'photo_name' => $imageName,
+                         'created_at' => Carbon::now(),
+                    ]);
+               }
+           }
+          $notification = array(
+               'message' => 'Thêm ảnh tài sản thành công',
+               'alert-type' => 'success'
+         );
+         return redirect()->back()->with($notification);
+
+     }//end method
+
+    
 }

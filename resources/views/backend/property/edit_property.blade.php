@@ -297,7 +297,7 @@
             <div class="card">
                 <div class="card-body">
                     <h6 class="card-title">Sửa album ảnh</h6>
-                        <form method="POST" action="{{ route('update.property.thumbnail') }}" id="myForm" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('update.property.multiimage') }}" id="myForm" enctype="multipart/form-data">
                             @csrf
 
                             <div class="table-responsive">
@@ -311,18 +311,18 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($multiImage as $key => $image)
+                                        @foreach($multiImage as $key => $img)
                                         <tr>
                                             <td>{{ $key+1 }}</td>
                                             <td class="py-1">
-                                                <img src="{{ asset('storage/image/'.$image->photo_name) }}" alt="image">
+                                                <img src="{{ asset('storage/image/' .$img->photo_name) }}" alt="image" style="width:50px;height:50px;">
                                             </td>
                                             <td>
-                                                <input type="file" name="multi_img" class="form-group">
+                                                <input type="file" name="multi_img[{{ $img->id }}]" class="form-control">
                                             </td>
                                             <td>
                                                 <input value="Update Image" type="submit" class="btn btn-primary px-4" class="form-group">
-
+                                                <a href="{{ route('property.multiimage.delete',$img->id) }}" class="btn btn-danger" id="delete">Delete</a>
                                             </td>
                                            
                                           
@@ -331,12 +331,28 @@
                                 </table>
                             </div>
 
-                        
+                    
 
 
-<br> 
+                        </form>
 
-                            <button type="submit" style="width:15%" class="btn btn-primary">Cập nhật</button>
+                        <form method="POST" action="{{ route('store.new.multiimage') }}" id="myForm" enctype="multipart/form-data">
+                            @csrf
+
+
+                                <input type="hidden" name="imageid" value="{{ $property->id }}">
+                            <table class="table table-striped">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input type="file" name="multi_img" class="form-control" id="">
+                                        </td>
+                                        <td>
+                                            <input type="submit" value="Add Image" class="btn btn-info px-4">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
 
 
                         </form>
