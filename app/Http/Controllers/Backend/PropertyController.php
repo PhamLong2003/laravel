@@ -14,6 +14,10 @@ use Intervention\Image\Facades\Image;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
+<<<<<<< HEAD
+=======
+
+>>>>>>> d2b3d0ee159291b8346b33eae96b9503655e9556
 
 class PropertyController extends Controller
 {
@@ -82,15 +86,8 @@ class PropertyController extends Controller
                'created_at' => Carbon::now(),
 
           ]);
-          // Multiple image Upload From here//
-
-          // $images = $request->file('multi_img');
+     
           foreach($request->multi_img as $img) {
-
-               //      $make_name = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
-               // Image::make($img)->resize(770,520)->save('upload/property/multi-img'.$make_name);
-               // $uploadPath = 'upload/property/multi-img'.$make_name;
-                
                if($request->file('multi_img')) {
                     $imageName = $img->getClientOriginalName();
                     $uploadPath = $img->storeAs('public/image', $imageName);
@@ -98,10 +95,9 @@ class PropertyController extends Controller
                MultiImage::insert([
                     'property_id' => $property_id,
                     'photo_name' => $imageName,
-                    'created_at' => Carbon::now(),
 
                 ]);
-          }//end foreach
+          }
           // end Multiple image Upload From here//
 
           // Facilities add From here//
@@ -207,7 +203,11 @@ class PropertyController extends Controller
                $path = $request->file('property_thambnail')->storeAs('public/image', $image);
            
            if(file_exists($oldImage)){
+<<<<<<< HEAD
                Storage::delete('storage/image/'. $oldImage);
+=======
+               Storage::delete('storage/image/'.$oldImage);
+>>>>>>> d2b3d0ee159291b8346b33eae96b9503655e9556
            }
            Property::findOrFail($pro_id)->update([
                'property_thambnail' => $image,
@@ -231,16 +231,20 @@ class PropertyController extends Controller
           foreach($imgs as $id => $img) {
 
                $imgDel = MultiImage::findOrFail($id);
+<<<<<<< HEAD
             
                Storage::delete('storage/image/'. $imgDel->photo_name);
+=======
+               Storage::delete('storage/image/'.$imgDel->photo_name);
+
+>>>>>>> d2b3d0ee159291b8346b33eae96b9503655e9556
                if($request->file('multi_img')) {
                     $imageName = $img->getClientOriginalName();
                     $uploadPath = $img->storeAs('public/image', $imageName);
 
                     MultiImage::where('id',$id)->update([
 
-                         'photo_name' => $uploadPath,
-                         'update_at' => Carbon::now(),
+                         'photo_name' => $imageName,
                     ]);
 
                }//end foreach
@@ -256,8 +260,13 @@ class PropertyController extends Controller
      public function PropertyMultiImage($id) {
           $oldImg = MultiImage::findOrFail($id);
           Storage::delete('storage/image/'.$oldImg->photo_name);
+<<<<<<< HEAD
 
           MultiImage::findOrFail($id)->delete();
+=======
+          $oldImg->delete();
+          
+>>>>>>> d2b3d0ee159291b8346b33eae96b9503655e9556
 
           $notification = array(
                'message' => 'Xóa thành công',
@@ -270,12 +279,20 @@ class PropertyController extends Controller
 
           $new_multi = $request->imageid;
 
+<<<<<<< HEAD
        
+=======
+         
+>>>>>>> d2b3d0ee159291b8346b33eae96b9503655e9556
 
                if($request->file('multi_img')) {
                     $imageName = $request->multi_img->getClientOriginalName();
                     $uploadPath = $request->multi_img->storeAs('public/image', $imageName);
+<<<<<<< HEAD
              
+=======
+
+>>>>>>> d2b3d0ee159291b8346b33eae96b9503655e9556
                     MultiImage::insert([
                          'property_id' => $new_multi,
                          'photo_name' => $imageName,
