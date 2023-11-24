@@ -110,8 +110,16 @@ Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.
             Route::get('/all/property', 'AllProperty')->name('all.property');
             Route::get('/add/property', 'AddProperty')->name('add.property');
             Route::post('/store/property', 'StoreProperty')->name('store.property');
+            Route::get('/edit/property/{id}', 'EditProperty')->name('edit.property');
+            Route::post('/update/property', 'UpdateProperty')->name('update.property');
+            Route::post('/update/property/thumbnail', 'UpdatePropertyThumbnail')->name('update.property.thumbnail');
+            Route::post('/update/property/multiimage', 'UpdatePropertyMultiimage')->name('update.property.multiimage');
+            Route::get('/edit/property/multiimage/{id}', 'PropertyMultiImage')->name('property.multiimage.delete');
+            Route::post('/store/new/multiimage', 'StoreNewMultiimage')->name('store.new.multiimage');
 
-            
+
+
+
         });
     });//end group admin middleware
 
