@@ -269,7 +269,7 @@
 
 
 
-                                    <button type="submit" style="width:15%" class="btn btn-primary">Cập nhật ảnh tài sản</button>
+                                    <button type="submit" style="width:15%" class="btn btn-primary">Cập nhật</button>
 
 
                                 </form>
@@ -279,12 +279,79 @@
               </div>
             </div>
         </div>
-        
-
-
-
 
         {{-- end property thumbnail Image update --}}
+
+
+
+        {{-- property main multu image Image update --}}
+
+
+<div class="page-content"  style="margin-left:-24px;margin-top:-10px;margin-right:-23px">
+
+
+    <div class="row profile-body">
+        <div class="col-md-12 col-xl-12 middle-wrapper">
+        <div class="row">
+            
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title">Sửa album ảnh</h6>
+                        <form method="POST" action="{{ route('update.property.thumbnail') }}" id="myForm" enctype="multipart/form-data">
+                            @csrf
+
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Sl</th>
+                                            <th>Image</th>
+                                            <th>Change Image</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($multiImage as $key => $image)
+                                        <tr>
+                                            <td>{{ $key+1 }}</td>
+                                            <td class="py-1">
+                                                <img src="{{ asset('storage/image/'.$image->photo_name) }}" alt="image">
+                                            </td>
+                                            <td>
+                                                <input type="file" name="multi_img" class="form-group">
+                                            </td>
+                                            <td>
+                                                <input value="Update Image" type="submit" class="btn btn-primary px-4" class="form-group">
+
+                                            </td>
+                                           
+                                          
+                                        </tr>
+                                        @endforeach
+                                </table>
+                            </div>
+
+                        
+
+
+<br> 
+
+                            <button type="submit" style="width:15%" class="btn btn-primary">Cập nhật</button>
+
+
+                        </form>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+
+
+        {{-- end property main multu image Image update --}}
+        
+
 
 
 

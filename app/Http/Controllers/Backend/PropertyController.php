@@ -134,9 +134,10 @@ class PropertyController extends Controller
 
      public function EditProperty($id) {
           $property = Property::findOrFail($id);
-
           $type = $property->amenities_id;
           $property_ami = explode(',',$type);
+
+          $multiImage = MultiImage::where('property_id',$id)->get();
 
 
 
@@ -144,7 +145,7 @@ class PropertyController extends Controller
           $amenities = Amenities::latest()->get();
           $activeAgent = User::where('status','active')->where('role','agent')->latest()->get();
 
-          return view('backend.property.edit_property', compact('property','propertytype','amenities','activeAgent','property_ami'));
+          return view('backend.property.edit_property', compact('property','propertytype','amenities','activeAgent','property_ami','multiImage'));
 
      }
 
@@ -210,7 +211,7 @@ class PropertyController extends Controller
                unlink($oldImage);
            }
            Property::findOrFail($pro_id)->update([
-               'property_thambnail' => $path,
+               'property_thambnail' => $image,
                'updated_at' => Carbon::now(),
            ]);
           }
