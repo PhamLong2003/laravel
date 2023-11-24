@@ -13,7 +13,7 @@ use App\Models\User;
 use Intervention\Image\Facades\Image;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Carbon\Carbon;
-
+use Illuminate\Support\Facades\Storage;
 
 
 class PropertyController extends Controller
@@ -86,6 +86,23 @@ class PropertyController extends Controller
           // Multiple image Upload From here//
 
           // $images = $request->file('multi_img');
+          // foreach($request->multi_img as $img) {
+
+          //      //      $make_name = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
+          //      // Image::make($img)->resize(770,520)->save('upload/property/multi-img'.$make_name);
+          //      // $uploadPath = 'upload/property/multi-img'.$make_name;
+                
+          //      if($request->file('multi_img')) {
+          //           $imageName = $img->getClientOriginalName();
+          //           $uploadPath = $img->storeAs('public/image', $imageName);
+          //       }
+          //      MultiImage::insert([
+          //           'property_id' => $property_id,
+          //           'photo_name' => $imageName,
+          //           'created_at' => Carbon::now(),
+
+          //       ]);
+          // }//end foreach
           foreach($request->multi_img as $img) {
 
                //      $make_name = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
@@ -102,7 +119,7 @@ class PropertyController extends Controller
                     'created_at' => Carbon::now(),
 
                 ]);
-          }//end foreach
+          }
           // end Multiple image Upload From here//
 
           // Facilities add From here//
@@ -256,9 +273,8 @@ class PropertyController extends Controller
 
      public function PropertyMultiImage($id) {
           $oldImg = MultiImage::findOrFail($id);
-          unlink($oldImg->photo_name);
+          Storage::delete('storage/image/'.$oldImg->photo_name);
 
-          MultiImage::findOrFail($id)->delete();
 
           $notification = array(
                'message' => 'Xóa thành công',
