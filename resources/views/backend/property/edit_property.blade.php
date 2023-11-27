@@ -366,7 +366,133 @@
 
 
         {{-- end property main multu image Image update --}}
+
+
+                {{-- property facility update --}}
+
+                <div class="page-content"  style="padding-left: 0px;padding-right:0px;margin-top:-10px">
+
+    
+                    <div class="row profile-body">
+                      <div class="col-md-12 col-xl-12 middle-wrapper">
+                        <div class="row">
+                           
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title">Sửa cơ sở</h6>
+                                        <form method="POST" action="{{ route('update.property.facilities') }}" id="myForm" enctype="multipart/form-data">
+                                            @csrf
+
+                                            <input type="hidden" name="id" value="{{ $property->id }}">
+
+                                            @foreach($facilities as $item)
+                                            <div class="row add_item">
+                                            <div class="whole_extra_item_add" id="whole_extra_item_add">
+                                            <div class="whole_extra_item_add_delete" id="whole_extra_item_add_delete">
+                                                <div class="container mt-2">
+                                                    <div class="row">
+                                
+                                                        <div class="form-group col-md-4">
+                                                            <label for="facility_name">Điểm gần</label>
+                                                            <select name="facility_name[]" id="facility_name" class="form-control">
+                                                                <option value="">Chọn điểm gần </option>
+                                                                <option value="Hopspital" {{ $item->facility_name == 'Hopspital' ? 'selected' : '' }}>Bệnh viện</option>
+                                                                <option value="SuperMarket" {{ $item->facility_name == 'SuperMarket' ? 'selected' : '' }}>Siêu thị</option>
+                                                                <option value="School" {{ $item->facility_name == 'School' ? 'selected' : '' }}>Trường học</option>
+                                                                <option value="Entertainment" {{ $item->facility_name == 'Entertainment' ? 'selected' : '' }}">Khu giải trí</option>
+                                                                <option value="Pharmacy" {{ $item->facility_name == 'Pharmacy' ? 'selected' : '' }}>Tiệm thuốc</option>
+                                                                <option value="Bus Stop" {{ $item->facility_name == 'Bus Stop' ? 'selected' : '' }}>Điểm dừng xe buýt</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-md-4">
+                                                            <label for="distance" class="form-lable">Khoảng cách</label>
+                                                            <input type="text" name="distance[]" id="distance" class="form-control" value="{{ $item->distance }}">
+                                                        </div>
+                                                        <div class="form-group col-md-4" style="padding-top:20px;">
+                                                            <span class="btn btn-success btn-sm addeventmore"><i class="fa fa-plus-circle">Add</i></span>
+                                                            <span class="btn btn-danger btn-sm removeeventmore"><i class="fa fa-minus-circle">Remove</i></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                
+                                            </div>
+                                            </div>
+                                            </div>
+                                            @endforeach
+                                            <br>
+
+                                    <button type="submit" style="width:15%" class="btn btn-primary">Cập nhật</button>
+
         
+                                            
+        
+        
+                                        </form>
+                                </div>
+                            </div>
+                     
+                      </div>
+                    </div>
+                </div>
+        
+                           {{-- property facility update --}}
+
+
+                           <div style="visibility: hidden">
+                            <div class="whole_extra_item_add" id="whole_extra_item_add">
+                                <div class="whole_extra_item_add_delete" id="whole_extra_item_add_delete">
+                                    <div class="container mt-2">
+                                        <div class="row">
+                    
+                                            <div class="form-group col-md-4">
+                                                <label for="facility_name">Facilities</label>
+                                                <select name="facility_name[]" id="facility_name" class="form-control">
+                                                    <option value="">Chọn điểm gần </option>
+                                                    <option value="Hopspital">Bệnh viện</option>
+                                                    <option value="SuperMarket">Siêu thị</option>
+                                                    <option value="School">Trường học</option>
+                                                    <option value="Entertainment">Khu giải trí</option>
+                                                    <option value="Pharmacy">Tiệm thuốc</option>
+                                                    <option value="Bus Stop">Điểm dừng xe buýt</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="distance" class="form-lable">Khoảng cách</label>
+                                                <input type="text" name="distance[]" id="distance" class="form-control" placeholder="Distance (Km)">
+                                            </div>
+                                            <div class="form-group col-md-4" style="padding-top:20px;">
+                                                <span class="btn btn-success btn-sm addeventmore"><i class="fa fa-plus-circle">Add</i></span>
+                                                <span class="btn btn-danger btn-sm removeeventmore"><i class="fa fa-minus-circle">Remove</i></span>
+                                            </div>
+                    
+                    
+                                        </div>
+                                    </div>
+                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                        {{-- for section--}}
+                    
+                        <script type="text/javascript">
+                            
+                            $(document).ready(function(){
+                                var counter = 0;
+                                $(document).on("click",".addeventmore",function(){
+                                    var whole_extra_item_add = $("#whole_extra_item_add").html();
+                                    $(this).closest(".add_item").append(whole_extra_item_add);
+                                    counter++;
+                                });
+                                $(document).on("click",".removeeventmore",function(event){
+                                    $(this).closest("#whole_extra_item_add_delete").remove();
+                                    counter -= 1;
+                                });
+                            });
+                        </script>
+                        {{-- end of add faciliti class with ajax --}}
+                    
+
 
 
 
