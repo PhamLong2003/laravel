@@ -124,6 +124,9 @@ class PropertyController extends Controller
      }//end method
 
      public function EditProperty($id) {
+
+
+          $facilities = Facility::where('property_id',$id)->get();
           $property = Property::findOrFail($id);
           $type = $property->amenities_id;
           $property_ami = explode(',',$type);
@@ -136,7 +139,8 @@ class PropertyController extends Controller
           $amenities = Amenities::latest()->get();
           $activeAgent = User::where('status','active')->where('role','agent')->latest()->get();
 
-          return view('backend.property.edit_property', compact('property','propertytype','amenities','activeAgent','property_ami','multiImage'));
+          return view('backend.property.edit_property', compact('property','propertytype',
+          'amenities','activeAgent','property_ami','multiImage','facilities'));
 
      }
 
@@ -280,6 +284,61 @@ class PropertyController extends Controller
          return redirect()->back()->with($notification);
 
      }//end method
+
+     public function UpdatePropertyFacilities(Request $request) {
+          $pid = $request->id;
+          if($request->facility_name == NULL) {
+
+               return redirect()->back();
+
+          }else{
+               Facility::where('property_id',$pid)->delete();
+               $facilities = Count($request->facility_name);
+                    for($i = 0; $i < $facilities; $i++ ){
+                         $fcount = new Facility();
+                         $fcount->property_id = $pid;
+                         $fcount->facility_name = $request->facility_name[$i];
+                         $fcount->distance = $request->distance[$i];
+                         $fcount->save();
+     
+                    }//end for
+          }
+          $notification = array(
+               'message' => 'Sửa điểm gần thành công',
+               'alert-type' => 'success'
+         );
+         return redirect()->back()->with($notification);
+
+
+
+        
+     }//end method
+     public function DeleteProperty($id) {
+
+           $property = Property::findOrFail($id);
+           unlink($property->property_thambnail);
+           Property::findOrFail($id)->delele();
+
+           $image = MultiImage::where('property_id',$id)->get();
+           foreach($image as $img){
+               unlink($img->photo_name);
+               MultiImage:where('property_id',$id)->delete();
+           }
+
+           $facilitiesData = Facility::where('property_id',$id)->get();
+           foreach($facilitiesData as $item){
+               $item->facility_name;
+               Facility::where('property_id',$id)->delete();
+
+           }
+           $notification = array(
+               'message' => 'Xóa tài sản thành công',
+               'alert-type' => 'success'
+         );
+         return redirect()->back()->with($notification);
+
+
+     }
 
     
 }
