@@ -76,7 +76,7 @@ class PropertyController extends Controller
                'longitude' => $request->longitude,
                'featured' => $request->featured,
                'hot' => $request->hot,
-               'agent_id' => 1,
+               'agent_id' => $request->agent_id,
                'status' => 1,
                'property_thambnail' => $image,
                'created_at' => Carbon::now(),
@@ -338,8 +338,56 @@ class PropertyController extends Controller
          );
          return redirect()->back()->with($notification);
 
+     }//end method
 
-     }
+     public function DetailsProperty($id) {
+
+
+          $facilities = Facility::where('property_id',$id)->get();
+          $property = Property::findOrFail($id);
+          $type = $property->amenities_id;
+          $property_ami = explode(',',$type);
+
+          $multiImage = MultiImage::where('property_id',$id)->get();
+
+
+
+          $propertytype = PropertyType::latest()->get();
+          $amenities = Amenities::latest()->get();
+          $activeAgent = User::where('status','active')->where('role','agent')->latest()->get();
+
+          return view('backend.property.details_property', compact('property','propertytype',
+          'amenities','activeAgent','property_ami','multiImage','facilities'));
+
+     }//end method
+     public function InactiveProperty(Request $request) {
+          $pid = $request->id;
+          Property::findOrFail($pid)->update([
+               'status' => 0,
+          ]);
+          $notification = array(
+               'message' => 'Ngưng kích hoạt thành công',
+               'alert-type' => 'success'
+         );
+         return redirect()->route('all.property')->with($notification);
+          
+
+     }//end method
+     public function ActiveProperty(Request $request) {
+          $pid = $request->id;
+          Property::findOrFail($pid)->update([
+               'status' => 1,
+          ]);
+          $notification = array(
+               'message' => 'Kích hoạt thành công',
+               'alert-type' => 'success'
+         );
+         return redirect()->route('all.property')->with($notification);
+          
+
+     }//end method
+
+
 
     
 }

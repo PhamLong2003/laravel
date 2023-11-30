@@ -21,11 +21,11 @@
             <th>Sl</th>
             <th>Ảnh</th>
             <th>Tên tài sản</th>
-            <th>P kiểu</th>
             <th>Trạng thái kiểu</th>
             <th>Thành phố</th>
-            <th>Trạng thá<i></i></th>
-            <th>Action</th>
+            <th>Giá</th>
+            <th>Trạng thái</th>
+            <th>Hành động</th>
          
           </tr>
         </thead>
@@ -39,13 +39,14 @@
                    
                              <td>{{ $item->property_status}}</td>
                              <td>{{ $item->city}}</td>
+                             <td>{{ $item->max_price }}</td>
                              <td>
 
                                 @if($item->status == 1)
-                                <span class="badge rounded-pill bg-success">Active</span>
+                                <span class="badge rounded-pill bg-success">kích hoạt</span>
                                     
                                 @else
-                                <span class="badge rounded-pill bg-dange">InActive</span>
+                                <span class="badge rounded-pill bg-danger">Ngưng kích hoạt</span>
                                     
                                 @endif
 
@@ -55,9 +56,10 @@
                              </td>
 
                              
-
-                             <td><a href="{{route('edit.property',$item->id)}}" class="btn btn-inverse-warning">Edit</a>
-                              <a href="{{route('delete.property',$item->id)}}" class="btn btn-inverse-danger" id="delete">Delete</a></td>
+                             <td>
+                             <a href="{{route('details.property',$item->id)}}" class="btn btn-inverse-info" title="Details"><i data-feather="eye"></i></a>
+                             <a href="{{route('edit.property',$item->id)}}" class="btn btn-inverse-warning" title="Edit"><i data-feather="edit"></i></a>
+                              <a href="{{route('delete.property',$item->id)}}" class="btn btn-inverse-danger" id="delete" title="Delete"><i data-feather="trash-2"></i></a></td>
                              
                          </tr>
             @endforeach

@@ -28,8 +28,8 @@
                                         <label class="form-label">Trạng thái tài sản</label>
                                         <select name="property_status" class="form-select" id="exampleFormControlSelect1">
 											<option selected="" disabled="">Chon trạng thái</option>
-											<option value="rent">Cho thuê</option>
-											<option value="buy">Rao bán</option>
+											<option value="Cho thuê">Cho thuê</option>
+											<option value="Rao bán">Rao bán</option>
 										
 										</select>
                                     </div>
@@ -49,7 +49,7 @@
                                 </div><!-- Col -->
                                 <div class="col-sm-6">
                                     <div class="form-group mb-3">
-                                        <label class="form-label">Main Thambnail</label>
+                                        <label class="form-label">Ảnh đại diện</label>
                                         <input type="file" name="property_thambnail" class="form-control" 
                                         placeholder="Enter first name" onChange="mainThamUrl(this)">
 
@@ -58,7 +58,7 @@
                                 </div><!-- Col -->
                                 <div class="col-sm-6">
                                     <div class="mb-3">
-                                        <label class="form-group form-label">Multiple Image</label>
+                                        <label class="form-group form-label">Album ảnh</label>
                                         <input type="file" name="multi_img[]" class="form-control"
                                          placeholder="Enter first name" id="multiImg" multiple="">
                                         <div class="row" id="preview_img"> </div>
@@ -166,7 +166,7 @@
                                             @foreach ($propertytype as $ptype)
 											<option value="{{ $ptype->id }}">{{ $ptype->type_name }}</option>
                                             @endforeach
-                                            <option value="kieu abc">Kiểu abc</option>
+                                            <option value="{{$ptype->id}}">{{ $ptype->type_name }}</option>
 										</select>
 
 
@@ -179,8 +179,8 @@
                                             @foreach ($amenities as $ameni)
 											<option value="{{ $ameni->id }}">{{ $ameni->amenitis_name }}</option>
                                             @endforeach
-                                            <option value=" 1">tien ich 1</option>
-                                            <option value=" 2">tien ich 2</option>
+                                
+                                            
                                         </select>
                                     </div>
                                 </div><!-- Col -->
