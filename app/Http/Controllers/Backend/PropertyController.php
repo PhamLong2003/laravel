@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Storage;
 
 class PropertyController extends Controller
 {
-     public function AllProperty() {
+     public function AllProperty () {
         $property = Property::latest()->get();
         return view('backend.property.all_property',compact('property'));
 

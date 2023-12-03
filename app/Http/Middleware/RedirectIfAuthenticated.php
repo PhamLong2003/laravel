@@ -10,27 +10,28 @@ use Symfony\Component\HttpFoundation\Response;
 
 class RedirectIfAuthenticated
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
-     */
+    // /**
+    //  * Handle an incoming request.
+    //  *
+    //  * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+    //  */
     public function handle(Request $request, Closure $next, string ...$guards): Response
     {
         $guards = empty($guards) ? [null] : $guards;
 
         foreach ($guards as $guard) {
-            if (Auth::check() && Auth::user()->role == 'user') {
-                return redirect('/dashboard');
+            if(Auth::guard($guard)->check()){
+
+                if (Auth::check() && Auth::user()->role == 'user') {
+                    return redirect('/dashboard');
+                }
+                if (Auth::check() && Auth::user()->role == 'agent') {
+                    return redirect('/agent/dashboard');
+                }
+                if (Auth::check() && Auth::user()->role == 'admin') {
+                    return redirect('/admin/dashboard');
+                }
             }
-               
-            if (Auth::check() && Auth::user()->role == 'agent') {
-                return redirect('/agent/dashboard');
-            }
-            if (Auth::check() && Auth::user()->role == 'admin') {
-                return redirect('/admin/dashboard');
-            }
-        
         }
 
         return $next($request);

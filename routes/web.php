@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Backend\PropertyTypeController;
 use App\Http\Controllers\Backend\PropertyController;
 use App\Http\Middleware\RedirectIfAuthenticated;
+use App\Http\Controllers\Agent\AgentPrpertyController;
 
 
 
@@ -72,9 +73,39 @@ Route::post('/admin/update/password', [AdminController::class, 'AdminUpdatePassw
 Route::middleware(['auth','role:agent'])->group(function() {
 
 
-Route::get('/agent/dashboard', [AgentController::class, 'AgentDashboard'])->name('Agent.dashboard');
+Route::get('/agent/dashboard', [AgentController::class, 'AgentDashboard'])->name('agent.dashboard');
+Route::get('/agent/logout', [AgentController::class, 'AgentLogout'])->name('agent.logout');
+Route::get('/agent/profile', [AgentController::class, 'AgentProfile'])->name('agent.profile');
+Route::post('/agent/profile/store', [AgentController::class, 'AgentProfileStore'])->name('agent.profile.store');
+Route::get('/agent/change/password', [AgentController::class, 'AgentChangePassword'])->name('agent.change.password');
+Route::post('/agent/update/password', [AgentController::class, 'AgentUpdatePassword'])->name('agent.update.password');
+
+
+
+
+
+
 
 });//And group agent middleware
+
+
+
+
+
+
+
+
+
+
+
+Route::get('/agent/login', [AdminController::class, 'AgentLogin'])->name('agent.login')->middleware(RedirectIfAuthenticated::class);
+Route::post('/agent/register', [AgentController::class, 'AgentRegister'])->name('agent.register');
+
+
+
+
+
+
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login')->middleware(RedirectIfAuthenticated::class);
 
@@ -123,12 +154,68 @@ Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.
             Route::post('/inactive/property', 'InactiveProperty')->name('inactive.property');
             Route::post('/active/property', 'ActiveProperty')->name('active.property');
 
-
-
-
-
-
-
         });
+
+             //Agent type all route from admin
+             Route::controller(AdminController::class)->group(function(){
+
+                Route::get('/all/agent', 'AllAgent')->name('all.agent');
+                Route::get('/add/agent', 'AddAgent')->name('add.agent');
+                Route::post('/store/agent', 'StoreAgent')->name('store.agent');
+                Route::get('/edit/agent/{id}', 'EditAgent')->name('edit.agent');
+                Route::post('/update/agent', 'UpdateAgent')->name('update.agent');
+                Route::get('/delete/agent/{id}', 'DeleteAgent')->name('delete.agent');
+                Route::get('/changeStatus', 'ChangeStatus');
+
+                
+            });
     });//end group admin middleware
+
+
+    // admin group middleware
+
+Route::middleware(['auth','role:agent'])->group(function() {
+
+         //Agent all property admin
+         Route::controller(AgentPrpertyController::class)->group(function(){
+
+            Route::get('/agent/all/property', 'AgentAllProperty')->name('agent.all.property');
+            Route::get('/agent/add/property', 'AgentAddProperty')->name('agent.add.property');
+            Route::post('/agent/store/property', 'AgentStoreProperty')->name('agent.store.property');
+            Route::get('/agent/edit/property/{id}', 'AgentEditProperty')->name('agent.edit.property');
+            Route::post('/agent/update/property', 'AgentUpdateProperty')->name('agent.update.property');
+            Route::post('/agent/update/property/thumbnail', 'AgentUpdatePropertyThumbnail')->name('agent.update.property.thumbnail');
+            Route::post('/agent/update/property/multiimage', 'AgentUpdatePropertyMultiimage')->name('agent.update.property.multiimage');
+            Route::get('/agent/property/multiimage/delete/{id}', 'AgentPropertyMultiimageDelete')->name('agent.property.multiimage.delete');
+            Route::post('/agent/store/new/multiimage', 'AgentStoreNewMultiimage')->name('agent.store.new.multiimage');
+            Route::post('/agent/update/property/facilities', 'AgentUpdatePropertyFacilities')->name('agent.update.property.facilities');
+            Route::get('/agent/details/property/{id}', 'AgentDetailsProperty')->name('agent.details.property');
+            Route::get('/agent/delete/property/{id}', 'AgentDeleteProperty')->name('agent.delete.property');
+
+
+            
+        });
+
+        // Agent Buy Package Route from admin
+
+        Route::controller(AgentPrpertyController::class)->group(function(){
+            Route::get('/buy/package', 'BuyPackage')->name('buy.package');
+            Route::get('/buy/business/plan', 'BuyBusinessPlan')->name('buy.business.plan');
+            Route::post('/store/business/plan', 'StoreBusinessPlan')->name('store.business.plan');
+            Route::get('/buy/professional/plan', 'BuyProfessionalPlan')->name('buy.professional.plan');
+            Route::post('/store/professional/plan', 'StoreProfessionalPlan')->name('store.professional.plan');
+            Route::get('/package/history', 'PackageHistory')->name('package.history');
+
+
+
+
+
+
+          
+            
+        });
+    
+    
+        
+    });//end group agent middleware
 

@@ -98,10 +98,95 @@ class AdminController extends Controller
             'message' => 'Cập nhật mật khẩu mới thành công',
             'alert-type' => 'success'
       );
-
       return back()->with($notification);
 
 
 
     }//end method
+
+    /// Agent 
+
+
+    public function AgentLogin() {
+        return view('agent.agent_login');
+    }//end method
+
+    ////Agent user all method
+    public function AllAgent() {
+        $allagent = User::where('role','agent')->get();
+        return view('backend.agentuser.all_agent',compact('allagent'));
+    }//end method
+
+    public function AddAgent() {
+        return view('backend.agentuser.add_agent');
+    }//end method
+
+    public function StoreAgent(Request $request) {
+
+        User::insert([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'password' => Hash::make($request->password),
+            'role' => 'agent',
+            'status' => 'active',
+        ]);
+
+        $notification = array(
+            'message' => 'Tạo tài khoản đại lý thành công',
+            'alert-type' => 'success'
+        );
+         return redirect()->route('all.agent')->with($notification);
+
+    }//end method
+
+    public function EditAgent($id) {
+        $allagent = User::findOrFail($id);
+        return view('backend.agentuser.edit_agent',compact('allagent'));
+
+    }//end method
+
+    public function UpdateAgent(Request $request) {
+
+        $user_id = $request->id;
+        User::findOrFail($user_id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            
+        ]);
+
+        $notification = array(
+            'message' => 'Cập nhật thành công',
+            'alert-type' => 'success'
+        );
+         return redirect()->route('all.agent')->with($notification);
+    }//end method
+
+    public function DeleteAgent($id) {
+        User::findOrFail($id)->delete();
+        $notification = array(
+            'message' => 'Xóa đại lý thành công',
+            'alert-type' => 'success'
+        );
+         return redirect()->back()->with($notification);
+    }//end method
+
+    public function ChangeStatus(Request $request) {
+        $user = User::find($request->user_id);
+        $user->status = $request->status;
+        $user->save();
+
+        return response()->json(['success'=>'Thay đổi trạng thái thành công']);
+
+    }//end method
+
+
+
+
+
+
+    
 }
