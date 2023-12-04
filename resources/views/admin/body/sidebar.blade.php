@@ -3,7 +3,7 @@
 <nav class="sidebar">
     <div class="sidebar-header">
         <a href="#" class="sidebar-brand">
-        Dragon<span>Mobile</span>
+        Dragon<span> Admin</span>
         </a>
         <div class="sidebar-toggler not-active">
         <span></span>
@@ -81,23 +81,23 @@
         <li class="nav-item">
             <a href="pages/apps/calendar.html" class="nav-link">
             <i class="link-icon" data-feather="calendar"></i>
-            <span class="link-title">Calendar</span>
+            <span class="link-title">Lịch</span>
             </a>
         </li>
-        <li class="nav-item nav-category">Components</li>
+        <li class="nav-item nav-category">Người dùng</li>
         <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button" aria-expanded="false" aria-controls="uiComponents">
             <i class="link-icon" data-feather="feather"></i>
-            <span class="link-title">UI Kit</span>
+            <span class="link-title">Quản lý đai lý</span>
             <i class="link-arrow" data-feather="chevron-down"></i>
             </a>
             <div class="collapse" id="uiComponents">
             <ul class="nav sub-menu">
                 <li class="nav-item">
-                <a href="pages/ui-components/accordion.html" class="nav-link">Accordion</a>
+                <a href="{{ route('all.agent') }}" class="nav-link">Tất cả đại lý</a>
                 </li>
                 <li class="nav-item">
-                <a href="pages/ui-components/alerts.html" class="nav-link">Alerts</a>
+                <a href="{{ route('add.agent') }}" class="nav-link">Thêm đại lý</a>
                 </li>
             </ul>
             </div>
