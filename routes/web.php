@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\PropertyTypeController;
 use App\Http\Controllers\Backend\PropertyController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Controllers\Agent\AgentPrpertyController;
+use App\Http\Controllers\Frontend\IndexController;
 
 
 
@@ -210,16 +211,10 @@ Route::middleware(['auth','role:agent'])->group(function() {
             Route::get('/package/history', 'PackageHistory')->name('package.history');
             Route::get('/agent/package/invoice/{id}', 'AgentPackageInvoice')->name('agent.package.invoice');
 
-
-
-
-
-
-          
             
         });
-    
-    
         
     });//end group agent middleware
+
+Route::get('/property/details/{id}/{slug}' , [IndexController::class, 'PropertyDetails']);
 

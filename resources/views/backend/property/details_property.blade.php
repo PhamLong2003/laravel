@@ -127,7 +127,7 @@
                                                 <td>
                                                     <select class="js-example-basic-multiple form-select" name="amenities_id[]" multiple="multiple" data-width="100%">
                                                         @foreach ($amenities as $ameni)
-                                                        <option value="{{ $ameni->id }}" {{ (in_array($ameni->id,$property_ami)) ? 'selected' : '' }}>{{ $ameni->amenitis_name }}</option>
+                                                        <option value="{{ $ameni->amenitis_name }}" {{ (in_array($ameni->amenitis_name,$property_ami)) ? 'selected' : '' }}>{{ $ameni->amenitis_name }}</option>
                                                         @endforeach
                                                     </select>
                                                 </td>
