@@ -79,9 +79,9 @@
             </li>
        
         <li class="nav-item">
-            <a href="pages/apps/calendar.html" class="nav-link">
+            <a href="{{ route('admin.package.history') }}" class="nav-link">
             <i class="link-icon" data-feather="calendar"></i>
-            <span class="link-title">Lịch</span>
+            <span class="link-title">Lịch sử gói</span>
             </a>
         </li>
         <li class="nav-item nav-category">Người dùng</li>

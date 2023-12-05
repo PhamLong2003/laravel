@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use DB;
 use App\Models\PackagePlan;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 
 class AgentPrpertyController extends Controller
@@ -468,6 +469,17 @@ public function AgentDetailsProperty($id) {
           return view('agent.package.package_history',compact('packagehistory'));
 
      }//end method
+
+     public function AgentPackageInvoice($id) {
+
+          $packagehistory = PackagePlan::where('id',$id)->first();
+          $pdf = Pdf::loadView('agent.package.package_history_invoice', compact('packagehistory'))->setPaper('a4')->setOption([
+               'tempDir' => public_path(),
+               'chroot' => public_path(),
+          ]);
+          return $pdf->download('invoice.pdf');
+
+     }
 
 
 

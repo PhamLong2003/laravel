@@ -1,12 +1,12 @@
-@extends('agent.agent_dashboard')
-@section('agent')
+@extends('admin.admin_dashboard')
+@section('admin')
 
 
 <div class="page-content">
 
     <nav class="page-breadcrumb">
         <ol class="breadcrumb">
-            <a href="{{route('agent.add.property')}}" class="btn btn-inverse-info">Thêm tài sản</a>
+            <a href="{{route('add.property')}}" class="btn btn-inverse-info">Thêm tài sản</a>
         </ol>
     </nav>
 
@@ -21,6 +21,7 @@
           <tr>
             <th>Sl</th>
             <th>Ảnh</th>
+            <th>Tên</th>
             <th>Gói</th>
             <th>Mã Gói</th>
             <th>Giá</th>
@@ -35,6 +36,7 @@
                          <tr>
                              <td>{{ $key+1 }}</td>
                              <td><img src="{{(!empty($item->user->photo)) ?url('upload/agent_images/'.$item->user->photo) : url('upload/no_image.jpg')}}" style="width:70px; height:40px;"></td>
+                             <td>{{ $item['user']['name']}}</td>
                              <td>{{ $item->package_name}}</td>
                              <td>{{ $item->invoice}}</td>
                              <td>{{ $item->package_amount}} VNĐ</td>
@@ -43,7 +45,7 @@
 
                              
                              <td>
-                             <a href="{{route('agent.package.invoice',$item->id)}}" class="btn btn-inverse-warning" title="Download"><i data-feather="download"></i></a>
+                             <a href="{{route('package.invoice',$item->id)}}" class="btn btn-inverse-warning" title="Download"><i data-feather="download"></i></a>
                              
                              </tr>
             @endforeach
