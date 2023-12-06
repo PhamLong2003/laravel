@@ -49,15 +49,16 @@
                                                 <td><code>{{ $property->address }}</code></td>
                                             </tr>
                                             <tr>                                    
-                                                <td>Thành phố</td>
-                                                <td><code>{{ $property->city }}</code></td>
-                                            </tr>
-                                            <tr>                                    
-                                                <td>Khu vực</td>
+                                                <td>Quận/Huyện</td>
                                                 <td><code>{{ $property->state }}</code></td>
                                             </tr>
                                             <tr>                                    
-                                                <td>Mã bưu điện</td>
+                                                <td>Thành phố</td>
+                                                <td><code>{{ $property->city }}</code></td>
+                                            </tr>
+                                           
+                                            <tr>                                    
+                                                <td>Mã zip</td>
                                                 <td><code>{{ $property->postal_code }}</code></td>
                                             </tr>
                                             <tr>                                    

@@ -48,15 +48,16 @@
                                                 <td><code>{{ $property->address }}</code></td>
                                             </tr>
                                             <tr>                                    
-                                                <td>Thành phố</td>
-                                                <td><code>{{ $property->city }}</code></td>
-                                            </tr>
-                                            <tr>                                    
-                                                <td>Khu vực</td>
+                                                <td>Quận/Huyện</td>
                                                 <td><code>{{ $property->state }}</code></td>
                                             </tr>
                                             <tr>                                    
-                                                <td>Mã bưu điện</td>
+                                                <td>Thành phố</td>
+                                                <td><code>{{ $property->city }}</code></td>
+                                            </tr>
+                                          
+                                            <tr>                                    
+                                                <td>Mã zip</td>
                                                 <td><code>{{ $property->postal_code }}</code></td>
                                             </tr>
                                             <tr>                                    
@@ -99,7 +100,7 @@
                                                 <td><code>{{ $property->property_code }}</code></td>
                                             </tr>
                                             <tr>                                    
-                                                <td>Quy mô tài sản</td>
+                                                <td>Kích thước tài sản<nav></nav></td>
                                                 <td><code>{{ $property->property_size }}</code></td>
                                             </tr>
                                             <tr>                                    

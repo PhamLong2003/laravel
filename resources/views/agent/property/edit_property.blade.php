@@ -89,19 +89,20 @@
                                     </div><!-- Col -->
                                     <div class="col-sm-3">
                                         <div class="mb-3">
-                                            <label class="form-label">Thành phố</label>
-                                            <input type="text" value="{{ $property->city }}" name="city" class="form-control">
-                                        </div>
-                                    </div><!-- Col -->
-                                    <div class="col-sm-3">
-                                        <div class="mb-3">
-                                            <label class="form-label">Khu vực</label>
+                                            <label class="form-label">Quận/Huyện</label>
                                             <input type="text" value="{{ $property->state }}" name="state" class="form-control">
                                         </div>
                                     </div><!-- Col -->
                                     <div class="col-sm-3">
                                         <div class="mb-3">
-                                            <label class="form-label">Mã bưu điện</label>
+                                            <label class="form-label">Thành phố</label>
+                                            <input type="text" value="{{ $property->city }}" name="city" class="form-control">
+                                        </div>
+                                    </div><!-- Col -->
+                                   
+                                    <div class="col-sm-3">
+                                        <div class="mb-3">
+                                            <label class="form-label">Mã zip</label>
                                             <input type="text" value="{{ $property->postal_code }}" name="postal_code" class="form-control">
                                         </div>
                                     </div><!-- Col -->
@@ -115,7 +116,7 @@
                                         <div class="col-sm-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Video</label>
-                                                <input type="text" value="{{ $property->amenitis_video }}" name="amenitis_video" class="form-control">
+                                                <input type="text" value="{{ $property->amenitis_video }}" name="amenitis_video" class="form-control" title="Vào ytb-> chọn video muốn đăng-> click vào chia sẻ -> ấn vào nhúng -> copy phần src gián vào đây">
                                             </div>
                                         </div><!-- Col -->
                                         <div class="col-sm-4">

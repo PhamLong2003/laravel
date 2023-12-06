@@ -16,7 +16,15 @@ use App\Models\PackagePlan;
 class IndexController extends Controller
 {
     public function PropertyDetails($id,$slug){
-        return view('frontend.property.property_details');
+        $property = Property::findOrFail($id);
+        $amenities = $property->amenities_id;
+        $property_amen = explode(',',$amenities);
+        $multiImage = MultiImage::where('property_id',$id)->get();
+        $facility = Facility::where('property_id',$id)->get();
+        $type_id = $property->ptype_id;
+        $relateProperty = Property::where('ptype_id',$type_id)->where('id','!=',$id)->orderBy('id','DESC')->limit(3)->get();
+
+        return view('frontend.property.property_details',compact('property','multiImage','property_amen','facility','relateProperty'));
 
     }//end method
 }
