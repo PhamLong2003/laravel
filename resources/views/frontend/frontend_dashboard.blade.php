@@ -142,7 +142,7 @@
         })
         // add to wishlist
         function addToWishList(property_id){
-
+            wishlist();
             $.ajax({
                 type: "POST",
                 dataType: 'json',
@@ -182,21 +182,23 @@
       {{--   start load wishlist Data --}}
 
     <script type="text/javascript">
-        function wishlist(){
-            $.ajax({
-                type: "GET",
-                dataType: 'json',
-                url: "/get-wishlist-property/",
 
-                success:function(response){
-                    $('#wishQty').text(response.wishQty);
+    function wishlist(){
+        $.ajax({
+            type: "GET",
+            dataType: 'json',
+            url: "/get-wishlist-property/",
 
-                    var rows = ""
-                   $.each(response.wishlist, function(key,value){
-                    rows += ` <div class="deals-block-one">
+            success:function(response){
+                $('#wishQty').text(response.wishQty);
+
+                var rows = ""
+                $.each(response.wishlist, function(key,value){
+                    
+                    rows += `<div class="deals-block-one">
                                 <div class="inner-box">
                                     <div class="image-box">
-                                        <figure class="image"><img src="/${value.property.property_thambnail}" alt=""></figure>
+                                        <figure class="image"><img src="${value.property.property_thambnail}" alt=""></figure>
                                         <div class="batch"><i class="icon-11"></i></div>
                                         <span class="category">Featured</span>
                                         <div class="buy-btn"><a href="#">For ${value.property.property_status}</a></div>
@@ -217,21 +219,63 @@
                                         </ul>
                                         <div class="other-info-box clearfix">
                                             <ul class="other-option pull-right clearfix">
-                                                <li><a href="property-details.html"><i class="icon-13"></i></a></li>
+                                                <li><a type="submit" class="text-body" id="${value.id}" onclick="wishlistRemove(this.id)"><i class="fa fa-trash"></i></a></li>
                                             </ul>
                                         </div>
-                              
+
                                 </div>
                             </div> `
 
-                   });
+                });
+                
+                $('#wishlist').html(rows);
+            }
+        })
+    }
+    wishlist();
 
-                    $('#wishlist').html(rows);
+    // wishlist remove start
+
+        function wishlistRemove(id) {
+            $.ajax({
+                type: "GET",
+                dataType: 'json',
+                url: "/wishlist-remove/"+id,
+
+                success:function(data){
+                    wishlist();
+
+                         //start message
+                         const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+                    if ($.isEmptyObject(data.error)) {
+                        Toast.fire({
+                            type: 'success',
+                            icon: 'success',
+                            title: data.success,
+                        })
+                        
+                    }else {
+                        Toast.fire({
+                            type: 'error',
+                            icon: 'error',
+                            title: data.error,
+
+                        })
+                    }
+                    //end message
+
                 }
             })
         }
-        wishlist();
-      
+
+
+    // end wishlist remove
+       
     </script>
 
     

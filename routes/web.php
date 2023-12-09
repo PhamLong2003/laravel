@@ -53,8 +53,9 @@
              //User Wishlist all route from admin
     Route::controller(WishlishController::class)->group(function(){
 
-        Route::get('user/wishlist', 'UserWishlist')->name('user.wishlist');
+        Route::get('/user/wishlist', 'UserWishlist')->name('user.wishlist');
         Route::get('/get-wishlist-property', 'GetWishlistProperty');
+        Route::get('/wishlist-remove/{id}', 'WishlistRemove');
 
 
 
