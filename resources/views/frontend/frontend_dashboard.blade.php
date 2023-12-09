@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +11,7 @@
 
 <!-- Fav Icon -->
 <link rel="icon" href="{{asset('frontend/assets/images/favicon.ico')}}" type="image/x-icon">
-
+<meta name="csrf-token" content="{{csrf_token()}}">
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
 
@@ -101,6 +99,7 @@
        <!-- main-js -->
 
     <!-- main-js -->
+    
     <script src="{{asset('frontend/assets/js/script.js')}}"></script>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
@@ -129,9 +128,114 @@
 	</script>
 
 
-</body><!-- End of .page_wrapper -->
 
-<!-- Mirrored from azim.commonsupport.com/Realshed/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Nov 2023 15:55:37 GMT -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+      <script type="text/javascript">
+      
+
+
+        $.ajaxSetup({
+            headers:{
+                'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+            }
+        })
+        // add to wishlist
+        function addToWishList(property_id){
+
+            $.ajax({
+                type: "POST",
+                dataType: 'json',
+                url: "/add-to-wishList/"+property_id,
+
+
+                success:function(data) {
+                    //start message
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+                    if ($.isEmptyObject(data.error)) {
+                        Toast.fire({
+                            type: 'success',
+                            icon: 'success',
+                            title: data.success,
+                        })
+                        
+                    }else {
+                        Toast.fire({
+                            type: 'error',
+                            icon: 'error',
+                            title: data.error,
+
+                        })
+                    }
+                    //end message
+                }
+
+            })
+        }
+      </script>
+
+      {{--   start load wishlist Data --}}
+
+    <script type="text/javascript">
+        function wishlist(){
+            $.ajax({
+                type: "GET",
+                dataType: 'json',
+                url: "/get-wishlist-property/",
+
+                success:function(response){
+                    $('#wishQty').text(response.wishQty);
+
+                    var rows = ""
+                   $.each(response.wishlist, function(key,value){
+                    rows += ` <div class="deals-block-one">
+                                <div class="inner-box">
+                                    <div class="image-box">
+                                        <figure class="image"><img src="/${value.property.property_thambnail}" alt=""></figure>
+                                        <div class="batch"><i class="icon-11"></i></div>
+                                        <span class="category">Featured</span>
+                                        <div class="buy-btn"><a href="#">For ${value.property.property_status}</a></div>
+                                    </div>
+                                    <div class="lower-content">
+                                        <div class="title-text"><h4><a href="#">${value.property.property_name}</a></h4></div>
+                                        <div class="price-box clearfix">
+                                            <div class="price-info pull-left">
+                                                <h6>Start From</h6>
+                                                <h4>${value.property.lowest_price} VNĐ</h4>
+                                            </div>
+                                           
+                                        </div>
+                                        <ul class="more-details clearfix">
+                                            <li><i class="icon-14"></i>${value.property.bedrooms}</li>
+                                            <li><i class="icon-15"></i>${value.property.bathrooms}</li>
+                                            <li><i class="icon-16"></i>${value.property.property_size} m2</li>
+                                        </ul>
+                                        <div class="other-info-box clearfix">
+                                            <ul class="other-option pull-right clearfix">
+                                                <li><a href="property-details.html"><i class="icon-13"></i></a></li>
+                                            </ul>
+                                        </div>
+                              
+                                </div>
+                            </div> `
+
+                   });
+
+                    $('#wishlist').html(rows);
+                }
+            })
+        }
+        wishlist();
+      
+    </script>
+
+    
+ </body><!-- End of .page_wrapper -->
 </html>
 
 
