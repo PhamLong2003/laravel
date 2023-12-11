@@ -274,6 +274,9 @@
         Route::get('/agent/details/{id}' , [IndexController::class, 'AgentDetails'])->name('agent.details');
 
 
+     // Send message form agent details page
+
+     Route::post('/agent/details/message' , [IndexController::class, 'AgentDetailsMessage'])->name('agent.details.message');
 
         
 
