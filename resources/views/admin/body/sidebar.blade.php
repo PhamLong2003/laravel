@@ -84,6 +84,12 @@
             <span class="link-title">Lịch sử gói</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a href="{{ route('admin.property.message') }}" class="nav-link">
+            <i class="link-icon" data-feather="calendar"></i>
+            <span class="link-title">Quản lý Hộp thư đến</span>
+            </a>
+        </li>
         <li class="nav-item nav-category">Người dùng</li>
         <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button" aria-expanded="false" aria-controls="uiComponents">

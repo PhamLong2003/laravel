@@ -45,7 +45,7 @@
         <div class="outer-box">
             <div class="main-box">
                 <div class="logo-box">
-                    <figure class="logo"><a href="index.html"><img src="{{asset('frontend/assets/images/logo.png')}}" alt=""></a></figure>
+                    <figure class="logo"><a href="{{ url('/') }}"><img src="{{asset('frontend/assets/images/logo.png')}}" alt=""></a></figure>
                 </div>
                 <div class="menu-area clearfix">
                     <!--Mobile Navigation Toggler-->
@@ -57,7 +57,7 @@
                     <nav class="main-menu navbar-expand-md navbar-light">
                         <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                             <ul class="navigation clearfix">
-                                <li class="current dropdown"><a href="index.html"><span>Home</span></a>
+                                <li class="current dropdown"><a href="index.html"><span>Trang chủ</span></a>
                                     <ul>
                                         <li><a href="index.html">Main Home</a></li>
                                         <li><a href="index-2.html">Home Modern</a></li>

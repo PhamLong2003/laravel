@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Property extends Model
+class PropertyMessage extends Model
 {
     use HasFactory;
     protected $guarded = [];
     
-    public function type() {
-        return $this->belongsTo(PropertyType::class,'ptype_id','id');
+    public function property() {
+        return $this->belongsTo(Property::class,'property_id','id');
     }
     public function user() {
-        return $this->belongsTo(User::class,'agent_id','id');
+        return $this->belongsTo(User::class,'user_id','id');
     }
-    
+
 }

@@ -60,9 +60,8 @@
                             <div class="select-box">
                                 <ul class="list-group" id="simple-list">
                                     <li class="list-group-item"><a href="{{ route('dashboard') }}">Tổng quan</a></li>
-                                    <li class="list-group-item"><a href="">Cài đặt</a></li>
                                     <li class="list-group-item"><a href="">Tài sản</a></li>
-                                    <li class="list-group-item"><a href="">Thêm tài sản</a></li>
+                                    <li class="list-group-item"><a href="{{ route('user.compare') }}">So sánh</a></li>
                                     <li class="list-group-item"><a href="{{ route('user.change.password')}}">Bảo mật</a></li>
                                     <li class="list-group-item"><a href="{{ route('user.logout')}}">Đăng xuất</a></li>
                                   </ul>

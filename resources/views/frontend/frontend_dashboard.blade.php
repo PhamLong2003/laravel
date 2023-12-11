@@ -194,37 +194,37 @@
 
                 var rows = ""
                 $.each(response.wishlist, function(key,value){
-                    
-                    rows += `<div class="deals-block-one">
-                                <div class="inner-box">
-                                    <div class="image-box">
-                                        <figure class="image"><img src="${value.property.property_thambnail}" alt=""></figure>
-                                        <div class="batch"><i class="icon-11"></i></div>
-                                        <span class="category">Featured</span>
-                                        <div class="buy-btn"><a href="#">For ${value.property.property_status}</a></div>
-                                    </div>
-                                    <div class="lower-content">
-                                        <div class="title-text"><h4><a href="#">${value.property.property_name}</a></h4></div>
-                                        <div class="price-box clearfix">
-                                            <div class="price-info pull-left">
-                                                <h6>Start From</h6>
-                                                <h4>${value.property.lowest_price} VNĐ</h4>
-                                            </div>
-                                           
-                                        </div>
-                                        <ul class="more-details clearfix">
-                                            <li><i class="icon-14"></i>${value.property.bedrooms}</li>
-                                            <li><i class="icon-15"></i>${value.property.bathrooms}</li>
-                                            <li><i class="icon-16"></i>${value.property.property_size} m2</li>
-                                        </ul>
-                                        <div class="other-info-box clearfix">
-                                            <ul class="other-option pull-right clearfix">
-                                                <li><a type="submit" class="text-body" id="${value.id}" onclick="wishlistRemove(this.id)"><i class="fa fa-trash"></i></a></li>
-                                            </ul>
-                                        </div>
+                   
+    rows += `<div class="deals-block-one">
+                <div class="inner-box">
+                    <div class="image-box"> 
+                        <figure id="images" class="image"><img style="width:100%;height:300px;" src="/storage/image/${value.property.property_thambnail}"  alt=""></figure>
+                        <div class="batch"><i class="icon-11"></i></div>
+                        <span class="category">Featured</span>
+                        <div class="buy-btn"><a href="#">For ${value.property.property_status}</a></div>
+                    </div>
+                    <div class="lower-content">
+                        <div class="title-text"><h4><a href="#">${value.property.property_name}</a></h4></div>
+                        <div class="price-box clearfix">
+                            <div class="price-info pull-left">
+                                <h6>Start From</h6>
+                                <h4>${value.property.lowest_price} VNĐ</h4>
+                            </div>
+                            
+                        </div>
+                        <ul class="more-details clearfix">
+                            <li><i class="icon-14"></i>${value.property.bedrooms}</li>
+                            <li><i class="icon-15"></i>${value.property.bathrooms}</li>
+                            <li><i class="icon-16"></i>${value.property.property_size} m2</li>
+                        </ul>
+                        <div class="other-info-box clearfix">
+                            <ul class="other-option pull-right clearfix">
+                                <li><a type="submit" class="text-body" id="${value.id}" onclick="wishlistRemove(this.id)"><i class="fa fa-trash"></i></a></li>
+                            </ul>
+                        </div>
 
-                                </div>
-                            </div> `
+                </div>
+            </div> `
 
                 });
                 
@@ -277,6 +277,172 @@
     // end wishlist remove
        
     </script>
+
+
+    {{-- Add to compare --}}
+
+    <script type="text/javascript">
+         // add to wishlist
+         function addToCompare(property_id){
+            $.ajax({
+                type: "POST",
+                dataType: 'json',
+                url: "/add-to-compare/"+property_id,
+
+
+                success:function(data) {
+                    //start message
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+                    if ($.isEmptyObject(data.error)) {
+                        Toast.fire({
+                            type: 'success',
+                            icon: 'success',
+                            title: data.success,
+                        })
+                        
+                    }else {
+                        Toast.fire({
+                            type: 'error',
+                            icon: 'error',
+                            title: data.error,
+
+                        })
+                    }
+                    //end message
+                }
+
+            })
+        }
+    
+    </script>
+
+    {{-- end add to compare --}}
+
+     {{--   start load wishlist Data --}}
+
+     <script type="text/javascript">
+
+        function compare(){
+            $.ajax({
+                type: "GET",
+                dataType: 'json',
+                url: "/get-compare-property/",
+    
+                success:function(response){
+    
+                    var rows = ""
+                    $.each(response, function(key,value){
+                        
+                        rows += ` <tr>
+                        <th>Thông tin tài sản</th>
+                        <th>
+                            <figure class="image-box"><img style="width:70%; height:500px;" src="/storage/image/${value.property.property_thambnail}" alt=""></figure>
+                            <div class="title">${value.property.property_name}</div>
+                            <div class="price">${value.property.lowest_price} VND</div>
+                        </th>
+                    </tr>    
+                    <tr>
+                        <td>
+                            <p>Thành phố</p>
+                        </td>
+                        <td>
+                            <p>${value.property.city}</p>
+                        </td>
+                       
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Diện tích</p>
+                        </td>
+                        <td>
+                            <p>${value.property.property_size}</p>
+                        </td>
+                      
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Phòng ngủ</p>
+                        </td>
+                        <td>
+                            <p>${value.property.bedrooms}</p>
+                        </td>
+                       
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Phòng tắm</p>
+                        </td>
+                      
+                        <td>
+                            <p>${value.property.bathrooms}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Chức năng</p>
+                        </td>
+                      
+                        <td>
+                            <a type="submit" class="text-body" id="${value.id}" 
+                            onclick="compareRemove(this.id)"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                    `
+    
+                    });
+                    
+                    $('#compare').html(rows);
+                }
+            })
+        }
+        compare();
+    
+        // compare remove start
+    
+        function compareRemove(id) {
+            $.ajax({
+                type: "GET",
+                dataType: 'json',
+                url: "/compare-remove/"+id,
+
+                success:function(data){
+                    compare();
+
+                         //start message
+                         const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+                    if ($.isEmptyObject(data.error)) {
+                        Toast.fire({
+                            type: 'success',
+                            icon: 'success',
+                            title: data.success,
+                        })
+                        
+                    }else {
+                        Toast.fire({
+                            type: 'error',
+                            icon: 'error',
+                            title: data.error,
+
+                        })
+                    }
+                    //end message
+
+                }
+            })
+        }
+        // end compare remove
+           
+        </script>
 
     
  </body><!-- End of .page_wrapper -->

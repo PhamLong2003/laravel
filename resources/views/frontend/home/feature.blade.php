@@ -52,7 +52,7 @@
                                     <h4>{{ $item->lowest_price }} VNĐ</h4>
                                 </div>
                                 <ul class="other-option pull-right clearfix">
-                        <li><a href=""><i class="icon-12"></i></a></li>
+                        <li><a aria-label="Compare" class="action-btn" id="{{ $item->id }}" onclick="addToCompare(this.id)"><i class="icon-12"></i></a></li>
                         <li><a aria-label="Add to WishList" class="action-btn" id="{{ $item->id }}" onclick="addToWishList(this.id)" ><i class="icon-13"></i></a></li>
                         {{-- <li><a aria-label="Add to Wishlish" class="action-btn" id="{{ $item->id }}" onclick="addToWishList(this.id)" ><i class="icon-13"></i></a></li> --}}
                                 </ul>

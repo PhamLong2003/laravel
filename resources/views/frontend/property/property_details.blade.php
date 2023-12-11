@@ -11,7 +11,7 @@
         <div class="content-box clearfix">
             <h1>{{ $property->property_name }}</h1>
             <ul class="bread-crumb clearfix">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="{{ url('/') }}">Trang chủ</a></li>
                 <li>{{ $property->property_name }}</li>
             </ul>
         </div>
@@ -237,7 +237,7 @@
                             @if ($property->agent_id == NULL)
                             <figure class="author-thumb"><img src="{{ url('upload/phamlong.jpg')}}" alt=""></figure>
                             <div class="inner">
-                                <h4>Adnin</h4>
+                                <h4>Quản trị</h4>
                                 <ul class="info clearfix">
                                     <li><i class="fas fa-map-marker-alt"></i></li>
                                     <li><i class="fas fa-phone"></i><a href="tel:03030571965">0395940171</a></li>
@@ -262,25 +262,88 @@
 
 
 
-                        <div class="form-inner">
-                            <form action="http://azim.commonsupport.com/Realshed/property-details.html" method="post" class="default-form">
-                                <div class="form-group">
-                                    <input type="text" name="name" placeholder="Your name" required="">
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" name="email" placeholder="Your Email" required="">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" name="phone" placeholder="Phone" required="">
-                                </div>
-                                <div class="form-group">
-                                    <textarea name="message" placeholder="Message"></textarea>
-                                </div>
-                                <div class="form-group message-btn">
-                                    <button type="submit" class="theme-btn btn-one">Send Message</button>
-                                </div>
-                            </form>
-                        </div>
+        <div class="form-inner">
+
+            @auth
+            @php
+               $id = Auth::user()->id;
+               $userData = App\Models\User::find($id);
+                
+            @endphp
+
+
+
+
+            
+            <form action="{{ route('property.message') }}" method="post" class="default-form">
+                @csrf
+                <input type="hidden" name="property_id" value="{{ $property->id }}">
+
+                @if($property->agent_id == Null) 
+                <input type="hidden" name="agent_id" value="">
+
+                @else
+                <input type="hidden" name="agent_id" value="{{ $property->agent_id }}">
+                
+                @endif
+
+
+                <div class="form-group">
+                    <input type="text" name="msg_name" placeholder="Your name" value="{{ $userData->name }}">
+                </div>
+                <div class="form-group">
+                    <input type="email" name="msg_email" placeholder="Your Email" value="{{ $userData->email }}">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="msg_phone" placeholder="Phone"  value="{{ $userData->phone }}">
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Message"></textarea>
+                </div>
+                <div class="form-group message-btn">
+                    <button type="submit" class="theme-btn btn-one">Send Message</button>
+                </div>
+            </form>
+
+            @else
+           
+             <form action="{{ route('property.message') }}" method="post" class="default-form">
+                @csrf
+                <input type="hidden" name="property_id" value="{{ $property->id }}">
+
+                @if($property->agent_id == Null) 
+                <input type="hidden" name="agent_id" value="">
+
+                @else
+                <input type="hidden" name="agent_id" value="{{ $property->agent_id }}">
+                
+                @endif
+
+
+                <div class="form-group">
+                    <input type="text" name="msg_name" placeholder="Your name" required="">
+                </div>
+                <div class="form-group">
+                    <input type="email" name="msg_email" placeholder="Your Email" required="">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="msg_phone" placeholder="Phone" required="">
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Message"></textarea>
+                </div>
+                <div class="form-group message-btn">
+                    <button type="submit" class="theme-btn btn-one">Send Message</button>
+                </div>
+            </form>
+            @endauth
+
+         
+
+
+
+
+        </div>
                     </div>
                     <div class="calculator-widget sidebar-widget">
                         <div class="calculate-inner">

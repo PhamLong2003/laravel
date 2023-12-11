@@ -11,6 +11,7 @@
     use App\Http\Controllers\Agent\AgentPrpertyController;
     use App\Http\Controllers\Frontend\IndexController;
     use App\Http\Controllers\Frontend\WishlishController;
+    use App\Http\Controllers\Frontend\CompareController;
 
 
 
@@ -50,16 +51,29 @@
 
 
     
-             //User Wishlist all route from admin
-    Route::controller(WishlishController::class)->group(function(){
+                //User Wishlist all route from admin
+        Route::controller(WishlishController::class)->group(function(){
 
-        Route::get('/user/wishlist', 'UserWishlist')->name('user.wishlist');
-        Route::get('/get-wishlist-property', 'GetWishlistProperty');
-        Route::get('/wishlist-remove/{id}', 'WishlistRemove');
+            Route::get('/user/wishlist', 'UserWishlist')->name('user.wishlist');
+            Route::get('/get-wishlist-property', 'GetWishlistProperty');
+            Route::get('/wishlist-remove/{id}', 'WishlistRemove');
 
 
 
-        });
+            });
+ //User compare all route from admin
+        Route::controller(CompareController::class)->group(function(){
+
+            Route::get('/user/compare', 'UserCompare')->name('user.compare');
+            Route::get('get-compare-property/', 'GetCompareProperty');
+            Route::get('/compare-remove/{id}', 'CompareRemove');
+
+
+          
+    
+    
+    
+            });
 
 
 
@@ -174,6 +188,8 @@
                 Route::post('/active/property', 'ActiveProperty')->name('active.property');
                 Route::get('/admin/package/history', 'AdminPackageHistory')->name('admin.package.history');
                 Route::get('/package/invoice/{id}', 'PackageInvoice')->name('package.invoice');
+                Route::get('/admin/property/message', 'AdminPropertyMessage')->name('admin.property.message');
+
 
 
             });
@@ -213,6 +229,9 @@
                 Route::post('/agent/update/property/facilities', 'AgentUpdatePropertyFacilities')->name('agent.update.property.facilities');
                 Route::get('/agent/details/property/{id}', 'AgentDetailsProperty')->name('agent.details.property');
                 Route::get('/agent/delete/property/{id}', 'AgentDeleteProperty')->name('agent.delete.property');
+                Route::get('/agent/property/message', 'AgentPropertyMessage')->name('agent.property.message');
+                Route::get('agent/message/details/{id}', 'AgentMessageDetails')->name('agent.message.details');
+
 
 
                 
@@ -242,5 +261,19 @@
             // Wishlist add route
 
             Route::post('/add-to-wishList/{property_id}' , [WishlishController::class, 'addToWishList']);
+
+            // compare add Route
+
+            Route::post('/add-to-compare/{property_id}' , [CompareController::class, 'addToCompare']);
+
+        // Send message
+
+        Route::post('/property/message' , [IndexController::class, 'PropertyMessage'])->name('property.message');
+
+        // Agent details page in frontend
+        Route::get('/agent/details/{id}' , [IndexController::class, 'AgentDetails'])->name('agent.details');
+
+
+
         
 
