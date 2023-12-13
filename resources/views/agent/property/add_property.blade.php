@@ -101,13 +101,19 @@
                                     <div class="col-sm-3">
                                         <div class="mb-3">
                                             <label class="form-label">Quận/Huyện</label>
-                                            <input type="text" name="state" class="form-control">
+                                            <input type="text" name="city" class="form-control">
+                                          
                                         </div>
                                     </div><!-- Col -->
                                     <div class="col-sm-3">
                                         <div class="mb-3">
                                             <label class="form-label">Thành phố</label>
-                                            <input type="text" name="city" class="form-control">
+                                            <select name="state" class="form-select" id="exampleFormControlSelect1">
+                                                <option selected="" disabled="">Chọn thành phố</option>
+                                                @foreach ($pstate as $state)
+                                                <option value="{{ $state->id }}">{{ $state->state_name }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div><!-- Col -->
                                    

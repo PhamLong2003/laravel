@@ -10,6 +10,7 @@ use App\Models\Amenities;
 use App\Models\MultiImage;
 use App\Models\PropertyType;
 use App\Models\User;
+use App\Models\State;
 use App\Models\PackagePlan;
 use App\Models\PropertyMessage;
 use Illuminate\Support\Facades\Auth;
@@ -132,6 +133,14 @@ class IndexController extends Controller
         $pbread = PropertyType::where('id',$id)->first();
 
         return view('frontend.property.type_property',compact('property','pbread'));
+
+    }//end method
+
+    public function StateDetails($id) {
+        $property = Property::where('status','1')->where('state',$id)->get();
+        $bstate = State::where('id',$id)->first();
+
+        return view('frontend.property.state_property',compact('property','bstate'));
 
     }//end method
 

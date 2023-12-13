@@ -279,14 +279,17 @@
 
         //Get all rent property
 
-        Route::get('rent/property' , [IndexController::class, 'RentProperty'])->name('rent.property');
+        Route::get('/rent/property' , [IndexController::class, 'RentProperty'])->name('rent.property');
 
         //Get all buy property
 
-        Route::get('buy/property' , [IndexController::class, 'BuyProperty'])->name('buy.property');
+        Route::get('/buy/property' , [IndexController::class, 'BuyProperty'])->name('buy.property');
 
         //get property type data
-        Route::get('/property.type/{id}' , [IndexController::class, 'PropertyType'])->name('property.type');
+        Route::get('/property/type/{id}' , [IndexController::class, 'PropertyType'])->name('property.type');
 
 
+        
+        //get property details data
+        Route::get('/state/details/{id}' , [IndexController::class, 'StateDetails'])->name('state.details');
 

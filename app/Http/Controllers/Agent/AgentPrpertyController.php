@@ -19,6 +19,8 @@ use DB;
 use App\Models\PackagePlan;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\PropertyMessage;
+use App\Models\State;
+
 
 
 class AgentPrpertyController extends Controller
@@ -33,6 +35,8 @@ class AgentPrpertyController extends Controller
      public function AgentAddProperty() {
         $propertytype = PropertyType::latest()->get();
         $amenities = Amenities::latest()->get();
+        $pstate = State::latest()->get();
+
 
         $id = Auth::user()->id;
         $property = User::where('role','agent')->where('id',$id)->first();
@@ -43,7 +47,7 @@ class AgentPrpertyController extends Controller
                return redirect()->route('buy.package');
           }else {
                
-               return view('agent.property.add_property', compact('propertytype','amenities'));
+               return view('agent.property.add_property', compact('propertytype','amenities','pstate'));
 
           }
 
@@ -160,6 +164,8 @@ class AgentPrpertyController extends Controller
             $property = Property::findOrFail($id);
             $type = $property->amenities_id;
             $property_ami = explode(',',$type);
+            $pstate = State::latest()->get();
+            
 
             $multiImage = MultiImage::where('property_id',$id)->get();
 
@@ -170,7 +176,7 @@ class AgentPrpertyController extends Controller
             $activeAgent = User::where('status','active')->where('role','agent')->latest()->get();
 
             return view('agent.property.edit_property', compact('property','propertytype',
-            'amenities','property_ami','multiImage','facilities'));
+            'amenities','property_ami','multiImage','facilities','pstate'));
 
         }
 

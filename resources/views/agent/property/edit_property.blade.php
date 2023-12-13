@@ -33,8 +33,8 @@
                                         <label class="form-label">Trạng thái tài sản</label>
                                         <select name="property_status" class="form-select" id="exampleFormControlSelect1">
 											<option selected="" disabled="">Chọn trạng thái</option>
-											<option value="rent" {{ $property->property_status == 'Cho thuê' ? 'selected' : '' }}>Cho thuê</option>
-											<option value="buy" {{ $property->property_status == 'Rao bán' ? 'selected' : '' }}>Rao bán</option>
+											<option value="Cho Thuê" {{ $property->property_status == 'Cho thuê' ? 'selected' : '' }}>Cho thuê</option>
+											<option value="Rao Bán" {{ $property->property_status == 'Rao bán' ? 'selected' : '' }}>Rao bán</option>
 										
 										</select>
                                     </div>
@@ -90,13 +90,19 @@
                                     <div class="col-sm-3">
                                         <div class="mb-3">
                                             <label class="form-label">Quận/Huyện</label>
-                                            <input type="text" value="{{ $property->state }}" name="state" class="form-control">
+                                            <input name="city" value="{{ $property->city }}"  class="form-control" id="exampleFormControlSelect1">
+                                              
                                         </div>
                                     </div><!-- Col -->
                                     <div class="col-sm-3">
                                         <div class="mb-3">
                                             <label class="form-label">Thành phố</label>
-                                            <input type="text" value="{{ $property->city }}" name="city" class="form-control">
+                                            <select name="state" class="form-select" id="exampleFormControlSelect1">
+                                                <option selected="" disabled="">Chọn thành phố</option>
+                                                @foreach ($pstate as $state)
+                                                <option value="{{ $state->id }}" {{ $state->id == $property->state ? 'selected' : '' }}>{{ $state->state_name }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div><!-- Col -->
                                    
