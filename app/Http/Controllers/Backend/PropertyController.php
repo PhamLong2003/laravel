@@ -9,6 +9,7 @@ use App\Models\Facility;
 use App\Models\Amenities;
 use App\Models\MultiImage;
 use App\Models\PropertyType;
+use App\Models\State;
 use App\Models\User;
 use Intervention\Image\Facades\Image;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
@@ -27,10 +28,11 @@ class PropertyController extends Controller
      }
      public function AddProperty() {
           $propertytype = PropertyType::latest()->get();
+          $pstate = State::latest()->get();
           $amenities = Amenities::latest()->get();
           $activeAgent = User::where('status','active')->where('role','agent')->latest()->get();
 
-          return view('backend.property.add_property', compact('propertytype','amenities','activeAgent'));
+          return view('backend.property.add_property', compact('propertytype','amenities','activeAgent','pstate'));
      }//end method
 
      public function StoreProperty(Request $request) {
@@ -131,6 +133,9 @@ class PropertyController extends Controller
 
           $facilities = Facility::where('property_id',$id)->get();
           $property = Property::findOrFail($id);
+
+          $pstate = State::latest()->get();
+
           $type = $property->amenities_id;
           $property_ami = explode(',',$type);
 
@@ -143,7 +148,7 @@ class PropertyController extends Controller
           $activeAgent = User::where('status','active')->where('role','agent')->latest()->get();
 
           return view('backend.property.edit_property', compact('property','propertytype',
-          'amenities','activeAgent','property_ami','multiImage','facilities'));
+          'amenities','activeAgent','property_ami','multiImage','facilities','pstate'));
 
      }
 
@@ -319,7 +324,7 @@ class PropertyController extends Controller
      public function DeleteProperty($id) {
 
            $property = Property::findOrFail($id);
-             Storage::delete('storage/image'.$property->property_thambnail);
+          Storage::delete('storage/image'.$property->property_thambnail);
        
            Property::findOrFail($id)->delete();
 

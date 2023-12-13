@@ -13,27 +13,46 @@
     </div>
     <div class="sidebar-body">
         <ul class="nav">
-        <li class="nav-item nav-category">Main</li>
+        <li class="nav-item nav-category">Chính</li>
         <li class="nav-item">
             <a href="{{route('admin.dashboard')}}" class="nav-link">
             <i class="link-icon" data-feather="box"></i>
-            <span class="link-title">Dashboard</span>
+            <span class="link-title">Tổng quan</span>
             </a>
         </li>
         <li class="nav-item nav-category">Bất động sản</li>
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button" aria-expanded="false" aria-controls="emails">
                 <i class="link-icon" data-feather="mail"></i>
-                <span class="link-title">Property Type</span>
+                <span class="link-title">Loại tài sản</span>
                 <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse" id="emails">
                 <ul class="nav sub-menu">
                     <li class="nav-item">
-                    <a href="{{route('all.type')}}" class="nav-link">All Property</a>
+                    <a href="{{route('all.type')}}" class="nav-link">Danh sách loại</a>
                     </li>
                     <li class="nav-item">
-                    <a href="{{route('add.type')}}" class="nav-link">Add Property</a>
+                    <a href="{{route('add.type')}}" class="nav-link">Thêm loại tài sản</a>
+                    </li>
+                    
+                </ul>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button" aria-expanded="false" aria-controls="emails">
+                <i class="link-icon" data-feather="mail"></i>
+                <span class="link-title">Thành phố</span>
+                <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="emails">
+                <ul class="nav sub-menu">
+                    <li class="nav-item">
+                    <a href="{{route('all.state')}}" class="nav-link">Danh sách thành phố</a>
+                    </li>
+                    <li class="nav-item">
+                    <a href="{{route('add.state')}}" class="nav-link">Thêm thành phố</a>
                     </li>
                     
                 </ul>

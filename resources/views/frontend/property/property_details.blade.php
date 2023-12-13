@@ -117,8 +117,8 @@
                         </div>
                         <ul class="info clearfix">
                             <li><span>Địa chỉ: </span>{{ $property->address }}</li>
-                            <li><span>Huyện: </span>{{ $property->stage }}</li>
-                            <li><span>Thành Phố: </span>{{ $property->city }} </li>
+                            <li><span>Huyện: </span>{{ $property->city }}</li>
+                            <li><span>Thành Phố: </span>{{ $property['pstate']['state_name'] }} </li>
                             <li><span>Mã zip: </span> {{ $property->postal_code }}</li>
                             <li><span>Vị trí: </span> {{ $property->neighborhood }}</li>
 

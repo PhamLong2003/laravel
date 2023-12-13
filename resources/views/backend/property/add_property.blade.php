@@ -28,8 +28,8 @@
                                         <label class="form-label">Trạng thái tài sản</label>
                                         <select name="property_status" class="form-select" id="exampleFormControlSelect1">
 											<option selected="" disabled="">Chon trạng thái</option>
-											<option value="Cho thuê">Cho thuê</option>
-											<option value="Rao bán">Rao bán</option>
+											<option value="Cho Thuê">Cho thuê</option>
+											<option value="Rao Bán">Rao bán</option>
 										
 										</select>
                                     </div>
@@ -98,18 +98,26 @@
                                             <input type="text" name="address" class="form-control">
                                         </div>
                                     </div><!-- Col -->
+
                                     <div class="col-sm-3">
                                         <div class="mb-3">
                                             <label class="form-label">Quận/Huyện</label>
-                                            <input type="text" name="state" class="form-control">
+                                            <input type="text" name="city" class="form-control">
+                                          
                                         </div>
                                     </div><!-- Col -->
                                     <div class="col-sm-3">
                                         <div class="mb-3">
                                             <label class="form-label">Thành phố</label>
-                                            <input type="text" name="city" class="form-control">
+                                            <select name="state" class="form-select" id="exampleFormControlSelect1">
+                                                <option selected="" disabled="">Chọn thành phố</option>
+                                                @foreach ($pstate as $state)
+                                                <option value="{{ $state->id }}">{{ $state->state_name }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div><!-- Col -->
+                                    
                                    
                                     <div class="col-sm-3">
                                         <div class="mb-3">
@@ -167,7 +175,6 @@
                                             @foreach ($propertytype as $ptype)
 											<option value="{{ $ptype->id }}">{{ $ptype->type_name }}</option>
                                             @endforeach
-                                            <option value="{{$ptype->id}}">{{ $ptype->type_name }}</option>
 										</select>
 
 
@@ -178,7 +185,7 @@
                                         <label class="form-label">Tiện ích</label>
                                         <select class="js-example-basic-multiple form-select" name="amenities_id[]" multiple="multiple" data-width="100%">
                                             @foreach ($amenities as $ameni)
-											<option value="{{ $ameni->id }}">{{ $ameni->amenitis_name }}</option>
+											<option value="{{ $ameni->amenitis_name }}">{{ $ameni->amenitis_name }}</option>
                                             @endforeach
                                 
                                             

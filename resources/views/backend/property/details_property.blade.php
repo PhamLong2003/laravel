@@ -49,11 +49,11 @@
                                             </tr>
                                             <tr>                                    
                                                 <td>Quận/Huyện</td>
-                                                <td><code>{{ $property->state }}</code></td>
+                                                <td><code>{{ $property->city }}</code></td>
                                             </tr>
                                             <tr>                                    
                                                 <td>Thành phố</td>
-                                                <td><code>{{ $property->city }}</code></td>
+                                                <td><code>{{ $property['pstate']['state_name']  }}</code></td>
                                             </tr>
                                           
                                             <tr>                                    

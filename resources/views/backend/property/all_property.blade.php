@@ -22,7 +22,7 @@
             <th>Ảnh</th>
             <th>Tên tài sản</th>
             <th>Trạng thái kiểu</th>
-            <th>Thành phố</th>
+            <th>Quận/Huyện</th>
             <th>Giá</th>
             <th>Trạng thái</th>
             <th>Hành động</th>

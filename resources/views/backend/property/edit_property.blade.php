@@ -31,8 +31,8 @@
                                         <label class="form-label">Trạng thái tài sản</label>
                                         <select name="property_status" class="form-select" id="exampleFormControlSelect1">
 											<option selected="" disabled="">Chon trạng thái</option>
-											<option value="rent" {{ $property->property_status=='rent' ?'selected' : '' }}>Cho thuê</option>
-											<option value="buy" {{ $property->property_status=='buy' ?'selected' : '' }}>Rao bán</option>
+											<option value="Cho Thuê" {{ $property->property_status=='Cho Thuê' ?'selected' : '' }}>Cho thuê</option>
+											<option value="Rao Bán" {{ $property->property_status=='Rao Bán' ?'selected' : '' }}>Rao bán</option>
 										
 										</select>
                                     </div>
@@ -85,18 +85,26 @@
                                             <input type="text" value="{{ $property->address }}" name="address" class="form-control">
                                         </div>
                                     </div><!-- Col -->
+
                                     <div class="col-sm-3">
                                         <div class="mb-3">
                                             <label class="form-label">Quận/Huyện</label>
-                                            <input type="text" value="{{ $property->state }}" name="state" class="form-control">
+                                            <input name="city" value="{{ $property->city }}"  class="form-control" id="exampleFormControlSelect1">
+                                              
                                         </div>
                                     </div><!-- Col -->
                                     <div class="col-sm-3">
                                         <div class="mb-3">
                                             <label class="form-label">Thành phố</label>
-                                            <input type="text" value="{{ $property->city }}" name="city" class="form-control">
+                                            <select name="state" class="form-select" id="exampleFormControlSelect1">
+                                                <option selected="" disabled="">Chọn thành phố</option>
+                                                @foreach ($pstate as $state)
+                                                <option value="{{ $state->id }}" {{ $state->id == $property->state ? 'selected' : '' }}>{{ $state->state_name }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div><!-- Col -->
+                                   
                                    
                                     <div class="col-sm-3">
                                         <div class="mb-3">
@@ -164,9 +172,7 @@
                                         <label class="form-label">Tiện ích</label>
                                         <select class="js-example-basic-multiple form-select" name="amenities_id[]" multiple="multiple" data-width="100%">
                                             @foreach ($amenities as $ameni)
-											<option value="{{ $ameni->amenitis_name }}" {{ 
-                                            (in_array($ameni->amenitis_name,$property_ami)) ? 'selected' : '' }}>
-                                            {{ $ameni->amenitis_name }}</option>
+											<option value="{{ $ameni->amenitis_name }}" {{ (in_array($ameni->amenitis_name,$property_ami)) ? 'selected' : '' }}>{{ $ameni->amenitis_name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -536,6 +542,9 @@
                         ptype_id: {
                             required : true,
                         }, 
+                        amenities_id[]: {
+                            required : true,
+                        }, 
                      
                     },
                     messages :{
@@ -553,6 +562,9 @@
                         },    
                         ptype_id: {
                             required : 'Vui lòng mhap loai tai san',
+                        }, 
+                        amenities_id[]: {
+                            required : 'vui long chọn tiện ích',
                         }, 
                     
         

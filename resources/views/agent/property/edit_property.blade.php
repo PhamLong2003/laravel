@@ -33,8 +33,8 @@
                                         <label class="form-label">Trạng thái tài sản</label>
                                         <select name="property_status" class="form-select" id="exampleFormControlSelect1">
 											<option selected="" disabled="">Chọn trạng thái</option>
-											<option value="rent" {{ $property->property_status == 'rent' ? 'selected' : '' }}>Cho thuê</option>
-											<option value="buy" {{ $property->property_status == 'buy' ? 'selected' : '' }}>Rao bán</option>
+											<option value="rent" {{ $property->property_status == 'Cho thuê' ? 'selected' : '' }}>Cho thuê</option>
+											<option value="buy" {{ $property->property_status == 'Rao bán' ? 'selected' : '' }}>Rao bán</option>
 										
 										</select>
                                     </div>
@@ -152,7 +152,7 @@
                                         <label class="form-label">Kiểu tài sản</label>
 
                                         <select name="ptype_id" class="form-select" id="exampleFormControlSelect1">
-											<option selected="" disabled="">Chon trạng thái</option>
+											<option selected="" disabled="">Chon kiểu</option>
                                             @foreach ($propertytype as $ptype)
 											<option value="{{ $ptype->id }}" {{ $ptype->id == $property->ptype_id ? 'selected' : '' }}>{{ $ptype->type_name }}</option>
                                             @endforeach

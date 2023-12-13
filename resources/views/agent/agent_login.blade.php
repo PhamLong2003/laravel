@@ -9,7 +9,7 @@
     </div>
     <div class="auto-container">
         <div class="content-box clearfix">
-            <h1>Đăng nhập</h1>
+            <h1 style="font-weight:600;">Đăng nhập đại lý</h1>
             <ul class="bread-crumb clearfix">
                 <li><a href="index.html">Trang chủ</a></li>
                 <li>Đăng nhập</li>
@@ -27,7 +27,7 @@
             <div class="col-xl-8 col-lg-12 col-md-12 offset-xl-2 big-column">
                 <div class="sec-title">
             
-                    <h2>Đăng nhập hoặc đăng ký</h2>
+                    <h2 style="font-weight:600;">Đăng nhập hoặc đăng ký dại lý</h2>
                 </div>
                 <div class="tabs-box">
                     <div class="tab-btn-box">
@@ -39,7 +39,7 @@
                     <div class="tabs-content">
                         <div class="tab active-tab" id="tab-1">
                             <div class="inner-box">
-                                <h4>Đăng nhập đại lý</h4>
+                                <h4 style="font-weight:600;">Đăng nhập đại lý</h4>
                                 <form action="{{route('login')}}" method="post" class="default-form">
                                     @csrf
                                     <div class="form-group">
@@ -63,7 +63,7 @@
                         </div>
                         <div class="tab" id="tab-2">
                             <div class="inner-box">
-                                <h4>Register</h4>
+                                <h4 style="font-weight:600;">Đăng ký</h4>
 
                                 <form action="{{ route('agent.register') }}" method="post" class="default-form">
                                     @csrf

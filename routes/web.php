@@ -7,6 +7,7 @@
     use App\Http\Controllers\UserController;
     use App\Http\Controllers\Backend\PropertyTypeController;
     use App\Http\Controllers\Backend\PropertyController;
+    use App\Http\Controllers\Backend\StateController;
     use App\Http\Middleware\RedirectIfAuthenticated;
     use App\Http\Controllers\Agent\AgentPrpertyController;
     use App\Http\Controllers\Frontend\IndexController;
@@ -123,23 +124,8 @@
 
 
 
-
-
-
-
-
-
-
-
     Route::get('/agent/login', [AdminController::class, 'AgentLogin'])->name('agent.login')->middleware(RedirectIfAuthenticated::class);
     Route::post('/agent/register', [AgentController::class, 'AgentRegister'])->name('agent.register');
-
-
-
-
-
-
-
     Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login')->middleware(RedirectIfAuthenticated::class);
 
 
@@ -207,6 +193,19 @@
 
                     
                 });
+
+
+                 //proprety type all route
+            Route::controller(StateController::class)->group(function(){
+
+                Route::get('/all/state', 'AllState')->name('all.state');
+                Route::get('/add/state', 'AddState')->name('add.state');
+                Route::post('/store/state', 'StoreState')->name('store.state');
+                Route::get('/edit/state/{id}', 'EditState')->name('edit.state');
+                Route::post('update/state', 'UpdateState')->name('update.state');
+                Route::get('/delete/state/{id}', 'DeleteState')->name('delete.state');
+           
+            });
         });//end group admin middleware
 
 
@@ -278,5 +277,16 @@
 
      Route::post('/agent/details/message' , [IndexController::class, 'AgentDetailsMessage'])->name('agent.details.message');
 
-        
+        //Get all rent property
+
+        Route::get('rent/property' , [IndexController::class, 'RentProperty'])->name('rent.property');
+
+        //Get all buy property
+
+        Route::get('buy/property' , [IndexController::class, 'BuyProperty'])->name('buy.property');
+
+        //get property type data
+        Route::get('/property.type/{id}' , [IndexController::class, 'PropertyType'])->name('property.type');
+
+
 

@@ -70,7 +70,7 @@
                             <div class="wrapper list">
                                 <div class="deals-list-content list-item">
 
-                                    @foreach($property as $item)
+            @foreach($property as $item)
 
             <div class="deals-block-one">
                 <div class="inner-box">
@@ -106,7 +106,7 @@
                                 <figure class="author-thumb"> 
                                     <img src="{{(!empty($agent->photo)) 
                                         ?url('upload/agent_images/'.$agent->photo) : url('upload/no_image.jpg')}}" alt="" style="height: 40px;width: 45px;">
-                                    <span>Michael Bean</span>
+                                    <span>{{ $item->user->name}}</span>
                                 </figure>
                             </div>
                             @endif
@@ -215,8 +215,8 @@
                             <h5>Status Of Property</h5>
                         </div>
                         <ul class="category-list clearfix">
-                            <li><a href="agents-details.html">For Rent <span>(200)</span></a></li>
-                            <li><a href="agents-details.html">For Sale <span>(700)</span></a></li>
+                            <li><a href="{{ route('rent.property') }}">Cho thuê <span>({{ count($rentproperty) }})</span></a></li>
+                            <li><a href="{{ route('buy.property') }}">Rao bán <span>({{ count($buyproperty) }})</span></a></li>
                         </ul>
                     </div>
                     <div class="featured-widget sidebar-widget">
