@@ -7,7 +7,9 @@
     use App\Http\Controllers\UserController;
     use App\Http\Controllers\Backend\PropertyTypeController;
     use App\Http\Controllers\Backend\PropertyController;
+    use App\Http\Controllers\Backend\TestimonialsController;
     use App\Http\Controllers\Backend\StateController;
+    use App\Http\Controllers\Backend\BlogController;
     use App\Http\Middleware\RedirectIfAuthenticated;
     use App\Http\Controllers\Agent\AgentPrpertyController;
     use App\Http\Controllers\Frontend\IndexController;
@@ -195,17 +197,74 @@
                 });
 
 
-                 //proprety type all route
+                 //state type all route
             Route::controller(StateController::class)->group(function(){
 
                 Route::get('/all/state', 'AllState')->name('all.state');
                 Route::get('/add/state', 'AddState')->name('add.state');
                 Route::post('/store/state', 'StoreState')->name('store.state');
                 Route::get('/edit/state/{id}', 'EditState')->name('edit.state');
-                Route::post('update/state', 'UpdateState')->name('update.state');
+                Route::post('/update/state', 'UpdateState')->name('update.state');
                 Route::get('/delete/state/{id}', 'DeleteState')->name('delete.state');
            
             });
+
+                //testimonials type all route
+                Route::controller(TestimonialsController::class)->group(function(){
+
+                Route::get('/all/testimonials', 'AllTestimonials')->name('all.testimonials');
+                Route::get('/add/testimonials', 'AddTestimonials')->name('add.testimonials');
+                Route::post('/store/testimonials', 'StoreTestimonials')->name('store.testimonials');
+                Route::get('/edit/testimonials/{id}', 'EditTestimonials')->name('edit.testimonials');
+                Route::post('/update/testimonials', 'UpdateTestimonials')->name('update.testimonials');
+                Route::get('/delete/testimonials/{id}', 'DeleteTestimonials')->name('delete.testimonials');
+            
+            });
+
+              //blog category all route
+              Route::controller(BlogController::class)->group(function(){
+
+                Route::get('all/blog/category', 'AllBlogCategory')->name('all.blog.category');
+                Route::post('/store/blog/category', 'StoreBlogCategory')->name('store.blog.category');
+                Route::get('/blog/category/{id}', 'EditBlogCategory');
+                Route::post('/update/blog/category', 'UpdateBlogCategory')->name('update.blog.category');
+                Route::get('/delete/blog/category/{id}', 'DeleteBlogCategory')->name('delete.blog.category');
+            });
+
+                  //testimonials type all route
+                  Route::controller(BlogController::class)->group(function(){
+
+                    Route::get('/all/post', 'AllPost')->name('all.post');
+                    Route::get('/add/testimonials', 'AddTestimonials')->name('add.testimonials');
+                    Route::post('/store/testimonials', 'StoreTestimonials')->name('store.testimonials');
+                    Route::get('/edit/testimonials/{id}', 'EditTestimonials')->name('edit.testimonials');
+                    Route::post('/update/testimonials', 'UpdateTestimonials')->name('update.testimonials');
+                    Route::get('/delete/testimonials/{id}', 'DeleteTestimonials')->name('delete.testimonials');
+                
+                });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         });//end group admin middleware
 
 
@@ -293,3 +352,12 @@
         //get property details data
         Route::get('/state/details/{id}' , [IndexController::class, 'StateDetails'])->name('state.details');
 
+
+        // Home page buy search section
+        Route::post('/buy/property/search' , [IndexController::class, 'BuyPropertySearch'])->name('buy.property.search');
+
+         // Home page rent search section
+        Route::post('/rent/property/search' , [IndexController::class, 'RentPropertySearch'])->name('rent.property.search');
+
+         //  all rent search section
+         Route::post('/all/property/search' , [IndexController::class, 'AllPropertySearch'])->name('all.property.search');

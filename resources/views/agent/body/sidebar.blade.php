@@ -27,7 +27,7 @@
         <li class="nav-item">
             <a href="{{route('admin.dashboard')}}" class="nav-link">
             <i class="link-icon" data-feather="box"></i>
-            <span class="link-title">Dashboard</span>
+            <span class="link-title">Tổng quan</span>
             </a>
         </li>
   @if ($status ==='active')

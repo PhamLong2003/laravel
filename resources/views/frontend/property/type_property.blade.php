@@ -133,20 +133,20 @@
                                                 <figure class="image"><img src="{{ asset('storage/image/'.$item->property_thambnail)}}" alt="" style="width:100%; height:350px;" ></figure>
                                                 <div class="batch"><i class="icon-11"></i></div>
                                                     @if ($item->featured == 1)
-                                                <span class="category">Featured</span>
+                                                <span class="category">Đặc sắc</span>
                                                     @else
-                                                <span class="category">New</span>
+                                                <span class="category">Mới</span>
                                                     @endif
                         
                         
                         
-                                                <div class="buy-btn"><a href="{{ url('property/details/'.$item->id. '/'.$item->propety_slug) }}">For {{ $item->property_status }}</a></div>
+                                                <div class="buy-btn"><a href="{{ url('property/details/'.$item->id. '/'.$item->propety_slug) }}">{{ $item->property_status }}</a></div>
                                             </div>
                                             <div class="lower-content">
                                                 <div class="title-text"><h4><a href="{{ url('property/details/'.$item->id. '/'.$item->propety_slug) }}">{{ $item->property_name }}</a></h4></div>
                                                 <div class="price-box clearfix">
                                                     <div class="price-info pull-left">
-                                                        <h6>Start From</h6>
+                                                        <h6>Giá khởi điểm</h6>
                                                         <h4>{{ $item->lowest_price }}</h4>
                                                     </div>
                                                     @if($item->agent_id == Null)
@@ -170,15 +170,15 @@
                                                 </div>
                                                 <p>{{ $item->short_descp }}</p>
                                                 <ul class="more-details clearfix">
-                                                    <li><i class="icon-14"></i>{{ $item->bedrooms }} Beds</li>
-                                                    <li><i class="icon-15"></i>{{ $item->bathrooms }} Baths</li>
+                                                    <li><i class="icon-14"></i>{{ $item->bedrooms }} Phòng ngủ</li>
+                                                    <li><i class="icon-15"></i>{{ $item->bathrooms }} Phòng tắm</li>
                                                     <li><i class="icon-16"></i>{{ $item->property_size }} m2</li>
                                                 </ul>
                                                 <div class="other-info-box clearfix">
-                                                    <div class="btn-box pull-left"><a href="{{ url('property/details/'.$item->id. '/'.$item->propety_slug) }}" class="theme-btn btn-two">See Details</a></div>
+                                                    <div class="btn-box pull-left"><a href="{{ url('property/details/'.$item->id. '/'.$item->propety_slug) }}" class="theme-btn btn-two">Xem chi tiết</a></div>
                                                     <ul class="other-option pull-right clearfix">
-                                                        <li><a aria-label="Compare" class="action-btn" id="{{ $item->id }}" onclick="addToCompare(this.id)"><i class="icon-12"></i></a></li>
-                                                        <li><a aria-label="Add to WishList" class="action-btn" id="{{ $item->id }}" onclick="addToWishList(this.id)" ><i class="icon-13"></i></a></li>
+                                                        <li><a aria-label="Compare" title="So sánh" class="action-btn" id="{{ $item->id }}" onclick="addToCompare(this.id)"><i class="icon-12"></i></a></li>
+                                                        <li><a aria-label="Add to WishList" title="Thêm vào yêu thích" class="action-btn" id="{{ $item->id }}" onclick="addToWishList(this.id)" ><i class="icon-13"></i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -191,14 +191,7 @@
                                 </div>
                              
                             </div>
-                            <div class="pagination-wrapper">
-                                <ul class="pagination clearfix">
-                                    <li><a href="property-list.html" class="current">1</a></li>
-                                    <li><a href="property-list.html">2</a></li>
-                                    <li><a href="property-list.html">3</a></li>
-                                    <li><a href="property-list.html"><i class="fas fa-angle-right"></i></a></li>
-                                </ul>
-                            </div>
+                          
                         </div>
                     </div>
                 </div>

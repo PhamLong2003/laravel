@@ -55,7 +55,7 @@
             <div class="card">
                 <div class="card-body">
   
-                <h6 class="card-title">Admin Change Password</h6>
+                <h6 class="card-title">Cập nhật mật khẩu quản trị viên</h6>
                
 
 
@@ -65,7 +65,7 @@
                 
 
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Old Password</label>
+                        <label for="exampleInputEmail1" class="form-label">Mật khẩu cũ</label>
                         <input type="password" name="old_password" class="form-control @error('old_password') is-invalid @enderror" id="old_password" autocomplete="off">
                         @error('old_password')
                            <span class="text-danger">{{ $message }}</span>
@@ -74,7 +74,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">New Password</label>
+                        <label for="exampleInputEmail1" class="form-label">Mật khẩu mới</label>
                         <input type="password" name="new_password" class="form-control @error('new_password') is-invalid @enderror" id="new_password" autocomplete="off">
                         @error('new_password')
                            <span class="text-danger">{{ $message }}</span>
@@ -82,7 +82,7 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Confirm New Password</label>
+                        <label for="exampleInputEmail1" class="form-label">Nhập lại mật khẩu mới</label>
                         <input type="password" name="new_password_confirmation" class="form-control"  id="new_password_confirmation" autocomplete="off">
                     
                     </div>
@@ -92,7 +92,7 @@
                    
 
                   
-                    <button type="submit" class="btn btn-primary me-2">Save Changes</button>
+                    <button type="submit" class="btn btn-primary me-2">Lưu</button>
                 </form>
   
                 </div>

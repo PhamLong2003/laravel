@@ -18,7 +18,7 @@ License: For each use you must have a valid license purchased only from above li
 	<meta name="author" content="NobleUI">
 	<meta name="keywords" content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
-	<title>Quan tri vien dang nhap</title>
+	<title>Đăng nhập quản trị viên</title>
 
     <style type="text/css">
         .authlogin-side-wrapper{
@@ -72,30 +72,30 @@ License: For each use you must have a valid license purchased only from above li
                 <div class="col-md-8 ps-md-0">
                   <div class="auth-form-wrapper px-4 py-5">
                     <a href="#" class="noble-ui-logo logo-light d-block mb-2">Dragon<span>Mobile</span></a>
-                    <h5 class="text-muted fw-normal mb-4">Chao Mung ban den voi tranh quan tri</h5>
+                    <h5 class="text-muted fw-normal mb-4">Chào mừng bạn đến với trang quản trị viên</h5>
                     <form class="forms-sample" method="post" action="{{ route('login') }}">
                       @csrf
 
                       <div class="mb-3">
-                        <label for="login" class="form-label">Emai/Name/Phone</label>
+                        <label for="login" class="form-label">Emai/Tên/SĐT</label>
                         <input type="text" class="form-control" name="login" id="login" placeholder="Email">
                       </div>
                       <div class="mb-3">
-                        <label for="userPassword" class="form-label">Mat khau</label>
-                        <input type="password" name="password" class="form-control" id="userPassword" autocomplete="current-password" placeholder="Password">
+                        <label for="userPassword" class="form-label">Mật khẩu</label>
+                        <input type="password" name="password" class="form-control" id="userPassword" autocomplete="current-password" placeholder="Mật khẩu">
                       </div>
                       <div class="form-check mb-3">
                         <input type="checkbox" class="form-check-input" id="authCheck">
                         <label class="form-check-label" for="authCheck">
-                          Luu dang nhap
+                          Lưu đăng nhập
                         </label>
                       </div>
                       <div>
                         <button type="submit" class="btn btn-outline-primary btn-icon-text mb-2 mb-md-0">
-                         Dang nhap
+                         Đăng nhập
                         </button>
                       </div>
-                      <a href="register.html" class="d-block mt-3 text-muted">Khong phai la nguoi dung dang ky</a>
+                      <a href="register.html" class="d-block mt-3 text-muted">Không phải là người dùng đăng ký</a>
                     </form>
                   </div>
                 </div>

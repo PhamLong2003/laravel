@@ -41,12 +41,12 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button" aria-expanded="false" aria-controls="emails">
+                <a class="nav-link" data-bs-toggle="collapse" href="#state" role="button" aria-expanded="false" aria-controls="emails">
                 <i class="link-icon" data-feather="mail"></i>
                 <span class="link-title">Thành phố</span>
                 <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                <div class="collapse" id="emails">
+                <div class="collapse" id="state">
                 <ul class="nav sub-menu">
                     <li class="nav-item">
                     <a href="{{route('all.state')}}" class="nav-link">Danh sách thành phố</a>
@@ -109,7 +109,30 @@
             <span class="link-title">Quản lý Hộp thư đến</span>
             </a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#testimonials" role="button" aria-expanded="false" aria-controls="emails">
+            <i class="link-icon" data-feather="mail"></i>
+            <span class="link-title">Lời chứng thực</span>
+            <i class="link-arrow" data-feather="chevron-down"></i>
+            </a>
+            <div class="collapse" id="testimonials">
+            <ul class="nav sub-menu">
+                <li class="nav-item">
+                <a href="{{route('all.testimonials')}}" class="nav-link">Danh sách lời chứng thực</a>
+                </li>
+                <li class="nav-item">
+                <a href="{{route('add.testimonials')}}" class="nav-link">Thêm lời chứng thực</a>
+                </li>
+                
+            </ul>
+            </div>
+        </li>
+
+
         <li class="nav-item nav-category">Người dùng</li>
+
+
         <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button" aria-expanded="false" aria-controls="uiComponents">
             <i class="link-icon" data-feather="feather"></i>
@@ -127,6 +150,41 @@
             </ul>
             </div>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#blogcategory" role="button" aria-expanded="false" aria-controls="uiComponents">
+            <i class="link-icon" data-feather="feather"></i>
+            <span class="link-title">Quản lý danh mục bài viết</span>
+            <i class="link-arrow" data-feather="chevron-down"></i>
+            </a>
+            <div class="collapse" id="blogcategory">
+            <ul class="nav sub-menu">
+                <li class="nav-item">
+                <a href="{{ route('all.blog.category') }}" class="nav-link">Tất cả các danh mục</a>
+                </li>
+            </ul>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#Post" role="button" aria-expanded="false" aria-controls="uiComponents">
+            <i class="link-icon" data-feather="feather"></i>
+            <span class="link-title">Bài viết</span>
+            <i class="link-arrow" data-feather="chevron-down"></i>
+            </a>
+            <div class="collapse" id="Post">
+            <ul class="nav sub-menu">
+                <li class="nav-item">
+                <a href="{{ route('all.post') }}" class="nav-link">Tất cả bài viết</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('all.blog.category') }}" class="nav-link">Thêm bài viết</a>
+                    </li>
+            </ul>
+            </div>
+        </li>
+
+
         <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#advancedUI" role="button" aria-expanded="false" aria-controls="advancedUI">
             <i class="link-icon" data-feather="anchor"></i>

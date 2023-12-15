@@ -55,7 +55,7 @@
             <div class="card">
                 <div class="card-body">
   
-                <h6 class="card-title">Update Admin Profile</h6>
+                <h6 class="card-title">Cập nhật trang cá nhân Quản trị</h6>
                
 
 
@@ -63,12 +63,12 @@
                 <form method="POST" action="{{ route('admin.profile.store')}}"  class="forms-sample"  enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
-                        <label for="exampleInputUsername1"  class="form-label">Username</label>
+                        <label for="exampleInputUsername1"  class="form-label">Tên người dùng</label>
                         <input type="text" name="username" class="form-control" value="{{$profileData->username}}" id="exampleInputUsername1" autocomplete="off">
                     </div>
 
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Name</label>
+                        <label for="exampleInputEmail1" class="form-label">Tên</label>
                         <input type="text" name="name" class="form-control" value="{{$profileData->name}}" id="exampleInputUsername1" autocomplete="off">
                        
                     </div>
@@ -78,16 +78,16 @@
                        
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Phone</label>
+                        <label for="exampleInputEmail1" class="form-label">SĐT</label>
                         <input type="text" name="phone" class="form-control" value="{{$profileData->phone}}" id="exampleInputUsername1" autocomplete="off">
                        
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Address</label>
+                        <label for="exampleInputEmail1" class="form-label">Địa chỉ</label>
                         <input type="text" name="address" class="form-control" value="{{$profileData->address}}" id="exampleInputUsername1" autocomplete="off">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Photo</label>
+                        <label for="exampleInputEmail1" class="form-label">Ảnh</label>
                         <input class="form-control" name="photo" type="file" id="image">                    
                     </div>
 
@@ -99,7 +99,7 @@
                    
 
                   
-                    <button type="submit" class="btn btn-primary me-2">Save Changes</button>
+                    <button type="submit" class="btn btn-primary me-2">Lưu</button>
                 </form>
   
                 </div>

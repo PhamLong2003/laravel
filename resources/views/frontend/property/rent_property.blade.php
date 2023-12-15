@@ -28,64 +28,78 @@
                         <div class="default-sidebar property-sidebar">
                             <div class="filter-widget sidebar-widget">
                                 <div class="widget-title">
-                                    <h5>Property</h5>
+                                    <h5>Lọc tài sản</h5>
                                 </div>
+@php
+    $states = App\Models\State::latest()->get();
+    $ptypes = App\Models\PropertyType::latest()->get();
+    
+@endphp
+
+
+
+<form action="{{ route('all.property.search') }}" method="post" class="search-form">
+    @csrf
+
                                 <div class="widget-content">
                                     <div class="select-box">
-                                        <select class="wide">
-                                           <option data-display="All Type">All Type</option>
-                                           <option value="1">Villa</option>
-                                           <option value="2">Commercial</option>
-                                           <option value="3">Residential</option>
+                                        <select name="property_status" class="wide">
+                                           <option data-display="All Type">Tất cả trạng thái</option>
+                                           <option value="Cho Thuê">Cho Thuê</option>
+                                           <option value="Rao Bán">Rao Bán</option>
                                         </select>
                                     </div>
                                     <div class="select-box">
-                                        <select class="wide">
-                                           <option data-display="Select Location">Select Location</option>
-                                           <option value="1">New York</option>
-                                           <option value="2">California</option>
-                                           <option value="3">London</option>
-                                           <option value="4">Maxico</option>
+                                        <select name="ptype_id" class="wide">
+                                           <option data-display="" selected="" disabled="">Chọn loại tài sản</option>
+
+                                           @foreach ($ptypes as $type)
+                                                           <option value="{{ $type->type_name }}">{{ $type->type_name }}</option>
+                                                                
+                                           @endforeach
+
                                         </select>
                                     </div>
                                     <div class="select-box">
-                                        <select class="wide">
-                                           <option data-display="This Area Only">This Area Only</option>
-                                           <option value="1">New York</option>
-                                           <option value="2">California</option>
-                                           <option value="3">London</option>
-                                           <option value="4">Maxico</option>
+                                        <select name="state" class="wide">
+                                           <option data-display="" selected="" disabled="">Chọn thành phố</option>
+                                           @foreach ($states as $state)
+                                           <option value="{{ $state->state_name }}">{{ $state->state_name }}</option>
+                                                
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="select-box">
-                                        <select class="wide">
-                                           <option data-display="All Type">Max Rooms</option>
-                                           <option value="1">2+ Rooms</option>
-                                           <option value="2">3+ Rooms</option>
-                                           <option value="3">4+ Rooms</option>
-                                           <option value="4">5+ Rooms</option>
+                                        <select name="bedrooms" class="wide">
+                                           <option data-display="">Chọn phòng ngủ</option>
+                                           <option value="1">1 Phòng</option>
+                                           <option value="2">2 Phòng</option>
+                                           <option value="3">3 Phòng</option>
+                                           <option value="4">4 Phòng</option>
+                                           <option value="5">5 Phòng</option>
                                         </select>
                                     </div>
                                     <div class="select-box">
-                                        <select class="wide">
-                                           <option data-display="Most Popular">Most Popular</option>
-                                           <option value="1">Villa</option>
-                                           <option value="2">Commercial</option>
-                                           <option value="3">Residential</option>
+                                        <select name="bathrooms" class="wide">
+                                           <option data-display="Most Popular">Chọn phòng tắm</option>
+                                           <option value="1">1 Phòng</option>
+                                           <option value="2">2 Phòng</option>
+                                           <option value="3">3 Phòng</option>
+                                           <option value="4">4 Phòng</option>
+                                           <option value="5">5 Phòng</option>
                                         </select>
                                     </div>
-                                    <div class="select-box">
-                                        <select class="wide">
-                                           <option data-display="All Type">Select Floor</option>
-                                           <option value="1">2x Floor</option>
-                                           <option value="2">3x Floor</option>
-                                           <option value="3">4x Floor</option>
-                                        </select>
-                                    </div>
+                                  
                                     <div class="filter-btn">
-                                        <button type="submit" class="theme-btn btn-one"><i class="fas fa-filter"></i>&nbsp;Filter</button>
+                                        <button type="submit" class="theme-btn btn-one"><i class="fas fa-filter"></i>&nbsp;Lọc</button>
                                     </div>
                                 </div>
+
+</form>
+
+
+
+
                             </div>
                             <div class="price-filter sidebar-widget">
                                 <div class="widget-title">
@@ -133,20 +147,20 @@
                                                 <figure class="image"><img src="{{ asset('storage/image/'.$item->property_thambnail)}}" alt="" style="width:100%; height:350px;" ></figure>
                                                 <div class="batch"><i class="icon-11"></i></div>
                                                     @if ($item->featured == 1)
-                                                <span class="category">Featured</span>
+                                                <span class="category">Đặc sắc</span>
                                                     @else
-                                                <span class="category">New</span>
+                                                <span class="category">Mới</span>
                                                     @endif
                         
                         
                         
-                                                <div class="buy-btn"><a href="{{ url('property/details/'.$item->id. '/'.$item->propety_slug) }}">For {{ $item->property_status }}</a></div>
+                                                <div class="buy-btn"><a href="{{ url('property/details/'.$item->id. '/'.$item->propety_slug) }}">{{ $item->property_status }}</a></div>
                                             </div>
                                             <div class="lower-content">
                                                 <div class="title-text"><h4><a href="{{ url('property/details/'.$item->id. '/'.$item->propety_slug) }}">{{ $item->property_name }}</a></h4></div>
                                                 <div class="price-box clearfix">
                                                     <div class="price-info pull-left">
-                                                        <h6>Start From</h6>
+                                                        <h6>Giá khởi điểm</h6>
                                                         <h4>{{ $item->lowest_price }}</h4>
                                                     </div>
                                                     @if($item->agent_id == Null)
@@ -170,12 +184,12 @@
                                                 </div>
                                                 <p>{{ $item->short_descp }}</p>
                                                 <ul class="more-details clearfix">
-                                                    <li><i class="icon-14"></i>{{ $item->bedrooms }} Beds</li>
-                                                    <li><i class="icon-15"></i>{{ $item->bathrooms }} Baths</li>
+                                                    <li><i class="icon-14"></i>{{ $item->bedrooms }} Phòng ngủ</li>
+                                                    <li><i class="icon-15"></i>{{ $item->bathrooms }} Phòng tắm</li>
                                                     <li><i class="icon-16"></i>{{ $item->property_size }} m2</li>
                                                 </ul>
                                                 <div class="other-info-box clearfix">
-                                                    <div class="btn-box pull-left"><a href="{{ url('property/details/'.$item->id. '/'.$item->propety_slug) }}" class="theme-btn btn-two">See Details</a></div>
+                                                    <div class="btn-box pull-left"><a href="{{ url('property/details/'.$item->id. '/'.$item->propety_slug) }}" class="theme-btn btn-two">Xem chi tiết</a></div>
                                                     <ul class="other-option pull-right clearfix">
                                                         <li><a aria-label="Compare" class="action-btn" id="{{ $item->id }}" onclick="addToCompare(this.id)"><i class="icon-12"></i></a></li>
                                                         <li><a aria-label="Add to WishList" class="action-btn" id="{{ $item->id }}" onclick="addToWishList(this.id)" ><i class="icon-13"></i></a></li>
