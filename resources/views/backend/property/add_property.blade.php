@@ -20,14 +20,14 @@
                                 <div class="col-sm-6">
                                     <div class="form-group mb-3">
                                         <label class="form-label">Tên tài sản</label>
-                                        <input type="text" name="property_name" class="form-control" placeholder="Enter first name">
+                                        <input type="text" name="property_name" class="form-control" placeholder="Nhập tên tài sản">
                                     </div>
                                 </div><!-- Col -->
                                 <div class="col-sm-6">
                                     <div class="form-group mb-3">
                                         <label class="form-label">Trạng thái tài sản</label>
                                         <select name="property_status" class="form-select" id="exampleFormControlSelect1">
-											<option selected="" disabled="">Chon trạng thái</option>
+											<option selected="" disabled="">Chọn trạng thái</option>
 											<option value="Cho Thuê">Cho thuê</option>
 											<option value="Rao Bán">Rao bán</option>
 										

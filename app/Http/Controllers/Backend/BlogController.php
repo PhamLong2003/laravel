@@ -10,6 +10,8 @@ use Carbon\Carbon;
 use App\Models\User;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class BlogController extends Controller
@@ -69,9 +71,116 @@ class BlogController extends Controller
 
     public function AllPost() {
         $post = BlogPost::latest()->get();
-        return view('backend.post.all_post');
+        return view('backend.post.all_post',compact('post'));
 
     }//end method
+
+    public function AddPost() {
+        $blogcat = BlogCategory::latest()->get();
+        return view('backend.post.add_post',compact('blogcat'));
+    }//end method
+
+    public function StorePost(Request $request) {
+
+        if($request->file('post_image')) {
+            $image_p = $request->file('post_image')->getClientOriginalName();
+            $path = $request->file('post_image')->storeAs('public/post', $image_p);
+        }
+
+        BlogPost::insert([
+            'blogcat_id' => $request->blogcat_id,
+            'user_id' => Auth::user()->id,
+            'post_title' => $request->post_title,
+            'post_slug' => strtolower(str_replace(' ','-',$request->post_title)),
+            'short_descp' => $request->short_descp,
+            'long_descp' => $request->long_descp,
+            'post_tags' => $request->post_tags,
+            'post_image' => $image_p,
+            'created_at' => Carbon::now(),
+
+        ]);
+
+        $notification = array(
+            'message' => 'Thêm bài viết thành công',
+            'alert-type' => 'success'
+      );
+
+      return redirect()->route('all.post')->with($notification);
+
+    }//end method
+
+    public function EditPost($id) {
+        $blogcat = BlogCategory::latest()->get();
+        $post = BlogPost::findOrFail($id);
+        return view('backend.post.edit_post',compact('post','blogcat'));
+
+
+    }
+    public function UpdatePost(Request $request) {
+        $post_id = $request->id;
+
+        if($request->file('post_image')) {
+            if($request->file('post_image')) {
+                $image = $request->file('post_image')->getClientOriginalName();
+                $path = $request->file('post_image')->storeAs('public/post', $image);
+            }
+    
+            BlogPost::findOrFail($post_id)->update([
+            'blogcat_id' => $request->blogcat_id,
+            'user_id' => Auth::user()->id,
+            'post_title' => $request->post_title,
+            'post_slug' => strtolower(str_replace(' ','-',$request->post_title)),
+            'short_descp' => $request->short_descp,
+            'long_descp' => $request->long_descp,
+            'post_tags' => $request->post_tags,
+            'post_image' => $image,
+            'created_at' => Carbon::now(),
+            ]);
+    
+            $notification = array(
+                'message' => 'Sửa bài viết thành công',
+                'alert-type' => 'success'
+          );
+    
+          return redirect()->route('all.post')->with($notification);
+
+        }else{
+           
+            BlogPost::findOrFail($post_id)->update([
+                'blogcat_id' => $request->blogcat_id,
+                'user_id' => Auth::user()->id,
+                'post_title' => $request->post_title,
+                'post_slug' => strtolower(str_replace(' ','-',$request->post_title)),
+                'short_descp' => $request->short_descp,
+                'long_descp' => $request->long_descp,
+                'post_tags' => $request->post_tags,
+                'created_at' => Carbon::now(),
+                ]);
+        
+                $notification = array(
+                    'message' => 'Sửa bài viết thành công',
+                    'alert-type' => 'success'
+              );
+        
+              return redirect()->route('all.post')->with($notification);
+            }
+
+    }//end method
+
+    public function DeletePost($id) {
+        $post = BlogPost::findOrFail($id);
+
+        Storage::delete('storage/post'.$post->post_image);
+        BlogPost::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Xóa bài viết thành công',
+            'alert-type' => 'success'
+      );
+
+      return redirect()->back()->with($notification);
+    }//end method
+
 
 
 }
