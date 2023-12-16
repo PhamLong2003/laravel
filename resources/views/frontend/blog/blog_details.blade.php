@@ -118,28 +118,29 @@
                             <div class="group-title">
                                 <h4>Leave a Comment</h4>
                             </div>
-                            <form action="http://azim.commonsupport.com/Realshed/blog-details.html" method="post" class="comment-form default-form">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                        <input type="text" name="name" placeholder="Your name" required="">
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                        <input type="email" name="email" placeholder="Your email" required>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                        <input type="text" name="phone" placeholder="Phone number" required="">
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                        <input type="text" name="subject" placeholder="Subject" required="">
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                                        <textarea name="message" placeholder="Your message"></textarea>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
-                                        <button type="submit" class="theme-btn btn-one">Submit Now</button>
-                                    </div>
-                                </div>
-                            </form>
+    @auth
+
+        <form action="{{ route('store.comment') }}" method="post" class="comment-form default-form">
+            @csrf
+                <input type="hidden" name="post_id" value="{{ $blog->id }}">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                    <input type="text" name="subject" placeholder="Subject" required="">
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                    <textarea name="message" placeholder="Your message"></textarea>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
+                    <button type="submit" class="theme-btn btn-one">Submit Now</button>
+                </div>
+            </div>
+        </form>
+    @else
+<p><b>Vui lòng đăng nhập để bình luận <a href="{{ route('login') }}">  Đăng nhập</a></b></p>
+    @endauth
+
+
+
                         </div>
                     </div>
                 </div>

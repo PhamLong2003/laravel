@@ -8,6 +8,7 @@ use App\Models\BlogCategory;
 use App\Models\BlogPost;
 use Carbon\Carbon;
 use App\Models\User;
+use App\Models\Comment;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
@@ -208,6 +209,27 @@ class BlogController extends Controller
         $dpost = BlogPost::latest()->limit(3)->get();
 
         return view('frontend.blog.blog_list',compact('blog','dpost','bcategory'));
+    }//end method
+
+    public function StoreComment(Request $request) {
+        $pid = $request->post_id;
+
+        Comment::insert([
+            'user_id' => Auth::user()->id,
+            'post_id' => $pid,
+            'parent_id' => null,
+            'subject' => $request->subject,
+            'message' => $request->message,
+            'created_at' => Carbon::now()
+
+        ]);
+
+        $notification = array(
+            'message' => 'Bình luận viết thành công',
+            'alert-type' => 'success'
+      );
+
+      return redirect()->back()->with($notification);
     }//end method
 
 
