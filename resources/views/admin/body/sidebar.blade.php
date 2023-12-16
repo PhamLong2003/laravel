@@ -178,7 +178,7 @@
                 <a href="{{ route('all.post') }}" class="nav-link">Tất cả bài viết</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('all.post') }}" class="nav-link">Thêm bài viết</a>
+                    <a href="{{ route('add.post') }}" class="nav-link">Thêm bài viết</a>
                     </li>
             </ul>
             </div>

@@ -361,3 +361,8 @@
 
          //  all rent search section
          Route::post('/all/property/search' , [IndexController::class, 'AllPropertySearch'])->name('all.property.search');
+
+        //  blog details route
+        Route::get('/blog/details/{slug}' , [BlogController::class, 'BlogDetails']);
+        Route::get('/blog/cat/list/{id}' , [BlogController::class, 'BlogCatList']);
+        Route::get('/blog/list' , [BlogController::class, 'BlogList'])->name('blog.list');

@@ -26,7 +26,7 @@
                         <div class="col-sm-6">
                             <div class="form-group mb-3">
                                 <label class="form-label">Tên bài viết</label>
-                                <input type="text" name="post_title" class="form-control" placeholder="Nhập tên bài viết">
+                                <input type="text" name="post_title" class="form-control" placeholder="Nhập tiêu đề bài viết">
                             </div>
                         </div><!-- Col -->
                         <div class="col-sm-6">

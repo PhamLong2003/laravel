@@ -69,7 +69,7 @@
 
                                 <li><a style="font-weight:600;" href="{{ url('/') }}"><span>Đại lý</span></a></li>
 
-                                <li><a style="font-weight:600;" href="{{ url('/') }}"><span>Bài viết</span></a></li>
+                                <li><a style="font-weight:600;" href="{{ route('blog.list') }}"><span>Bài viết</span></a></li>
                               
                                 <li><a style="font-weight:600;" href="contact.html"><span>Contact</span></a></li>   
 

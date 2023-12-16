@@ -8,8 +8,8 @@
     <div class="pattern-layer" style="background-image: url(assets/images/shape/shape-1.png);"></div>
     <div class="auto-container">
         <div class="sec-title">
-            <h5>Testimonials</h5>
-            <h2>What They Say About Us</h2>
+            <h5>Lời chứng thực</h5>
+            <h2>Họ nói gì về chúng tôi</h2>
         </div>
         <div class="single-item-carousel owl-carousel owl-theme owl-dots-none nav-style-one">
 

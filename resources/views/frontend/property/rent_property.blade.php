@@ -44,7 +44,7 @@
                                 <div class="widget-content">
                                     <div class="select-box">
                                         <select name="property_status" class="wide">
-                                           <option data-display="All Type">Tất cả trạng thái</option>
+                                           <option data-display="">Tất cả trạng thái</option>
                                            <option value="Cho Thuê">Cho Thuê</option>
                                            <option value="Rao Bán">Rao Bán</option>
                                         </select>
@@ -81,7 +81,7 @@
                                     </div>
                                     <div class="select-box">
                                         <select name="bathrooms" class="wide">
-                                           <option data-display="Most Popular">Chọn phòng tắm</option>
+                                           <option data-display="">Chọn phòng tắm</option>
                                            <option value="1">1 Phòng</option>
                                            <option value="2">2 Phòng</option>
                                            <option value="3">3 Phòng</option>
