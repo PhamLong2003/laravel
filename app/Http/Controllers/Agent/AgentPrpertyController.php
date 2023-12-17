@@ -20,6 +20,7 @@ use App\Models\PackagePlan;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\PropertyMessage;
 use App\Models\State;
+use App\Models\Schedule;
 
 
 
@@ -506,6 +507,15 @@ public function AgentDetailsProperty($id) {
           return view('agent.message.message_details',compact('usermsg','msgdetails'));
 
      }//end method
+
+     public function AgentScheduleMessage() {
+       
+           $id = Auth::user()->id;
+           $usermsg = Schedule::where('agent_id',$id)->get();
+
+           return view('agent.schedule.schedule_request',compact('usermsg'));
+     }//end method
+
 
 
 

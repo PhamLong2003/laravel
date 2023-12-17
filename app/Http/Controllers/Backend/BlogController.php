@@ -225,12 +225,47 @@ class BlogController extends Controller
         ]);
 
         $notification = array(
-            'message' => 'Bình luận viết thành công',
+            'message' => 'Bình luận bài viết thành công',
             'alert-type' => 'success'
       );
 
       return redirect()->back()->with($notification);
     }//end method
 
+    public function AdminBlogComment() {
+
+        $comment = Comment::where('parent_id',null)->latest()->get();
+        return view('backend.comment.comment_all',compact('comment'));
+
+    }//end method
+    public function AdminCommentReply($id) {
+        $comment = comment::where('id',$id)->first();
+        return view('backend.comment.reply_comment',compact('comment'));
+    }//end method
+
+    public function ReplyMessage(Request $request){
+        $id = $request->id;
+        $user_id = $request->user_id;
+        $post_id = $request->post_id;
+
+        
+        Comment::insert([
+            'user_id' => $user_id,
+            'post_id' => $post_id,
+            'parent_id' => $id,
+            'subject' => $request->subject,
+            'message' => $request->message,
+            'created_at' => Carbon::now()
+
+        ]);
+
+        $notification = array(
+            'message' => 'Trả lời bình luận thành công',
+            'alert-type' => 'success'
+      );
+
+      return redirect()->back()->with($notification);
+
+    }//end method
 
 }
