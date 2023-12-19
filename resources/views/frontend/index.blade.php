@@ -1,6 +1,10 @@
 @extends('frontend.frontend_dashboard')
 @section('main')
 
+@section('title')
+    Phạm Long Bất Động Sản
+@endsection
+
 
 
 {{-- bannner setion --}}

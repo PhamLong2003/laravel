@@ -1,3 +1,9 @@
+@php
+    $setting = App\Models\SiteSetting::find(1);
+    $blog = App\Models\BlogPost::latest()->limit(2)->get();
+    
+@endphp
+
 <footer class="main-footer">
     <div class="footer-top bg-color-2">
         <div class="auto-container">
@@ -33,32 +39,32 @@
                 <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
                     <div class="footer-widget post-widget">
                         <div class="widget-title">
-                            <h3>Top News</h3>
+                            <h3>Tin mới</h3>
                         </div>
+                        @foreach ($blog as $item)
+                            
+                       
                         <div class="post-inner">
                             <div class="post">
-                                <figure class="post-thumb"><a href="blog-details.html"><img src="assets/images/resource/footer-post-1.jpg" alt=""></a></figure>
-                                <h5><a href="blog-details.html">The Added Value Social Worker</a></h5>
-                                <p>Mar 25, 2020</p>
+                                <figure class="post-thumb"><a href="{{ url('blog/details/'.$item->post_slug) }}"><img src="{{ asset('storage/post/'.$item->post_image) }}" style="width:100%; height:80px;" alt=""></a></figure>
+                                <h5><a href="{{ url('blog/details/'.$item->post_slug) }}">{{ $item->post_title }}</a></h5>
+                                <p>{{ $item->created_at }}</p>
                             </div>
-                            <div class="post">
-                                <figure class="post-thumb"><a href="blog-details.html"><img src="assets/images/resource/footer-post-2.jpg" alt=""></a></figure>
-                                <h5><a href="blog-details.html">Ways to Increase Trust</a></h5>
-                                <p>Mar 24, 2020</p>
-                            </div>
+                           
                         </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
                     <div class="footer-widget contact-widget">
                         <div class="widget-title">
-                            <h3>Contacts</h3>
+                            <h3>Liên hệ</h3>
                         </div>
                         <div class="widget-content">
                             <ul class="info-list clearfix">
-                                <li><i class="fas fa-map-marker-alt"></i>Flat 20, Reynolds Neck, North Helenaville, FV77 8WS</li>
-                                <li><i class="fas fa-microphone"></i><a href="tel:23055873407">+2(305) 587-3407</a></li>
-                                <li><i class="fas fa-envelope"></i><a href="mailto:info@example.com">info@example.com</a></li>
+                                <li><i class="fas fa-map-marker-alt"></i>{{ $setting->company_address }}</li>
+                                <li><i class="fas fa-microphone"></i><a href="tel:0395940171">{{ $setting->support_phone }}</a></li>
+                                <li><i class="fas fa-envelope"></i><a href="long8bvv@gmail.com">{{ $setting->email }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -71,7 +77,7 @@
             <div class="inner-box clearfix">
                 <figure class="footer-logo"><a href="index.html"><img src="assets/images/footer-logo.png" alt=""></a></figure>
                 <div class="copyright pull-left">
-                    <p><a href="index.html">Realshed</a> &copy; 2021 All Right Reserved</p>
+                    <p><a href="index.html">{{ $setting->copyright }}</a> &copy; </p>
                 </div>
                 <ul class="footer-nav pull-right clearfix">
                     <li><a href="index.html">Terms of Service</a></li>

@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-<title>Realshed - HTML 5 Template Preview</title>
+<title>  @yield('title')</title>
 
 <!-- Fav Icon -->
 <link rel="icon" href="{{asset('frontend/assets/images/favicon.ico')}}" type="image/x-icon">
@@ -348,7 +348,7 @@
                     </tr>    
                     <tr>
                         <td>
-                            <p>Thành phố</p>
+                            <p>Quận/Huyện</p>
                         </td>
                         <td>
                             <p>${value.property.city}</p>

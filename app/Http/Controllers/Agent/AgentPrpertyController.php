@@ -21,6 +21,8 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\PropertyMessage;
 use App\Models\State;
 use App\Models\Schedule;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ScheduleMail;
 
 
 
@@ -515,6 +517,44 @@ public function AgentDetailsProperty($id) {
 
            return view('agent.schedule.schedule_request',compact('usermsg'));
      }//end method
+
+     public function AgentDetailssChedule($id){
+          $schedule = Schedule::findOrFail($id);
+
+          return view('agent.schedule.schedule_details',compact('schedule'));
+
+     }//end method
+
+     public function AgentUpdateSchedule(Request $request) {
+          $sid = $request->id;
+          
+          Schedule::findOrFail($sid)->update([
+               'status' => '1',
+
+          ]);
+
+          //// Start send email
+          $sendemail = Schedule::findOrFail($sid);
+
+          $data = [
+               'tour_date' => $sendemail->tour_date,
+               'tour_time' => $sendemail->tour_time,
+          ];
+
+          Mail::to($request->email)->send(new ScheduleMail($data));
+
+
+
+          //// End send email
+          $notification = array(
+               'message' => 'Bạn đã xác nhận chuyến tham quan',
+               'alert-type' => 'success'
+          );
+          return redirect()->route('agent.schedule.message')->with($notification);
+
+     }//end method
+
+
 
 
 

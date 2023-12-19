@@ -1,5 +1,10 @@
 @extends('frontend.frontend_dashboard')
 @section('main')
+
+
+@section('title')
+Danh sách tài sản rao bán
+@endsection
       
         <!--Page Title-->
         <section class="page-title-two bg-color-1 centred">
