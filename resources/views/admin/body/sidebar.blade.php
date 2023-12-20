@@ -206,24 +206,37 @@
             </a>
         </li>
 
+        <li class="nav-item nav-category">Quyền quản lý</li>
 
-        <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#advancedUI" role="button" aria-expanded="false" aria-controls="advancedUI">
-            <i class="link-icon" data-feather="anchor"></i>
-            <span class="link-title">Advanced UI</span>
-            <i class="link-arrow" data-feather="chevron-down"></i>
-            </a>
-            <div class="collapse" id="advancedUI">
-            <ul class="nav sub-menu">
-                <li class="nav-item">
-                <a href="pages/advanced-ui/cropper.html" class="nav-link">Cropper</a>
-                </li>
-                <li class="nav-item">
-                <a href="pages/advanced-ui/owl-carousel.html" class="nav-link">Owl carousel</a>
-                </li>
-            </ul>
-            </div>
-        </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#advancedUI" role="button" aria-expanded="false" aria-controls="advancedUI">
+                <i class="link-icon" data-feather="anchor"></i>
+                <span class="link-title">Quản lý </span>
+                <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="advancedUI">
+                <ul class="nav sub-menu">
+                    <li class="nav-item">
+                    <a href="{{ route('all.permission') }}" class="nav-link">Danh sách</a>
+                    </li>
+                    <li class="nav-item">
+                    <a href="{{ route('all.roles') }}" class="nav-link">Thêm quản trị</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('add.roles.permission') }}" class="nav-link">Cấp quyền quản trị</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('all.roles.permission') }}" class="nav-link">Danh sách quyền quản trị</a>
+                    </li>
+
+
+
+
+
+                </ul>
+                </div>
+            </li>
        
     
     
