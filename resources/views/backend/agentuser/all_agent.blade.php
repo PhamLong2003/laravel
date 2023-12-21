@@ -25,7 +25,7 @@
           <tr>
             <th>Sl</th>
             <th>Ảnh</th>
-            <th>Tên tài sản</th>
+            <th>Tên tài khoản</th>
             <th>Vai trò</th>
             <th>Trạng thái</th>
             <th>Thay đổi</th>

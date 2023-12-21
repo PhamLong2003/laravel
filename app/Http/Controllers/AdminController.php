@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 
 
@@ -182,4 +184,86 @@ class AdminController extends Controller
         return response()->json(['success'=>'Thay đổi trạng thái thành công']);
 
     }//end method
+
+    //////////Admin user all method//////////////////
+
+    public function AllAdmin() {
+        $alladmin = User::where('role','admin')->get();
+        return view('backend.pages.admin.all_admin',compact('alladmin'));
+    }//end method
+
+    public function AddAdmin() {
+        $roles = Role::all();
+        return view('backend.pages.admin.add_admin',compact('roles'));
+    }//end method
+
+
+    public function StoreAdmin(Request $request) {
+        $user = new User();
+        $user->username = $request->username;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->password = Hash::make($request->password);
+        $user->role = 'admin';
+        $user->status = 'active';
+        $user->save();
+
+        if($request->model_has_roles){
+            $user->assignRole($request->model_has_roles);
+        }
+        $notification = array(
+            'message' => 'Tạo Tài khoản quản trị thành công',
+            'alert-type' => 'success'
+        );
+         return redirect()->route('all.admin')->with($notification);
+
+    }//end method
+
+    public function EditAdmin($id) {
+        $user = User::findOrFail($id);
+        $roles = Role::all();
+        return view('backend.pages.admin.edit_admin',compact('user','roles'));
+
+    }//end method
+
+    public function UpdateAdmin(Request $request, $id) {
+        $user = User::findOrFail($id);
+        $user->username = $request->username;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->role = 'admin';
+        $user->status = 'active';
+        $user->save();
+
+        $user->roles()->detach();
+
+        if($request->roles){
+            $user->assignRole($request->roles);
+        }
+        $notification = array(
+            'message' => 'Cập nhật Tài khoản quản trị thành công',
+            'alert-type' => 'success'
+        );
+         return redirect()->route('all.admin')->with($notification);
+
+    }//end method
+
+    public function DeleteAdmin($id) {
+        $user = User::findOrFail($id);
+        if(!is_null($user)){
+            $user->delete();
+        }
+        $notification = array(
+            'message' => 'Xóa Tài khoản quản trị thành công',
+            'alert-type' => 'success'
+        );
+         return redirect()->back()->with($notification);
+
+    }
+
+
 }

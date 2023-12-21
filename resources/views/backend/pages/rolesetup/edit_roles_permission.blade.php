@@ -29,7 +29,7 @@
 
                     <div class="form-group mb-3">
                         <label for="exampleInputEmail1" class="form-label">Tên quyền</label>
-                       <h3>{{ $role->name }}</h3>
+                      <h3>{{ $role->name }}</h3>
                     </div>
 
                     <div class="form-check mb-2">
@@ -41,25 +41,29 @@
     
                     <div class="row">
                         <div class="col-3">
-@php
-$permissions = App\Models\User::getpermissionByGroupName($group->group_name);
-@endphp
 
+@php
+$permissions = App\Models\User::getpermissionByGroupName($group->group_name)
+@endphp
                             <div class="form-check mb-2">
-         <input type="checkbox" name="" id="checkDefault" class="form-check-input" {{ App\Models\User::roleHasPermissions($role,$permissions) ? 'checked' : '' }}>
-                                <label for="checkDefault" class="form-check-label">{{ $group->group_name }}</label>
+                                <input type="checkbox" name="" id="checkDefault" class="form-check-input" {{App\Models\User::roleHasPermission($role,$permissions) ? 'checked' : ''}}>
+                                <label for="checkDefault" class="form-check-label">
+                                    {{ $group->group_name }}
+                                </label>
                             </div>
                         </div>
 
 
                         <div class="col-9">
-                       
+                         
 
                             @foreach ($permissions as $permission)
                                 
                             <div class="form-check mb-2">
                                 <input type="checkbox" id="checkDefault{{ $permission->id }}" value="{{ $permission->id }}" class="form-check-input" name="permission[]" {{ $role->hasPermissionTo($permission->name) ? 'checked' : '' }}>
-                                <label for="checkDefault{{ $permission->id }}" class="form-check-label">{{ $permission->name }}</label>
+                                <label for="checkDefault{{ $permission->id }}" class="form-check-label">
+                                    {{ $permission->name }}
+                                </label>
                             </div>
 
                             @endforeach

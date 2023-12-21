@@ -98,13 +98,11 @@ class RoleController extends Controller
     }//end method
 
 
-    /// role all method
+    /////////////////////////// role all method///////////////////////////////////////////////////////
 
     public function AllRoles() {
         $roles = Role::all();
         return view('backend.pages.roles.all_roles',compact('roles'));
-
-
 
     }//end method
 
@@ -160,7 +158,10 @@ class RoleController extends Controller
 
     }//end method
 
-    ///////////////////////////  add role permission
+
+
+
+    ///////////////////////////  add role permission//////////////////
 
     public function AddRolesPermission() {
         $roles = Role::all();
@@ -210,10 +211,11 @@ class RoleController extends Controller
     public function AdminRolesUpdate(Request $request, $id){
         $role = Role::findOrFail($id);
         $permissions = $request->permission;
-
-        if(!empty($permissions)) {
+        
+        if (!empty($permissions)){
             $role->syncPermissions($permissions);
         }
+        
 
         $notification = array(
             'message' => 'Cập nhật quyền thành công',
@@ -224,6 +226,19 @@ class RoleController extends Controller
 
 
     }//end method
+    public function AdminRolesDelete($id) {
+        $role = Role::findOrFail($id);
+        if(!is_null($role)){
+            $role->delete();
+        }
+        $notification = array(
+            'message' => 'Xóa vai trò công',
+            'alert-type' => 'success'
+
+      );
+      return redirect()->back()->with($notification);
+
+    }
 
 
 

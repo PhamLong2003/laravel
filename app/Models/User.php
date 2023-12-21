@@ -12,7 +12,8 @@ use DB;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles;
+    use HasApiTokens, HasFactory, Notifiable;
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -46,11 +47,13 @@ class User extends Authenticatable
     }//end method
 
     public static function getpermissionByGroupName($group_name){
-        $permissions = DB::table('permissions')->select('name','id')->where('group_name',$group_name)->get();
+        $permissions = DB::table('permissions')
+                        ->select('name','id')
+                        ->where('group_name',$group_name)->get();
         return $permissions;
     }//end method
 
-    public static function roleHasPermissions($role,$permissions) {
+    public static function roleHasPermission($role,$permissions) {
         $hasPermission = true;
         foreach($permissions as $permission ) {
             if(!$role->hasPermissionTo($permission->name)){
@@ -59,7 +62,8 @@ class User extends Authenticatable
             return $hasPermission;
         }
 
-    }
+    }//end method
+
 
 
 

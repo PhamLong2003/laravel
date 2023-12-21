@@ -21,6 +21,10 @@
             </a>
         </li>
         <li class="nav-item nav-category">Bất động sản</li>
+
+        @if (Auth::user()->can('type.menu'))
+            
+       
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button" aria-expanded="false" aria-controls="emails">
                 <i class="link-icon" data-feather="mail"></i>
@@ -29,16 +33,21 @@
                 </a>
                 <div class="collapse" id="emails">
                 <ul class="nav sub-menu">
+                    @if (Auth::user()->can('all.type'))
                     <li class="nav-item">
                     <a href="{{route('all.type')}}" class="nav-link">Danh sách loại</a>
                     </li>
+                    @endif
+                    @if (Auth::user()->can('add.type'))
                     <li class="nav-item">
                     <a href="{{route('add.type')}}" class="nav-link">Thêm loại tài sản</a>
                     </li>
+                    @endif
                     
                 </ul>
                 </div>
             </li>
+        @endif
 
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#state" role="button" aria-expanded="false" aria-controls="emails">
@@ -220,7 +229,7 @@
                     <a href="{{ route('all.permission') }}" class="nav-link">Danh sách</a>
                     </li>
                     <li class="nav-item">
-                    <a href="{{ route('all.roles') }}" class="nav-link">Thêm quản trị</a>
+                    <a href="{{ route('all.roles') }}" class="nav-link">Danh sách quản trị</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('add.roles.permission') }}" class="nav-link">Cấp quyền quản trị</a>
@@ -230,9 +239,27 @@
                         <a href="{{ route('all.roles.permission') }}" class="nav-link">Danh sách quyền quản trị</a>
                     </li>
 
+                </ul>
+                </div>
+            </li>
 
+       
 
-
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#adminuser" role="button" aria-expanded="false" aria-controls="adminuser">
+                <i class="link-icon" data-feather="anchor"></i>
+                <span class="link-title">Quản lý tài khoản quản trị </span>
+                <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="adminuser">
+                <ul class="nav sub-menu">
+                    <li class="nav-item">
+                    <a href="{{ route('all.admin') }}" class="nav-link">Tất cả tài khoản</a>
+                    </li>
+                    <li class="nav-item">
+                    <a href="{{ route('add.admin') }}" class="nav-link">Thêm tài khoản</a>
+                    </li>
+                   
 
                 </ul>
                 </div>
