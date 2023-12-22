@@ -3,7 +3,7 @@
 
 
 @section('title')
-Lên lịch tham quan
+Nhắn tin
 @endsection
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -15,10 +15,10 @@ Lên lịch tham quan
     </div>
     <div class="auto-container">
         <div class="content-box clearfix">
-            <h1>Lên lịch tham quan</h1>
+            <h1>Nhắn tin riêng</h1>
             <ul class="bread-crumb clearfix">
                 <li><a href="{{ url('/dashboard') }}">Tổng quan</a></li>
-                <li>Lên lịch tham quan</li>
+                <li>Nhắn tin</li>
             </ul>
         </div>
     </div>
@@ -58,7 +58,7 @@ Lên lịch tham quan
       <section class="property-page-section property-list">
         <div class="auto-container">
             <div class="row clearfix">
-                <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
+                <div class="col-lg-3 col-md-3 col-sm-3 sidebar-side">
                     <div class="default-sidebar property-sidebar">
                         <div class="filter-widget sidebar-widget">
     
@@ -111,44 +111,21 @@ Lên lịch tham quan
                      
                     </div>
                 </div>
-                <div class="col-lg-8 col-md-12 col-sm-12 content-side">
+                <div class="col-lg-9 col-md-9 col-sm-9 content-side">
                         <div class="blog-details-content">
                             <div class="news-block-one">
                                 <div class="inner-box">
                                     <div class="lower-content">
-                                        <table class="table table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">#</th>
-                                                    <th scope="col">Tên tài sản</th>
-                                                    <th scope="col">Ngày</th>
-                                                    <th scope="col">Giờ</th>
-                                                    <th scope="col">Trạng thái</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($srequest as $key => $item)
-                                                    
-                                                <tr>
-                                                  <th scope="row">{{ $key+1 }}</th>
-                                                  <td>{{ $item['property']['property_name'] }}</td>
-                                                  <td>{{ $item->tour_date }}</td>
-                                                  <td>{{ $item->tour_name }}</td>
-                                                  <td>
-                                                    @if ($item->status == 1)
-                                                    <span class="badge rounded-pill bg-success">Đã xác nhận</span>
+                                        <h3>Nhắn tin</h3>
 
-                                                    @else
-                                                    <span class="badge rounded-pill bg-danger">Vui lòng đợi</span>
-                                                        
-                                                    @endif
 
-                                                  </td>
-                                                </tr>
-                                                @endforeach
+                                        <div id="app">
+                                            <chat-message></chat-message>
+                                        </div>
 
-                                            </tbody>
-                                        </table>
+
+
+
                                     </div>
                                 </div>
     

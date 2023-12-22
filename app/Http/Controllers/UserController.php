@@ -110,4 +110,15 @@ class UserController extends Controller
 
 
     }//end method
+
+    public function LiveChat() {
+        $id = Auth::user()->id;
+        $userData = User::find($id);
+        return view('frontend.dashboard.live_chat', compact('userData'));
+
+
+
+    }//end method
+
+
 }

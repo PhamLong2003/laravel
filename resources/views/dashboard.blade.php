@@ -59,6 +59,9 @@
                     <li><a class="text-muted tx-11 fw-bolder mb-0 text-uppercase" href="{{ route('user.wishlist')}}"><i class="fa fa-indent" aria-hidden="true"></i> Danh sách yêu thích</a></li>
                   </div>
                   <div class="mt-3">
+                    <li><a class="text-muted tx-11 fw-bolder mb-0 text-uppercase" href="{{ route('live.chat')}}"><i class="fa fa-indent" aria-hidden="true"></i> Nhắn tin</a></li>
+                  </div>
+                  <div class="mt-3">
                        <li><a class="text-muted tx-11 fw-bolder mb-0 text-uppercase" href="{{ route('user.change.password')}}"><i class="fa fa-key" aria-hidden="true"></i> Bảo mật</a></li>
                   </div>
                   <div class="mt-3">

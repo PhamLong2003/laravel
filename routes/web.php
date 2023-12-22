@@ -12,6 +12,12 @@
     use App\Http\Controllers\Backend\SettingController;
     use App\Http\Controllers\Backend\BlogController;
     use App\Http\Controllers\Backend\RoleController;
+    use App\Http\Controllers\Backend\ChatController;
+
+
+
+
+
     use App\Http\Middleware\RedirectIfAuthenticated;
     use App\Http\Controllers\Agent\AgentPrpertyController;
     use App\Http\Controllers\Frontend\IndexController;
@@ -55,6 +61,9 @@
     Route::post('/user/password/update', [UserController::class, 'UserPasswordUpdate'])->name('user.password.update');
 
     Route::get('/user/schedule/request', [UserController::class, 'UserScheduleRequest'])->name('user.schedule.request');
+
+    Route::get('/live/chat', [UserController::class, 'LiveChat'])->name('live.chat');
+
 
 
 
@@ -461,5 +470,18 @@
 
                  //  schedule messge request route
                  Route::post('/store/schedule' , [IndexController::class, 'StoreSchedule'])->name('store.schedule');
+
+
+                     //  Chat post request route
+                     Route::post('/send-message' , [ChatController::class, 'SendMsg'])->name('send.msg');
+                     Route::get('/user-all', [ChatController::class, 'GetAllUser']);
+                     Route::get('/user-message/{id}', [ChatController::class, 'UserMsgById']);
+
+                 Route::get('/agent/live/chat' , [ChatController::class, 'AgentLiveChat'])->name('agent.live.chat');
+
+
+
+
+                 
 
 
