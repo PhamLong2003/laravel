@@ -14,12 +14,12 @@
                     <span class="icon"><i data-feather="chevron-down"></i></span>
                   </button>
                   <div class="order-first">
-                    <h4>Mail Service</h4>
+                    <h4></h4>
                     <p class="text-muted">long8bvv@gmail.com</p>
                   </div>
                 </div>
                 <div class="d-grid my-3">
-                  <a class="btn btn-primary" href="./compose.html">Compose Email</a>
+                  <a class="btn btn-primary" href="./compose.html">Dịch vụ Mail</a>
                 </div>
                 <div class="email-aside-nav collapse">
                   <ul class="nav flex-column">
@@ -32,7 +32,7 @@
                     </li>
                    
                
-                  <p class="text-muted tx-12 fw-bolder text-uppercase mb-2 mt-4">Labels</p>
+                  <p class="text-muted tx-12 fw-bolder text-uppercase mb-2 mt-4">Các loại tin</p>
                   <ul class="nav flex-column">
                     <li class="nav-item">
                       <a class="nav-link d-flex align-items-center" href="#">

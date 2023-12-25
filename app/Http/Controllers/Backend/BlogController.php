@@ -268,4 +268,12 @@ class BlogController extends Controller
 
     }//end method
 
+    public function ContactUser(){
+        return view('frontend.contact.contact');
+    }
+    public function AboutUs(){
+        return view('frontend.aboutus.about_us');
+
+    }
+
 }

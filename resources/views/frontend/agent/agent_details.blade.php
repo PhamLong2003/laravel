@@ -39,17 +39,17 @@
                                 <span class="designation">{{ $agent->username }}</span>
                             </div>
                             <ul class="social-list pull-right clearfix">
-                                <li><a href="agents-details.html"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="agents-details.html"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="agents-details.html"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                             </ul>
                         </div>
                         <div class="text">
-                            <p>Success isn’t really that difficult. There is a significant portion of the population here in North America, that actually want and need success to be hard! Why? So they then have a built-in excuse.when things don’t go their way! Pretty sad situation, to say the least. Have some fun and hypnotize yourself to be your very own Ghost of Christmas future”</p>
+                            <p>"Thành công thực sự không quá khó khăn. Có một phần đáng kể dân số ở Bắc Mỹ thực sự muốn và cần thành công! Tại sao? Vì vậy, họ có sẵn một lý do bào chữa. Khi mọi thứ không diễn ra như ý muốn! Ít nhất phải nói là một tình huống khá buồn. Hãy vui vẻ và thôi miên bản thân để trở thành Bóng ma Giáng sinh của riêng bạn trong tương lai"</p>
                         </div>
                         <ul class="info clearfix mr-0">
-                            <li><i class="fab fa fa-envelope"></i><a href="mailto:bean@realshed.com">{{ $agent->email}}</a></li>
-                            <li><i class="fab fa fa-phone"></i><a href="tel:03030571965">{{ $agent->phone}}</a></li>
+                            <li><i class="fab fa fa-envelope"></i><a href="long8bvv@gmail.com">{{ $agent->email}}</a></li>
+                            <li><i class="fab fa fa-phone"></i><a href="tel:0395940171">{{ $agent->phone}}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -82,20 +82,20 @@
                         <figure class="image"><img src="{{ asset('storage/image/'.$item->property_thambnail)}}" alt="" style="width:100%; height:350px;" ></figure>
                         <div class="batch"><i class="icon-11"></i></div>
                             @if ($item->featured == 1)
-                        <span class="category">Featured</span>
+                        <span class="category">Đặc trưng</span>
                             @else
-                        <span class="category">New</span>
+                        <span class="category">Mới</span>
                             @endif
 
 
 
-                        <div class="buy-btn"><a href="{{ url('property/details/'.$item->id. '/'.$item->propety_slug) }}">For {{ $item->property_status }}</a></div>
+                        <div class="buy-btn"><a href="{{ url('property/details/'.$item->id. '/'.$item->propety_slug) }}">{{ $item->property_status }}</a></div>
                     </div>
                     <div class="lower-content">
                         <div class="title-text"><h4><a href="{{ url('property/details/'.$item->id. '/'.$item->propety_slug) }}">{{ $item->property_name }}</a></h4></div>
                         <div class="price-box clearfix">
                             <div class="price-info pull-left">
-                                <h6>Start From</h6>
+                                <h6>Giá khởi điểm</h6>
                                 <h4>{{ $item->lowest_price }}</h4>
                             </div>
                             @if($item->agent_id == Null)
@@ -119,12 +119,12 @@
                         </div>
                         <p>{{ $item->short_descp }}</p>
                         <ul class="more-details clearfix">
-                            <li><i class="icon-14"></i>{{ $item->bedrooms }} Beds</li>
-                            <li><i class="icon-15"></i>{{ $item->bathrooms }} Baths</li>
+                            <li><i class="icon-14"></i>{{ $item->bedrooms }} Phòng ngủ</li>
+                            <li><i class="icon-15"></i>{{ $item->bathrooms }} Phòng tắm</li>
                             <li><i class="icon-16"></i>{{ $item->property_size }} m2</li>
                         </ul>
                         <div class="other-info-box clearfix">
-                            <div class="btn-box pull-left"><a href="{{ url('property/details/'.$item->id. '/'.$item->propety_slug) }}" class="theme-btn btn-two">See Details</a></div>
+                            <div class="btn-box pull-left"><a href="{{ url('property/details/'.$item->id. '/'.$item->propety_slug) }}" class="theme-btn btn-two">Xem chi tiết</a></div>
                             <ul class="other-option pull-right clearfix">
                                 <li><a aria-label="Compare" class="action-btn" id="{{ $item->id }}" onclick="addToCompare(this.id)"><i class="icon-12"></i></a></li>
                                 <li><a aria-label="Add to WishList" class="action-btn" id="{{ $item->id }}" onclick="addToWishList(this.id)" ><i class="icon-13"></i></a></li>
@@ -170,19 +170,19 @@
                 
                 
                                 <div class="form-group">
-                                    <input type="text" name="msg_name" placeholder="Your name" value="{{ $userData->name }}">
+                                    <input type="text" name="msg_name" placeholder="Tên của bạn" value="{{ $userData->name }}">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" name="msg_email" placeholder="Your Email" value="{{ $userData->email }}">
+                                    <input type="email" name="msg_email" placeholder="Email" value="{{ $userData->email }}">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="msg_phone" placeholder="Phone"  value="{{ $userData->phone }}">
+                                    <input type="text" name="msg_phone" placeholder="Số điện thoại"  value="{{ $userData->phone }}">
                                 </div>
                                 <div class="form-group">
-                                    <textarea name="message" placeholder="Message"></textarea>
+                                    <textarea name="message" placeholder="Nội dung"></textarea>
                                 </div>
                                 <div class="form-group message-btn">
-                                    <button type="submit" class="theme-btn btn-one">Send Message</button>
+                                    <button type="submit" class="theme-btn btn-one">Gửi tin nhắn</button>
                                 </div>
                             </form>
                 
@@ -195,19 +195,19 @@
                 
                 
                                 <div class="form-group">
-                                    <input type="text" name="msg_name" placeholder="Your name" required="">
+                                    <input type="text" name="msg_name" placeholder="Tên của bạn" required="">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" name="msg_email" placeholder="Your Email" required="">
+                                    <input type="email" name="msg_email" placeholder="Email" required="">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="msg_phone" placeholder="Phone" required="">
+                                    <input type="text" name="msg_phone" placeholder="Số điện thoại" required="">
                                 </div>
                                 <div class="form-group">
-                                    <textarea name="message" placeholder="Message"></textarea>
+                                    <textarea name="message" placeholder="Nội dung"></textarea>
                                 </div>
                                 <div class="form-group message-btn">
-                                    <button type="submit" class="theme-btn btn-one">Send Message</button>
+                                    <button type="submit" class="theme-btn btn-one">Gửi tin nhắn</button>
                                 </div>
                             </form>
                             @endauth
@@ -216,7 +216,7 @@
                     </div>
                     <div class="category-widget sidebar-widget">
                         <div class="widget-title">
-                            <h5>Status Of Property</h5>
+                            <h5>Trạng thái tài sản</h5>
                         </div>
                         <ul class="category-list clearfix">
                             <li><a href="{{ route('rent.property') }}">Cho thuê <span>({{ count($rentproperty) }})</span></a></li>
@@ -225,7 +225,7 @@
                     </div>
                     <div class="featured-widget sidebar-widget">
                         <div class="widget-title">
-                            <h5>Featured Properties</h5>
+                            <h5>Tài sản đặc trưng</h5>
                         </div>
                         <div class="single-item-carousel owl-carousel owl-theme owl-nav-none dots-style-one">
 
@@ -235,18 +235,18 @@
                                     <div class="image-box">
                                         <figure class="image"><img src="{{ asset('storage/image/'.$feat->property_thambnail)}}" style="height: 280px" alt=""></figure>
                                         <div class="batch"><i class="icon-11"></i></div>
-                                        <span class="category">Featured</span>
+                                        <span class="category">Đặc trưng</span>
                                     </div>
                                     <div class="lower-content">
                                         <div class="title-text"><h4><a href="{{ url('property/details/'.$feat->id. '/'.$feat->propety_slug) }}">{{ $feat->property_name }}</a></h4></div>
                                         <div class="price-box clearfix">
                                             <div class="price-info">
-                                                <h6>Start From</h6>
+                                                <h6>Giá khởi điểm</h6>
                                                 <h4>{{ $feat->lowest_price }} VNĐ</h4>
                                             </div>
                                         </div>
                                         <p>{{ $feat->short_descp }}</p>
-                                        <div class="btn-box"><a href="{{ url('property/details/'.$feat->id. '/'.$feat->propety_slug) }}" class="theme-btn btn-two">See Details</a></div>
+                                        <div class="btn-box"><a href="{{ url('property/details/'.$feat->id. '/'.$feat->propety_slug) }}" class="theme-btn btn-two">Xem chi tiết</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -264,29 +264,7 @@
 
 
 <!-- subscribe-section -->
-<section class="subscribe-section bg-color-3">
-    <div class="pattern-layer" style="background-image: url(assets/images/shape/shape-2.png);"></div>
-    <div class="auto-container">
-        <div class="row clearfix">
-            <div class="col-lg-6 col-md-6 col-sm-12 text-column">
-                <div class="text">
-                    <span>Subscribe</span>
-                    <h2>Sign Up To Our Newsletter To Get The Latest News And Offers.</h2>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 form-column">
-                <div class="form-inner">
-                    <form action="http://azim.commonsupport.com/Realshed/contact.html" method="post" class="subscribe-form">
-                        <div class="form-group">
-                            <input type="email" name="email" placeholder="Enter your email" required="">
-                            <button type="submit">Subscribe Now</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 <!-- subscribe-section end -->
 
 

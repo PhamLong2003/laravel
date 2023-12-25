@@ -16,7 +16,7 @@ Danh sách yêu thích
         <div class="content-box clearfix">
             <h1>Danh sách yêu thích</h1>
             <ul class="bread-crumb clearfix">
-                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="{{ url('/dashboard') }}">Trang chủ</a></li>
                 <li>Danh sách yêu thích</li>
             </ul>
         </div>
@@ -67,6 +67,7 @@ Danh sách yêu thích
                                     <li class="list-group-item"><a href="{{ route('dashboard') }}">Tổng quan</a></li>
                                     <li class="list-group-item"><a href="{{ route('user.schedule.request')}}">Tham quan</a></li>
                                     <li class="list-group-item"><a href="{{ route('user.compare') }}">So sánh</a></li>
+                                    <li class="list-group-item"><a href="{{ route('live.chat') }}">Nhắn tin</a></li>
                                     <li class="list-group-item"><a href="{{ route('user.change.password')}}">Bảo mật</a></li>
                                     <li class="list-group-item"><a href="{{ route('user.logout')}}">Đăng xuất</a></li>
                                   </ul>

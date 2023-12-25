@@ -3,11 +3,11 @@
         <div class="inner-container bg-color-2">
             <div class="upper-box clearfix">
                 <div class="sec-title light">
-                    <h5>Why Choose Us?</h5>
-                    <h2>Reasons To Choose Us</h2>
+                    <h5>Tại sao chọn chúng tôi?
+                    </h5>
+                    <h2>Lý do chọn chúng tôi</h2>
                 </div>
                 <div class="btn-box">
-                    <a href="categories.html" class="theme-btn btn-one">All Categories</a>
                 </div>
             </div>
             <div class="lower-box">
@@ -16,8 +16,8 @@
                         <div class="chooseus-block-one">
                             <div class="inner-box">
                                 <div class="icon-box"><i class="icon-19"></i></div>
-                                <h4>Excellent Reputation</h4>
-                                <p>Lorem ipsum dolor sit consectetur sed eiusm tempor.</p>
+                                <h4>Nhanh gon, hợp lý</h4>
+                                <p>Thao tác nhanh gọn, sạch sẽ, thông minh.</p>
                             </div>
                         </div>
                     </div>
@@ -25,8 +25,9 @@
                         <div class="chooseus-block-one">
                             <div class="inner-box">
                                 <div class="icon-box"><i class="icon-26"></i></div>
-                                <h4>Best Local Agents</h4>
-                                <p>Lorem ipsum dolor sit consectetur sed eiusm tempor.</p>
+                                <h4>
+                                    Đại lý địa phương tốt nhất</h4>
+                                <p>Chúng tôi luôn là nơi phù hợp, tốt nhất với bạn.</p>
                             </div>
                         </div>
                     </div>
@@ -34,8 +35,8 @@
                         <div class="chooseus-block-one">
                             <div class="inner-box">
                                 <div class="icon-box"><i class="icon-21"></i></div>
-                                <h4>Personalized Service</h4>
-                                <p>Lorem ipsum dolor sit consectetur sed eiusm tempor.</p>
+                                <h4>Dịch vụ cá nhân</h4>
+                                <p>Dịch vụ tốt, chiết khấu nhỏ, hay đến với chúng tôi.</p>
                             </div>
                         </div>
                     </div>

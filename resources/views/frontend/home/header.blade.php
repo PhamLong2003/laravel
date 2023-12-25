@@ -63,22 +63,22 @@
                         <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                             <ul class="navigation clearfix" style="font-weight:600;">
                                 <li><a style="font-weight:600;" href="{{ url('/') }}"><span>Trang chủ</span></a></li>
-                                <li><a style="font-weight:600;" href="{{ url('/') }}"><span>Về chúng tôi</span></a></li>
+                                <li><a style="font-weight:600;" href="{{ route('about.us') }}"><span>Về chúng tôi</span></a></li>
                               
-                                <li class="dropdown"><a style="font-weight:600;" href=""><span>Tài sản</span></a>
+                                <li class="dropdown"><a style="font-weight:600;" href="{{ route('rent.property')}}"><span>Tài sản</span></a>
                                     <ul>
                                         <li><a style="font-weight:600;" href="{{ route('rent.property')}}">Cho thuê</a></li>
                                         <li><a style="font-weight:600;" href="{{ route('buy.property')}}">Rao bán</a></li>
                                     </ul>
                                 </li>
 
-                                <li><a style="font-weight:600;" href="{{ url('/') }}"><span>Đại lý</span></a></li>
+                                <li><a style="font-weight:600;" href="http://127.0.0.1:8000/agent/details/2"><span>Đại lý</span></a></li>
 
                                 <li><a style="font-weight:600;" href="{{ route('blog.list') }}"><span>Bài viết</span></a></li>
                               
-                                <li><a style="font-weight:600;" href="contact.html"><span>Contact</span></a></li>   
+                                <li><a style="font-weight:600;" href="{{ route('contact.contact') }}"><span>Liên hệ</span></a></li>   
 
-                                      <li><a href="{{ route('agent.login') }}" class="theme-btn btn-one"><span>+</span>Add Listing</a></li>   
+                                      <li><a href="{{ route('agent.login') }}" class="theme-btn btn-one"><span>+</span>Thêm danh sách</a></li>   
                             </ul>
                         </div>
                     </nav>
@@ -100,9 +100,7 @@
                         <!--Keep This Empty / Menu will come through Javascript-->
                     </nav>
                 </div>
-                <div class="btn-box">
-                    <a href="index.html" class="theme-btn btn-one"><span>+</span>Thêm danh sách</a>
-                </div>
+               
             </div>
         </div>
     </div>

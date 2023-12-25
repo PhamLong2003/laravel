@@ -23,7 +23,7 @@
     </div>
     <div class="sidebar-body">
         <ul class="nav">
-        <li class="nav-item nav-category">Main</li>
+        <li class="nav-item nav-category">Chính</li>
         <li class="nav-item">
             <a href="{{route('agent.dashboard')}}" class="nav-link">
             <i class="link-icon" data-feather="box"></i>
@@ -84,7 +84,7 @@
             <span class="link-title">Lên lịch tham quan</span>
             </a>
         </li>
-        <li class="nav-item nav-category">Components</li>
+        <li class="nav-item nav-category">Tư vấn</li>
 
             <li class="nav-item">
                 <a href="{{ route('agent.live.chat') }}" class="nav-link">
@@ -104,13 +104,7 @@
        
     
     
-        <li class="nav-item nav-category">Docs</li>
-        <li class="nav-item">
-            <a href="#" target="_blank" class="nav-link">
-            <i class="link-icon" data-feather="hash"></i>
-            <span class="link-title">Documentation</span>
-            </a>
-        </li>
+    
         </ul>
     </div>
 

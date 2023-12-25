@@ -30,80 +30,8 @@ Danh sách kiểu tài sản
                 <div class="row clearfix">
                     <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
                         <div class="default-sidebar property-sidebar">
-                            <div class="filter-widget sidebar-widget">
-                                <div class="widget-title">
-                                    <h5>Property</h5>
-                                </div>
-                                <div class="widget-content">
-                                    <div class="select-box">
-                                        <select class="wide">
-                                           <option data-display="All Type">All Type</option>
-                                           <option value="1">Villa</option>
-                                           <option value="2">Commercial</option>
-                                           <option value="3">Residential</option>
-                                        </select>
-                                    </div>
-                                    <div class="select-box">
-                                        <select class="wide">
-                                           <option data-display="Select Location">Select Location</option>
-                                           <option value="1">New York</option>
-                                           <option value="2">California</option>
-                                           <option value="3">London</option>
-                                           <option value="4">Maxico</option>
-                                        </select>
-                                    </div>
-                                    <div class="select-box">
-                                        <select class="wide">
-                                           <option data-display="This Area Only">This Area Only</option>
-                                           <option value="1">New York</option>
-                                           <option value="2">California</option>
-                                           <option value="3">London</option>
-                                           <option value="4">Maxico</option>
-                                        </select>
-                                    </div>
-                                    <div class="select-box">
-                                        <select class="wide">
-                                           <option data-display="All Type">Max Rooms</option>
-                                           <option value="1">2+ Rooms</option>
-                                           <option value="2">3+ Rooms</option>
-                                           <option value="3">4+ Rooms</option>
-                                           <option value="4">5+ Rooms</option>
-                                        </select>
-                                    </div>
-                                    <div class="select-box">
-                                        <select class="wide">
-                                           <option data-display="Most Popular">Most Popular</option>
-                                           <option value="1">Villa</option>
-                                           <option value="2">Commercial</option>
-                                           <option value="3">Residential</option>
-                                        </select>
-                                    </div>
-                                    <div class="select-box">
-                                        <select class="wide">
-                                           <option data-display="All Type">Select Floor</option>
-                                           <option value="1">2x Floor</option>
-                                           <option value="2">3x Floor</option>
-                                           <option value="3">4x Floor</option>
-                                        </select>
-                                    </div>
-                                    <div class="filter-btn">
-                                        <button type="submit" class="theme-btn btn-one"><i class="fas fa-filter"></i>&nbsp;Filter</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="price-filter sidebar-widget">
-                                <div class="widget-title">
-                                    <h5>Select Price Range</h5>
-                                </div>
-                                <div class="range-slider clearfix">
-                                    <div class="clearfix">
-                                        <div class="input">
-                                            <input type="text" class="property-amount" name="field-name" readonly="">
-                                        </div>
-                                    </div>
-                                    <div class="price-range-slider"></div>
-                                </div>
-                            </div>
+                         
+                           
                             <div class="category-widget sidebar-widget">
                                 <div class="widget-title">
                                     <h5>Trạng thái tài sản</h5>
@@ -205,29 +133,7 @@ Danh sách kiểu tài sản
 
 
         <!-- subscribe-section -->
-        <section class="subscribe-section bg-color-3">
-            <div class="pattern-layer" style="background-image: url({{asset('frontend/assets/images/shape/shape-2.png')}});"></div>
-            <div class="auto-container">
-                <div class="row clearfix">
-                    <div class="col-lg-6 col-md-6 col-sm-12 text-column">
-                        <div class="text">
-                            <span>Subscribe</span>
-                            <h2>Sign Up To Our Newsletter To Get The Latest News And Offers.</h2>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12 form-column">
-                        <div class="form-inner">
-                            <form action="http://azim.commonsupport.com/Realshed/contact.html" method="post" class="subscribe-form">
-                                <div class="form-group">
-                                    <input type="email" name="email" placeholder="Enter your email" required="">
-                                    <button type="submit">Subscribe Now</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+     
         <!-- subscribe-section end -->
 
 

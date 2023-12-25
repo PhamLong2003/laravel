@@ -467,6 +467,9 @@
 
         Route::post('/reply/message' , [BlogController::class, 'ReplyMessage'])->name('reply.message');
 
+        Route::get('/contact' , [BlogController::class, 'ContactUser'])->name('contact.contact');
+        Route::get('/about' , [BlogController::class, 'AboutUs'])->name('about.us');
+
 
                  //  schedule messge request route
                  Route::post('/store/schedule' , [IndexController::class, 'StoreSchedule'])->name('store.schedule');

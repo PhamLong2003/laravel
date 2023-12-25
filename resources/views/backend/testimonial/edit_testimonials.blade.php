@@ -51,7 +51,7 @@
                    
 
                   
-                    <button type="submit" class="btn btn-primary me-2">Lưu thành phố</button>
+                    <button type="submit" class="btn btn-primary me-2">Lưu</button>
                 </form>
   
                 </div>

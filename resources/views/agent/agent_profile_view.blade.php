@@ -19,7 +19,7 @@
              
             </div>
             <div class="mt-3">
-              <label class="tx-11 fw-bolder mb-0 text-uppercase">User name:</label>
+              <label class="tx-11 fw-bolder mb-0 text-uppercase">Tên người dùng:</label>
               <p class="text-muted">{{$profileData->name}}</p>
             </div>
             <div class="mt-3">
@@ -27,11 +27,11 @@
               <p class="text-muted">{{$profileData->email}}</p>
             </div>
             <div class="mt-3">
-              <label class="tx-11 fw-bolder mb-0 text-uppercase">Phone:</label>
+              <label class="tx-11 fw-bolder mb-0 text-uppercase">Số điện thoại:</label>
               <p class="text-muted">{{$profileData->phone}}</p>
             </div>
             <div class="mt-3">
-              <label class="tx-11 fw-bolder mb-0 text-uppercase">Address:</label>
+              <label class="tx-11 fw-bolder mb-0 text-uppercase">Địa chỉ:</label>
               <p class="text-muted">{{$profileData->address}}</p>
             </div>
             <div class="mt-3 d-flex social-links">
@@ -55,7 +55,7 @@
             <div class="card">
                 <div class="card-body">
   
-                <h6 class="card-title">Update Agent Profile</h6>
+                <h6 class="card-title">Cập nhật tài khoản</h6>
                
 
 
@@ -63,12 +63,12 @@
                 <form method="POST" action="{{ route('agent.profile.store')}}"  class="forms-sample"  enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
-                        <label for="exampleInputUsername1"  class="form-label">Username</label>
+                        <label for="exampleInputUsername1"  class="form-label">Tên người dùng</label>
                         <input type="text" name="username" class="form-control" value="{{$profileData->username}}" id="exampleInputUsername1" autocomplete="off">
                     </div>
 
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Name</label>
+                        <label for="exampleInputEmail1" class="form-label">Tên</label>
                         <input type="text" name="name" class="form-control" value="{{$profileData->name}}" id="exampleInputUsername1" autocomplete="off">
                        
                     </div>
@@ -78,16 +78,16 @@
                        
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Phone</label>
+                        <label for="exampleInputEmail1" class="form-label">Số điện thoại</label>
                         <input type="text" name="phone" class="form-control" value="{{$profileData->phone}}" id="exampleInputUsername1" autocomplete="off">
                        
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Address</label>
+                        <label for="exampleInputEmail1" class="form-label">Địa chỉ</label>
                         <input type="text" name="address" class="form-control" value="{{$profileData->address}}" id="exampleInputUsername1" autocomplete="off">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Photo</label>
+                        <label for="exampleInputEmail1" class="form-label">Ảnh</label>
                         <input class="form-control" name="photo" type="file" id="image">                    
                     </div>
 
@@ -99,7 +99,7 @@
                    
 
                   
-                    <button type="submit" class="btn btn-primary me-2">Save Changes</button>
+                    <button type="submit" class="btn btn-primary me-2">Lưu</button>
                 </form>
   
                 </div>

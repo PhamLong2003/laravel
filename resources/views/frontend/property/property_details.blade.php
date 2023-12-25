@@ -63,8 +63,7 @@ Chi tiết tài sản | {{ $property->property_name }}
                     </div>
                 </div>
                 <ul class="other-option pull-right clearfix">
-                    <li><a href="property-details.html"><i class="icon-37"></i></a></li>
-                    <li><a href="property-details.html"><i class="icon-38"></i></a></li>
+
                     <li><a href="property-details.html"><i class="icon-12"></i></a></li>
                     <li><a href="property-details.html"><i class="icon-13"></i></a></li>
                 </ul>
@@ -82,7 +81,7 @@ Chi tiết tài sản | {{ $property->property_name }}
                     </div>
                     <div class="discription-box content-widget">
                         <div class="title-box">
-                            <h4>Property Description</h4>
+                            <h4>Mô tả ngắn</h4>
                         </div>
                         <div class="text">
                             <p>{!! $property->long_descp !!}</p>
@@ -117,7 +116,7 @@ Chi tiết tài sản | {{ $property->property_name }}
                   
                     <div class="location-box content-widget">
                         <div class="title-box">
-                            <h4>Location</h4>
+                            <h4>Vị trí</h4>
                         </div>
                         <ul class="info clearfix">
                             <li><span>Địa chỉ: </span>{{ $property->address }}</li>
@@ -146,7 +145,7 @@ Chi tiết tài sản | {{ $property->property_name }}
                     </div>
                     <div class="nearby-box content-widget">
                         <div class="title-box">
-                            <h4>What’s Nearby?</h4>
+                            <h4>Địa điểm quanh tài sản</h4>
                         </div>
                         <div class="inner-box">
                             <div class="single-item">
@@ -188,7 +187,7 @@ Chi tiết tài sản | {{ $property->property_name }}
 
         <div class="schedule-box content-widget">
             <div class="title-box">
-                <h4>Schedule A Tour</h4>
+                <h4>Lên lịch tham quan</h4>
             </div>
             <div class="form-inner">
 
@@ -226,7 +225,7 @@ Chi tiết tài sản | {{ $property->property_name }}
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 column">
                             <div class="form-group message-btn">
-                                <button type="submit" class="theme-btn btn-one">Submit Now</button>
+                                <button type="submit" class="theme-btn btn-one">Gửi</button>
                             </div>
                         </div>
                     </div>
@@ -251,9 +250,8 @@ Chi tiết tài sản | {{ $property->property_name }}
                                 <h4>Quản trị</h4>
                                 <ul class="info clearfix">
                                     <li><i class="fas fa-map-marker-alt"></i></li>
-                                    <li><i class="fas fa-phone"></i><a href="tel:03030571965">0395940171</a></li>
+                                    <li><i class="fas fa-phone"></i><a href="tel:0395940171">0395940171</a></li>
                                 </ul>
-                                <div class="btn-box"><a href="agents-details.html">View Listing</a></div>
                             </div>
                             @else
                             <figure class="author-thumb"><img src="{{(!empty($property->user->photo))
@@ -262,7 +260,7 @@ Chi tiết tài sản | {{ $property->property_name }}
                                 <h4>{{ $property->user->name }}</h4>
                                 <ul class="info clearfix">
                                     <li><i class="fas fa-map-marker-alt"></i>{{ $property->user->address }}</li>
-                                    <li><i class="fas fa-phone"></i><a href="tel:03030571965">{{ $property->user->phone }}</a></li>
+                                    <li><i class="fas fa-phone"></i><a href="tel:0395940171">{{ $property->user->phone }}</a></li>
                                 </ul>
 
                                 
@@ -317,19 +315,19 @@ Chi tiết tài sản | {{ $property->property_name }}
 
 
                 <div class="form-group">
-                    <input type="text" name="msg_name" placeholder="Your name" value="{{ $userData->name }}">
+                    <input type="text" name="msg_name" placeholder="Tên của bạn" value="{{ $userData->name }}">
                 </div>
                 <div class="form-group">
-                    <input type="email" name="msg_email" placeholder="Your Email" value="{{ $userData->email }}">
+                    <input type="email" name="msg_email" placeholder="Email" value="{{ $userData->email }}">
                 </div>
                 <div class="form-group">
-                    <input type="text" name="msg_phone" placeholder="Phone"  value="{{ $userData->phone }}">
+                    <input type="text" name="msg_phone" placeholder="Số điện thoại"  value="{{ $userData->phone }}">
                 </div>
                 <div class="form-group">
-                    <textarea name="message" placeholder="Message"></textarea>
+                    <textarea name="message" placeholder="Nội dung"></textarea>
                 </div>
                 <div class="form-group message-btn">
-                    <button type="submit" class="theme-btn btn-one">Send Message</button>
+                    <button type="submit" class="theme-btn btn-one">Gửi</button>
                 </div>
             </form>
 
@@ -349,61 +347,26 @@ Chi tiết tài sản | {{ $property->property_name }}
 
 
                 <div class="form-group">
-                    <input type="text" name="msg_name" placeholder="Your name" required="">
+                    <input type="text" name="msg_name" placeholder="Tên của bạn" required="">
                 </div>
                 <div class="form-group">
-                    <input type="email" name="msg_email" placeholder="Your Email" required="">
+                    <input type="email" name="msg_email" placeholder="Email" required="">
                 </div>
                 <div class="form-group">
-                    <input type="text" name="msg_phone" placeholder="Phone" required="">
+                    <input type="text" name="msg_phone" placeholder="Số điện thoại" required="">
                 </div>
                 <div class="form-group">
-                    <textarea name="message" placeholder="Message"></textarea>
+                    <textarea name="message" placeholder="Nội dung"></textarea>
                 </div>
                 <div class="form-group message-btn">
-                    <button type="submit" class="theme-btn btn-one">Send Message</button>
+                    <button type="submit" class="theme-btn btn-one">Gửi</button>
                 </div>
             </form>
             @endauth
 
         </div>
                     </div>
-                    <div class="calculator-widget sidebar-widget">
-                        <div class="calculate-inner">
-                            <div class="widget-title">
-                                <h4>Mortgage Calculator</h4>
-                            </div>
-                            <form method="post" action="http://azim.commonsupport.com/Realshed/mortgage-calculator.html" class="default-form">
-                                <div class="form-group">
-                                    <i class="fas fa-dollar-sign"></i>
-                                    <input type="number" name="total_amount" placeholder="Total Amount">
-                                </div>
-                                <div class="form-group">
-                                    <i class="fas fa-dollar-sign"></i>
-                                    <input type="number" name="down_payment" placeholder="Down Payment">
-                                </div>
-                                <div class="form-group">
-                                    <i class="fas fa-percent"></i>
-                                    <input type="number" name="interest_rate" placeholder="Interest Rate">
-                                </div>
-                                <div class="form-group">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <input type="number" name="loan" placeholder="Loan Terms(Years)">
-                                </div>
-                                <div class="form-group">
-                                    <div class="select-box">
-                                        <select class="wide">
-                                           <option data-display="Monthly">Monthly</option>
-                                           <option value="1">Yearly</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group message-btn">
-                                    <button type="submit" class="theme-btn btn-one">Calculate Now</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                  
                 </div>
             </div>
         </div>
@@ -434,7 +397,7 @@ Chi tiết tài sản | {{ $property->property_name }}
                                        
                                     @if ($item->agent_id == NULL)
                                     <figure class="author-thumb"><img src="{{ url('upload/phamlong.jpg')}}" alt=""></figure>
-                                    <h6>Admin</h6>
+                                    <h6>Quản trị viên</h6>
 
                                     @else
 
@@ -445,12 +408,12 @@ Chi tiết tài sản | {{ $property->property_name }}
 
                                     
                                     </div>
-                                    <div class="buy-btn pull-right"><a href="{{ url('property/details/'.$item->id. '/'.$item->propety_slug) }}">For {{ $item->property_status }}</a></div>
+                                    <div class="buy-btn pull-right"><a href="{{ url('property/details/'.$item->id. '/'.$item->propety_slug) }}">{{ $item->property_status }}</a></div>
                                 </div>
                                 <div class="title-text"><h4><a href="{{ url('property/details/'.$item->id. '/'.$item->propety_slug) }}">{{ $item->property_name }}</a></h4></div>
                                 <div class="price-box clearfix">
                                     <div class="price-info pull-left">
-                                        <h6>Start From</h6>
+                                        <h6>Giá khởi điểm</h6>
                                         <h4>{{ $item->lowest_price }} VNĐ</h4>
 
                                     </div>
@@ -461,8 +424,8 @@ Chi tiết tài sản | {{ $property->property_name }}
                                 </div>
                                 <p>{{ $item->short_descp }}</p>
                             <ul class="more-details clearfix">
-                                <li><i class="icon-14"></i>{{ $item->bedrooms }} Beds</li>
-                                <li><i class="icon-15"></i>{{ $item->bathrooms }} Baths</li>
+                                <li><i class="icon-14"></i>{{ $item->bedrooms }} Phòng ngủ</li>
+                                <li><i class="icon-15"></i>{{ $item->bathrooms }} Phòng tắm</li>
                                 <li><i class="icon-16"></i>{{ $item->property_size }} m2</li>
                             </ul>
                                 <div class="btn-box"><a href="{{ url('property/details/'.$item->id. '/'.$item->propety_slug) }}" class="theme-btn btn-two">See Details</a></div>

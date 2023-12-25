@@ -68,10 +68,10 @@
                             </div>
                             <div class="pagination-wrapper">
                                 <ul class="pagination clearfix">
-                                    <li><a href="blog-1.html" class="current">1</a></li>
-                                    <li><a href="blog-1.html">2</a></li>
-                                    <li><a href="blog-1.html">3</a></li>
-                                    <li><a href="blog-1.html"><i class="fas fa-angle-right"></i></a></li>
+                                    <li><a href="#" class="current">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#"><i class="fas fa-angle-right"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -80,12 +80,12 @@
                         <div class="blog-sidebar">
                             <div class="sidebar-widget search-widget">
                                 <div class="widget-title">
-                                    <h4>Search</h4>
+                                    <h4>Tìm kiếm</h4>
                                 </div>
                                 <div class="search-inner">
-                                    <form action="http://azim.commonsupport.com/Realshed/blog-1.html" method="post">
+                                    <form action="#" method="post">
                                         <div class="form-group">
-                                            <input type="search" name="search_field" placeholder="Search" required="">
+                                            <input type="search" name="search_field" placeholder="Tìm kiếm" required="">
                                             <button type="submit"><i class="fas fa-search"></i></button>
                                         </div>
                                     </form>
@@ -93,19 +93,19 @@
                             </div>
                             <div class="sidebar-widget social-widget">
                                 <div class="widget-title">
-                                    <h4>Follow Us On</h4>
+                                    <h4>Theo dõi chúng tôi tại</h4>
                                 </div>
                                 <ul class="social-links clearfix">
-                                    <li><a href="blog-1.html"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="blog-1.html"><i class="fab fa-google-plus-g"></i></a></li>
-                                    <li><a href="blog-1.html"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="blog-1.html"><i class="fab fa-linkedin-in"></i></a></li>
-                                    <li><a href="blog-1.html"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                                 </ul>
                             </div>
                             <div class="sidebar-widget category-widget">
                                 <div class="widget-title">
-                                    <h4>Category</h4>
+                                    <h4>Danh mục</h4>
                                 </div>
                                 <div class="widget-content">
                                     <ul class="category-list clearfix">
@@ -148,29 +148,7 @@
         <!-- sidebar-page-container -->
 
         <!-- subscribe-section -->
-        <section class="subscribe-section bg-color-3">
-            <div class="pattern-layer" style="background-image: url(assets/images/shape/shape-2.png);"></div>
-            <div class="auto-container">
-                <div class="row clearfix">
-                    <div class="col-lg-6 col-md-6 col-sm-12 text-column">
-                        <div class="text">
-                            <span>Subscribe</span>
-                            <h2>Sign Up To Our Newsletter To Get The Latest News And Offers.</h2>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12 form-column">
-                        <div class="form-inner">
-                            <form action="http://azim.commonsupport.com/Realshed/contact.html" method="post" class="subscribe-form">
-                                <div class="form-group">
-                                    <input type="email" name="email" placeholder="Enter your email" required="">
-                                    <button type="submit">Subscribe Now</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+
         <!-- subscribe-section end -->
 
 

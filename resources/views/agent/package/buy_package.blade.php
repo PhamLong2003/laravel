@@ -15,13 +15,13 @@
         <div class="col-md-12">
 <div class="card">
   <div class="card-body">
-    <h3 class="text-center mb-3 mt-4">Choose a plan</h3>
+    <h3 class="text-center mb-3 mt-4">Mua gói đăng tài sản</h3>
     <div class="container">  
       <div class="row">
         <div class="col-md-4 stretch-card grid-margin grid-margin-md-0">
           <div class="card">
             <div class="card-body">
-              <h4 class="text-center mt-3 mb-4">Basic</h4>
+              <h4 class="text-center mt-3 mb-4">Miễn phí</h4>
               <i data-feather="award" class="text-primary icon-xxl d-block mx-auto my-3"></i>
               <h1 class="text-center">0 VNĐ</h1>
               <p class="text-muted text-center mb-4 fw-light">Trong vòng 7 ngày</p>
@@ -37,7 +37,7 @@
                 </tr>
               </table>
               <div class="d-grid">
-                <button class="btn btn-primary mt-4">Start now</button>
+                <button class="btn btn-primary mt-4">Mua ngay</button>
               </div>
             </div>
           </div>
@@ -45,7 +45,7 @@
         <div class="col-md-4 stretch-card grid-margin grid-margin-md-0">
           <div class="card">
             <div class="card-body">
-              <h4 class="text-center mt-3 mb-4">Business</h4>
+              <h4 class="text-center mt-3 mb-4">Gói thường</h4>
               <i data-feather="gift" class="text-success icon-xxl d-block mx-auto my-3"></i>
               <h1 class="text-center">50.000 VNĐ</h1>
               <p class="text-muted text-center mb-4 fw-light">Không giới hạn thời gian</p>
@@ -62,7 +62,7 @@
                 
               </table>
               <div class="d-grid">
-                <a href="{{ route('buy.business.plan') }}" class="btn btn-success mt-4">Start now</a>
+                <a href="{{ route('buy.business.plan') }}" class="btn btn-success mt-4">Mua ngay</a>
               </div>
             </div>
           </div>
@@ -70,7 +70,7 @@
         <div class="col-md-4 stretch-card">
           <div class="card">
             <div class="card-body">
-              <h4 class="text-center mt-3 mb-4">Professional</h4>
+              <h4 class="text-center mt-3 mb-4">Gói víp</h4>
               <i data-feather="briefcase" class="text-primary icon-xxl d-block mx-auto my-3"></i>
               <h1 class="text-center">250.000 VNĐ</h1>
               <p class="text-muted text-center mb-4 fw-light">Không giới hạn thời gian</p>
@@ -87,7 +87,7 @@
                 </tr>
               </table>
               <div class="d-grid">
-                <a href="{{ route('buy.professional.plan') }}" class="btn btn-primary mt-4">Start now</a>
+                <a href="{{ route('buy.professional.plan') }}" class="btn btn-primary mt-4">Mua ngay</a>
              
               </div>
             </div>

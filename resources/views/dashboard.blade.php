@@ -47,7 +47,7 @@
               <div class="widget-content">
                 <ul class="category-lish">
                   <div class="mt-3">
-                    <li class="current"><a href="" class="text-muted tx-11 fw-bolder mb-0 text-uppercase"><i class="fab fa fa-envelope"></i> Tổng quan</a></li>
+                    <li class="current"><a href="{{ url('/dashboard') }}" class="text-muted tx-11 fw-bolder mb-0 text-uppercase"><i class="fab fa fa-envelope"></i> Tổng quan</a></li>
                   </div>
                   <div class="mt-3">
                     <li><a class="text-muted tx-11 fw-bolder mb-0 text-uppercase" href="{{ route('user.schedule.request')}}"><i class="fa fa-credit-card" aria-hidden="true"></i> Lên lịch tham quan<span class="badge bagde-info"></span></a></li>

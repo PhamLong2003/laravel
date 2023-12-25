@@ -73,7 +73,7 @@
 
                         <div class="comments-area">
                             <div class="group-title">
-                                <h4>3 Comments</h4>
+                                <h4>Bình luận</h4>
                             </div>
                             <div class="comment-box">
 
@@ -91,7 +91,7 @@
                                         <div class="text">
                                             <p>{{ $com->subject }}</p>
                                             <p>{{ $com->message }}</p>
-                                            <a href=""><i class="fas fa-share"></i>Reply</a>
+                                            <a href=""><i class="fas fa-share"></i>Trả lời</a>
                                         </div>
                                     </div>
                                 </div>
@@ -114,7 +114,7 @@
                                         </div>
                                         <div class="text">
                                             <p>{{ $rep->message }}</p>
-                                            <a href="blog-details.html"><i class="fas fa-share"></i>Reply</a>
+                                            <a href="blog-details.html"><i class="fas fa-share"></i>Trả lời</a>
                                         </div>
                                     </div>
                                 </div>
@@ -129,7 +129,7 @@
                         </div>
                         <div class="comments-form-area">
                             <div class="group-title">
-                                <h4>Leave a Comment</h4>
+                                <h4>Nhận sét</h4>
                             </div>
     @auth
 
@@ -138,13 +138,13 @@
                 <input type="hidden" name="post_id" value="{{ $blog->id }}">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                    <input type="text" name="subject" placeholder="Subject" required="">
+                    <input type="text" name="subject" placeholder="Tiêu đề" required="">
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                    <textarea name="message" placeholder="Your message"></textarea>
+                    <textarea name="message" placeholder="Nhập nội dung"></textarea>
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
-                    <button type="submit" class="theme-btn btn-one">Submit Now</button>
+                    <button type="submit" class="theme-btn btn-one">Gửi</button>
                 </div>
             </div>
         </form>
@@ -161,12 +161,12 @@
                     <div class="blog-sidebar">
                         <div class="sidebar-widget search-widget">
                             <div class="widget-title">
-                                <h4>Search</h4>
+                                <h4>Tìm kiếm</h4>
                             </div>
                             <div class="search-inner">
                                 <form action="http://azim.commonsupport.com/Realshed/blog-1.html" method="post">
                                     <div class="form-group">
-                                        <input type="search" name="search_field" placeholder="Search" required="">
+                                        <input type="search" name="search_field" placeholder="Tìm kiếm" required="">
                                         <button type="submit"><i class="fas fa-search"></i></button>
                                     </div>
                                 </form>
@@ -174,14 +174,14 @@
                         </div>
                         <div class="sidebar-widget social-widget">
                             <div class="widget-title">
-                                <h4>Follow Us On</h4>
+                                <h4>Theo dõi chúng tôi</h4>
                             </div>
                             <ul class="social-links clearfix">
-                                <li><a href="blog-1.html"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="blog-1.html"><i class="fab fa-google-plus-g"></i></a></li>
-                                <li><a href="blog-1.html"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="blog-1.html"><i class="fab fa-linkedin-in"></i></a></li>
-                                <li><a href="blog-1.html"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                             </ul>
                         </div>
                         <div class="sidebar-widget category-widget">

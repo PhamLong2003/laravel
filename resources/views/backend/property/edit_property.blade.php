@@ -314,9 +314,9 @@
                                     <thead>
                                         <tr>
                                             <th>Sl</th>
-                                            <th>Image</th>
-                                            <th>Change Image</th>
-                                            <th>Delete</th>
+                                            <th>Ảnh</th>
+                                            <th>Thay đổi hình ảnh</th>
+                                            <th>Xóa</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -331,7 +331,7 @@
                                             </td>
                                             <td>
                                                 <input value="Update Image" type="submit" class="btn btn-primary px-4" class="form-group">
-                                                <a href="{{ route('property.multiimage.delete',$img->id) }}" class="btn btn-danger" id="delete">Delete</a>
+                                                <a href="{{ route('property.multiimage.delete',$img->id) }}" class="btn btn-danger" id="delete">Xóa</a>
                                             </td>
                                            
                                           
@@ -357,7 +357,7 @@
                                             <input type="file" name="multi_img" class="form-control" id="">
                                         </td>
                                         <td>
-                                            <input type="submit" value="Add Image" class="btn btn-info px-4">
+                                            <input type="submit" value="Thêm ảnh" class="btn btn-info px-4">
                                         </td>
                                     </tr>
                                 </tbody>
@@ -418,8 +418,8 @@
                                                             <input type="text" name="distance[]" id="distance" class="form-control" value="{{ $item->distance }}">
                                                         </div>
                                                         <div class="form-group col-md-4" style="padding-top:20px;">
-                                                            <span class="btn btn-success btn-sm addeventmore"><i class="fa fa-plus-circle">Add</i></span>
-                                                            <span class="btn btn-danger btn-sm removeeventmore"><i class="fa fa-minus-circle">Remove</i></span>
+                                                            <span class="btn btn-success btn-sm addeventmore"><i class="fa fa-plus-circle">Thêm</i></span>
+                                                            <span class="btn btn-danger btn-sm removeeventmore"><i class="fa fa-minus-circle">Xóa</i></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -454,7 +454,7 @@
                                         <div class="row">
                     
                                             <div class="form-group col-md-4">
-                                                <label for="facility_name">Facilities</label>
+                                                <label for="facility_name">Điểm gần</label>
                                                 <select name="facility_name[]" id="facility_name" class="form-control">
                                                     <option value="">Chọn điểm gần </option>
                                                     <option value="Hopspital">Bệnh viện</option>
@@ -470,8 +470,8 @@
                                                 <input type="text" name="distance[]" id="distance" class="form-control" placeholder="Distance (Km)">
                                             </div>
                                             <div class="form-group col-md-4" style="padding-top:20px;">
-                                                <span class="btn btn-success btn-sm addeventmore"><i class="fa fa-plus-circle">Add</i></span>
-                                                <span class="btn btn-danger btn-sm removeeventmore"><i class="fa fa-minus-circle">Remove</i></span>
+                                                <span class="btn btn-success btn-sm addeventmore"><i class="fa fa-plus-circle">Thêm</i></span>
+                                                <span class="btn btn-danger btn-sm removeeventmore"><i class="fa fa-minus-circle">Xóa</i></span>
                                             </div>
                     
                     

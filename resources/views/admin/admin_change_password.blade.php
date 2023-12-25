@@ -19,7 +19,7 @@
              
             </div>
             <div class="mt-3">
-              <label class="tx-11 fw-bolder mb-0 text-uppercase">User name:</label>
+              <label class="tx-11 fw-bolder mb-0 text-uppercase">Tên người dùng:</label>
               <p class="text-muted">{{$profileData->name}}</p>
             </div>
             <div class="mt-3">
@@ -27,11 +27,11 @@
               <p class="text-muted">{{$profileData->email}}</p>
             </div>
             <div class="mt-3">
-              <label class="tx-11 fw-bolder mb-0 text-uppercase">Phone:</label>
+              <label class="tx-11 fw-bolder mb-0 text-uppercase">Số điện thoại:</label>
               <p class="text-muted">{{$profileData->phone}}</p>
             </div>
             <div class="mt-3">
-              <label class="tx-11 fw-bolder mb-0 text-uppercase">Address:</label>
+              <label class="tx-11 fw-bolder mb-0 text-uppercase">Địa chỉ:</label>
               <p class="text-muted">{{$profileData->address}}</p>
             </div>
             <div class="mt-3 d-flex social-links">

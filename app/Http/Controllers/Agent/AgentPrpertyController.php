@@ -433,7 +433,7 @@ public function AgentDetailsProperty($id) {
                'message' => 'Bạn đã mua gói thành công',
                'alert-type' => 'success'
           );
-          return redirect()->route('agent.all.property')->with($notification);
+          return redirect()->route('package.history')->with($notification);
 
 
      }//end method

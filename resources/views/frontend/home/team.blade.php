@@ -9,8 +9,8 @@
     <div class="pattern-layer" style="background-image: url(assets/images/shape/shape-1.png);"></div>
     <div class="auto-container">
         <div class="sec-title">
-            <h5>Our Agents</h5>
-            <h2>Meet Our Excellent Agents</h2>
+            <h5>Chúng tôi là đại lý</h5>
+            <h1 style="font-family: sans-serif; font-weight:550;">Luôn mang đến cho bạn những thứ tốt nhất.</h1>
         </div>
         <div class="single-item-carousel owl-carousel owl-theme owl-dots-none nav-style-one">
 
@@ -25,9 +25,9 @@
                             <h4><a href="{{ route('agent.details',$item->id) }}">{{ $item->name }}</a></h4>
                             <span class="designation">{{ $item->email }}</span>
                             <ul class="social-links clearfix">
-                                <li><a href="index.html"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="index.html"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="index.html"><i class="fab fa-google-plus-g"></i></a></li>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
                             </ul>
                         </div>
                     </div>

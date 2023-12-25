@@ -14,17 +14,17 @@
                     <span class="icon"><i data-feather="chevron-down"></i></span>
                   </button>
                   <div class="order-first">
-                    <h4>Mail Service</h4>
+                    <h4>Dịch vụ Mail</h4>
                     <p class="text-muted">long8bvv@gmail.com</p>
                   </div>
                 </div>
                 <div class="d-grid my-3">
-                  <a class="btn btn-primary" href="./compose.html">Compose Email</a>
+                  <a class="btn btn-primary" href="">Hiển thị mail</a>
                 </div>
                 <div class="email-aside-nav collapse">
                   <ul class="nav flex-column">
                     <li class="nav-item active">
-                      <a class="nav-link d-flex align-items-center" href="../email/inbox.html">
+                      <a class="nav-link d-flex align-items-center" href="">
                         <i data-feather="inbox" class="icon-lg me-2"></i>
                         Nhắn tin
                         <span class="badge bg-danger fw-bolder ms-auto">{{ count($usermsg) }}
@@ -32,7 +32,7 @@
                     </li>
                    
                
-                  <p class="text-muted tx-12 fw-bolder text-uppercase mb-2 mt-4">Labels</p>
+                  <p class="text-muted tx-12 fw-bolder text-uppercase mb-2 mt-4">Các loại tin</p>
                   <ul class="nav flex-column">
                     <li class="nav-item">
                       <a class="nav-link d-flex align-items-center" href="#">
@@ -61,14 +61,13 @@
                     <div class="col-lg-6">
                       <div class="d-flex align-items-end mb-2 mb-md-0">
                         <i data-feather="inbox" class="text-muted me-2"></i>
-                        <h4 class="me-1">Nhắn tin</h4>
+                        <h4 class="me-1">Hộp thư đến</h4>
                         <span class="text-muted">({{ count($usermsg) }} tin nhắn mới)</span>
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="input-group">
-                        <input class="form-control" type="text" placeholder="Search mail...">
-                        <button class="btn btn-light btn-icon" type="button" id="button-search-addon"><i data-feather="search"></i></button>
+                       
                       </div>
                     </div>
                   </div>

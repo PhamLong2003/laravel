@@ -3,11 +3,11 @@
     <div class="auto-container">
         <div class="inner-box clearfix">
             <div class="text pull-left">
-                <h2>Looking to Buy a New Property or <br />Sell an Existing One?</h2>
+                <h2>Bạn đang tìm mua một bất động sản mới hay <br />Bán một bất động sản hiện có?
             </div>
             <div class="btn-box pull-right">
-                <a href="property-details.html" class="theme-btn btn-three">Rent Properties</a>
-                <a href="index.html" class="theme-btn btn-one">Buy Properties</a>
+                <a href="http://127.0.0.1:8000/rent/property" class="theme-btn btn-three">Cho thuê</a>
+                <a href="http://127.0.0.1:8000/buy/property" class="theme-btn btn-one">Rao Bán</a>
             </div>
         </div>
     </div>

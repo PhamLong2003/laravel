@@ -30,8 +30,8 @@
                          <tr>
                              <td>{{ $key+1 }}</td>
                              <td>{{ $item->amenitis_name}}</td>
-                             <td><a href="{{route('edit.amenitie',$item->id)}}" class="btn btn-inverse-warning">Edit</a>
-                              <a href="{{route('delete.amenitie',$item->id)}}" class="btn btn-inverse-danger" id="delete">Delete</a></td>
+                             <td><a href="{{route('edit.amenitie',$item->id)}}" class="btn btn-inverse-warning">Sửa</a>
+                              <a href="{{route('delete.amenitie',$item->id)}}" class="btn btn-inverse-danger" id="delete">Xóa</a></td>
                              
                          </tr>
             @endforeach

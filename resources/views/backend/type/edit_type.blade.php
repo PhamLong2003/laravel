@@ -13,7 +13,7 @@
             <div class="card">
                 <div class="card-body">
   
-                <h6 class="card-title">Edit Property</h6>
+                <h6 class="card-title">Sửa Loại nhà</h6>
                
 
 
@@ -25,7 +25,7 @@
                 
 
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Type Name</label>
+                        <label for="exampleInputEmail1" class="form-label">Tên loại</label>
                         <input type="text" name="type_name" class="form-control @error('type_name') is-invalid @enderror" value="{{$types->type_name}}">
                         @error('type_name')
                            <span class="text-danger">{{ $message }}</span>
@@ -33,7 +33,7 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Type Icon</label>
+                        <label for="exampleInputEmail1" class="form-label">Loại Icon</label>
                         <input type="text" name="type_icon" class="form-control @error('type_icon') is-invalid @enderror" value="{{$types->type_icon}}">
                         @error('type_icon')
                            <span class="text-danger">{{ $message }}</span>
@@ -43,7 +43,7 @@
                    
 
                   
-                    <button type="submit" class="btn btn-primary me-2">Save Changes</button>
+                    <button type="submit" class="btn btn-primary me-2">Lưu</button>
                 </form>
   
                 </div>
