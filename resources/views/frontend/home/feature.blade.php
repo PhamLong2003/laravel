@@ -21,7 +21,7 @@
                 
             <div class="col-lg-4 col-md-6 col-sm-12 feature-block">
                 <div class="feature-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
-                    <div class="inner-box" style="height: 620px;">
+                    <div class="inner-box" style="height: 700px;">
                         <div class="image-box">
                             <figure class="image"><img src="{{ asset('storage/image/'.$item->property_thambnail)}}" alt="" style="width:100%; height:250px;" ></figure>
                             <div class="batch"><i class="icon-11"></i></div>

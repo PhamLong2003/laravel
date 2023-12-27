@@ -22,32 +22,32 @@
         </li>
         <li class="nav-item nav-category">Bất động sản</li>
 
-        @if (Auth::user()->can('type.menu'))
+        
             
        
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button" aria-expanded="false" aria-controls="emails">
+                <a class="nav-link" data-bs-toggle="collapse" href="#type" role="button" aria-expanded="false" aria-controls="emails">
                 <i class="link-icon" data-feather="mail"></i>
                 <span class="link-title">Loại tài sản</span>
                 <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                <div class="collapse" id="emails">
+                <div class="collapse" id="type">
                 <ul class="nav sub-menu">
-                    @if (Auth::user()->can('all.type'))
+                 
                     <li class="nav-item">
                     <a href="{{route('all.type')}}" class="nav-link">Danh sách loại</a>
                     </li>
-                    @endif
-                    @if (Auth::user()->can('add.type'))
+                
+             
                     <li class="nav-item">
                     <a href="{{route('add.type')}}" class="nav-link">Thêm loại tài sản</a>
                     </li>
-                    @endif
+         
                     
                 </ul>
                 </div>
             </li>
-        @endif
+      
 
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#state" role="button" aria-expanded="false" aria-controls="emails">
@@ -145,7 +145,7 @@
         <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button" aria-expanded="false" aria-controls="uiComponents">
             <i class="link-icon" data-feather="feather"></i>
-            <span class="link-title">Quản lý đai lý</span>
+            <span class="link-title">Quản lý đại lý</span>
             <i class="link-arrow" data-feather="chevron-down"></i>
             </a>
             <div class="collapse" id="uiComponents">

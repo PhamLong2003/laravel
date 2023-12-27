@@ -63,7 +63,6 @@
                         <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                             <ul class="navigation clearfix" style="font-weight:600;">
                                 <li><a style="font-weight:600;" href="{{ url('/') }}"><span>Trang chủ</span></a></li>
-                                <li><a style="font-weight:600;" href="{{ route('about.us') }}"><span>Về chúng tôi</span></a></li>
                               
                                 <li class="dropdown"><a style="font-weight:600;" href="{{ route('rent.property')}}"><span>Tài sản</span></a>
                                     <ul>
@@ -75,6 +74,8 @@
                                 <li><a style="font-weight:600;" href="http://127.0.0.1:8000/agent/details/2"><span>Đại lý</span></a></li>
 
                                 <li><a style="font-weight:600;" href="{{ route('blog.list') }}"><span>Bài viết</span></a></li>
+                                <li><a style="font-weight:600;" href="{{ route('about.us') }}"><span>Về chúng tôi</span></a></li>
+
                               
                                 <li><a style="font-weight:600;" href="{{ route('contact.contact') }}"><span>Liên hệ</span></a></li>   
 

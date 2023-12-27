@@ -55,8 +55,8 @@ Chi tiết tài sản | {{ $property->property_name }}
             <div class="right-column pull-right clearfix">
                 <div class="price-inner clearfix">
                     <ul class="category clearfix pull-left">
-                        <li><a href="">{{ $property->type->type_name }}</a></li>
-                        <li><a href="">{{ $property->property_status }}</a></li>
+                        <li><a href="#">{{ $property->type->type_name }}</a></li>
+                        <li><a href="#">{{ $property->property_status }}</a></li>
                     </ul>
                     <div class="price-box pull-right">
                         <h3>{{ $property->lowest_price }} VNĐ</h3>
