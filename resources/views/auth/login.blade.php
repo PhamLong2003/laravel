@@ -40,13 +40,20 @@
                                     @csrf
                                     <div class="form-group">
                                         <label>Email/Tên/Số điện thoại</label>
-                                        <input type="text" name="login" id="login" required="Vui long nhap thong tin">
+                                        <input type="text" name="login" id="login" required="Thông tin tài khoản hoặc mật khẩu không chính xác">
+                                        @error('login')
+                                            <p class="d-flex justify-content-start ps-3 text-danger">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                 
                                     <div class="form-group">
                                         <label>Mật khẩu</label>
-                                        <input type="password" name="password" id="password" required="Vui long nhap pass">
+                                        <input type="password" name="password" id="password" >
+                                        @error('password')
+                                            <p class="d-flex justify-content-start ps-3 text-danger">{{ $message }}</p>
+                                        @enderror
                                     </div>
+                                    
                                     <div class="form-group message-btn">
                                         <button type="submit" class="theme-btn btn-one">Đăng nhập</button>
                                     </div>
@@ -59,25 +66,35 @@
                         <div class="tab" id="tab-2">
                             <div class="inner-box">
                                 <h4>Đăng ký</h4>
-
                                 <form action="{{ route('register') }}" method="post" class="default-form">
                                     @csrf
-                                    
                                     <div class="form-group">
                                         <label>Tên người dùng</label>
-                                        <input type="text" name="name" id="name" required="">
+                                        <input type="text" name="name" id="name" >
+                                        @error('name')
+                                            <p class="d-flex justify-content-start ps-3 text-danger">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label>Email</label>
-                                        <input type="email" id="email" name="email" required="">
+                                        <input type="text" id="email" name="email" >
+                                        @error('email')
+                                            <p class="d-flex justify-content-start ps-3 text-danger">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label>Mật khẩu</label>
-                                        <input type="password" id="password" name="password" required="">
+                                        <input type="password" id="password" name="password" >
+                                        @error('password')
+                                            <p class="d-flex justify-content-start ps-3 text-danger">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label>Nhập lại mật khẩu</label>
-                                        <input type="password" name="password_confirmation" id="password_confirmation" required="">
+                                        <input type="password" name="password_confirmation" id="password_confirmation" >
+                                        @error('password_confirmation')
+                                            <p class="d-flex justify-content-start ps-3 text-danger">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                     <div class="form-group message-btn">
                                         <button type="submit" class="theme-btn btn-one">Đăng ký</button>
